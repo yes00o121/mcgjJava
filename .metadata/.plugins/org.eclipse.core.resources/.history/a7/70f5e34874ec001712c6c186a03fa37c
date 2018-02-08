@@ -1,0 +1,117 @@
+package com.mcgj.interceptor;
+
+import java.io.PrintWriter;
+import java.util.Properties;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.fastjson.JSONObject;
+import com.mcgj.entity.User;
+import com.mcgj.redis.RedisHashUtil;
+import com.mcgj.utils.MessageUtil;
+import com.mcgj.utils.PropertiesUtil;
+import com.mcgj.web.dto.ResultDTO;
+
+/**
+ * 拦截器
+ * @author ad
+ *
+ */
+public class PermissionInterceptor implements HandlerInterceptor{
+
+	private static final Logger log = LoggerFactory.getLogger(PermissionInterceptor.class);
+	
+	public void afterCompletion(HttpServletRequest arg0,
+			HttpServletResponse arg1, Object arg2, Exception arg3)
+			throws Exception {
+		
+	}
+
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
+			Object arg2, ModelAndView arg3) throws Exception {
+		
+	}
+	
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+			Object arg2) throws Exception {
+		//如果是不拦截接口直接通过
+		String url = request.getRequestURI();
+		if("/user/login".equals(url)){
+			return true;
+		}else if("/user/register".equals(url)){
+			return true;
+		}else if("/common/uploadFile".equals(url)){//上传文件接口
+			return true;
+		}else if("/common/image".equals(url)){//查询图片
+			return true;
+		}else if("/forum/selectMainContentAll".equals(url)){
+			return true;
+		}
+		
+//		loginLegitimate(request.getCookies());
+		if(url != null){
+			return true;
+		}
+		return true;
+	}
+	
+	/**
+	 * 判断用户登录是否合法
+	 * @return
+	 */
+	public Boolean loginLegitimate(HttpServletRequest request,HttpServletResponse response){
+		try{
+			String token = request.getParameter("token");
+			 if(token == null || "".equals(token)){
+				 sendLoginMessage(new PrintWriter(response.getOutputStream()));//返回错误消息
+				 return false;
+			 }
+			 //判断用户会话是否存在或者过期
+			 Object record = RedisHashUtil.get(token);
+			if(record == null){
+				sendOverTimeMessage(new PrintWriter(response.getOutputStream()));
+				return false;
+			}
+			//用户状态正常更新会话时长
+			RedisHashUtil.setex(token, (User)record,PropertiesUtil.getLoginDelay());
+			return true;
+		}catch(Exception e){
+			e.printStackTrace();
+			log.error(e.getMessage());
+		}
+		return false;
+	}
+	/**
+	 * 用户没有登录错误消息
+	 * @return
+	 */
+	public void sendLoginMessage(PrintWriter pw){
+		ResultDTO result = new ResultDTO();
+		result.setSuccess(false);
+		result.setStatus(0);//状态为false
+		result.setMessage(MessageUtil.MSG_NOT_LOGIN);
+		pw.append(JSONObject.toJSONString(result));
+		pw.flush();
+		pw.close();
+	}
+	/**
+	 * 会话过期错误消息
+	 * @return
+	 */
+	public void sendOverTimeMessage(PrintWriter pw){
+		ResultDTO result = new ResultDTO();
+		result.setSuccess(false);
+		result.setStatus(0);//状态为false
+		result.setMessage(MessageUtil.MSG_CONVERSATION_OVERTIME);
+		pw.append(JSONObject.toJSONString(result));
+		pw.flush();
+		pw.close();
+	}
+}

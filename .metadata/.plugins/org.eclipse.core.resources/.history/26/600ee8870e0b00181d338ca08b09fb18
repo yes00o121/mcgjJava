@@ -1,0 +1,10 @@
+package com.mcgj.entity;
+
+public class UserFollowConversation {
+
+	private Integer userId;//ÓÃ»§id
+	
+	private Integer conversationId;//Ìû×Óid
+	
+	
+}

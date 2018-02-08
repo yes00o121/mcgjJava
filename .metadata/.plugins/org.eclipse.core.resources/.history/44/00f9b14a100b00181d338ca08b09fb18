@@ -1,0 +1,17 @@
+package com.mcgj.dao;
+
+public interface UserFollowConversationMapper {
+	/**
+	 * 添加用户关注的贴吧
+	 * @param userFollowConversation
+	 * @return
+	 */
+	void addConversationFollow(UserFollowConversationMapper userFollowConversation);
+	
+	/**
+	 * 取消用户关注的贴吧
+	 * @param userFollowConversation
+	 * @return
+	 */
+	void deleteConversationFollow(Integer id);
+}

@@ -1,0 +1,5 @@
+package com.mcgj.dao;
+
+public class UserFollowConversation {
+
+}

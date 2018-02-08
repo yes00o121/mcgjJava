@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mcgj.dao.ConversationMapper">
+	<select id="selectNewestConversation" resultType="Map">
+		select 
+			c.id,
+			c.conversation_name as conversationName,
+			cc.id as childId,
+			cc.title,
+			cc.content,
+			DATE_FORMAT(max(ccc.create_date),'%Y-%m-%d %H:%i:%s') as lastTime,
+			count(ccc.id) as replyNumber,
+			u.user_name as userName
+		from conversation c
+		LEFT JOIN conversation_child cc on cc.conversation_child_id = c.id
+		RIGHT JOIN conversation_child_child ccc on ccc.conversation_child_id = cc.id
+		LEFT JOIN user u on u.id = cc.user_id 
+		where c.state =1 and cc.state =1
+		group by c.id
+	</select>
+	<insert id="insert" parameterType="com.mcgj.entity.Conversation">
+		insert into conversation(id,create_date,create_user_id,conversation_name,current_manage_user_id,conversation_type,photo,follow_user_number,state)values(#{id},#{createDate},#{createUserId},#{conversationName},#{currentManageUserId},#{conversationType},#{photo},#{followUserNumber},#{state})
+	</insert>
+</mapper>

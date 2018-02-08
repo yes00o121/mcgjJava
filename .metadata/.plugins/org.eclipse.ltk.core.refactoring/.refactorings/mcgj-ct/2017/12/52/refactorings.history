@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;mcgj-ct/src/com/mcgj/table/ct-基本信息管理-table.sql&apos; to &apos;ct-基本信息表-table.sql&apos;" description="Rename resource &apos;ct-基本信息管理-table.sql&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/mcgj/table/ct-基本信息管理-table.sql" name="ct-基本信息表-table.sql" stamp="1514343069211" updateReferences="true"/>
+</session>

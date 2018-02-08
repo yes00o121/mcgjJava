@@ -1,0 +1,68 @@
+package com.mcgj.utils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.RandomAccessFile;
+
+import org.apache.log4j.Logger;
+
+/**
+ * base64编码器
+ * @author ad
+ *
+ */
+public class Base64Util {
+	
+	Logger log = Logger.getLogger(Base64Util.class);
+	
+	/**
+	 * 字符串BASE64 编码
+	 * @return
+	 */
+	public static String getStrBASE64(String str){
+		return new sun.misc.BASE64Encoder().encode(str.getBytes()); // 具体的编码方法  
+	}
+	
+	/** 
+     * 图片BASE64 编码 
+     *  
+     * @author 
+     */ 
+	public static String getPicBASE64(String picPath) {  
+        String content = null;  
+        try {  
+            FileInputStream fileForInput = new FileInputStream(picPath);  
+            byte[] bytes = new byte[fileForInput.available()];  
+            fileForInput.read(bytes);  
+            content = new sun.misc.BASE64Encoder().encode(bytes); // 具体的编码方法  
+            fileForInput.close();  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+        return content;  
+    }  
+	
+	/** 
+     * 对图片BASE64 解码 
+     *  
+     * @author 
+     */
+	public static void getPicFormatBASE64(String str, String picPath) {  
+        try {  
+            byte[] result = new sun.misc.BASE64Decoder().decodeBuffer(str  
+                    .trim());  
+            RandomAccessFile inOut = new RandomAccessFile(picPath, "rw"); // r,rw,rws,rwd  
+            inOut.write(result);  
+            inOut.close();  
+        } catch (Exception e) {
+            e.printStackTrace();  
+        }  
+    }  
+	public static void main(String[] args) {
+		String con = getPicBASE64("E://timg.jpg");
+		System.out.println(con);
+		getPicFormatBASE64(con, "E://timg2.jpg");
+//		File file = new File("E://timg2.jpg");
+		
+	}
+}
