@@ -16,5 +16,6 @@ public class Hibernate {
 //		System.out.println(10>>1);
 		System.out.println(10<<1);
 		System.out.println(2 >>> 1 );
+		System.out.println("霞編旗鷹戻住。。。。。。。。。。。。。。。。。。。");
 	}
 }
