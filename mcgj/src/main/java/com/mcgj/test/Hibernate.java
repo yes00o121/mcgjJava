@@ -8,5 +8,6 @@ public class Hibernate {
 	}
 	public static void main(String[] args) {
 		System.out.println("���뻹ԭ...");
+		System.out.println("ŶŶ Ŷ ŶŶ");
 	}
 }
