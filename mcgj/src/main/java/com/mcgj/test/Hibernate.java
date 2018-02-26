@@ -7,6 +7,6 @@ public class Hibernate {
 		
 	}
 	public static void main(String[] args) {
-		
+		System.out.println("git file commit test...");
 	}
 }
