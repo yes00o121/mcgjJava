@@ -49,7 +49,7 @@ public interface IConversationChildService extends BaseService<ConversationChild
 	 * 查询用户所发布的贴子 
 	 * @return
 	 */
-	List<ConversationChild> selectUserPublishConversationChild(ConversationChild conversationChild);
+	Map<String,Object> selectUserPublishConversationChild(ConversationChild conversationChild);
 	
 }
 

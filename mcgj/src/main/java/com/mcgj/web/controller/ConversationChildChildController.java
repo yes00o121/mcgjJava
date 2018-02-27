@@ -87,10 +87,10 @@ public class ConversationChildChildController {
 	 */
 	@RequestMapping("/selectConversationChildChildReplyByUserId")
 	@ResponseBody
-	public ResultDTO selectConversationChildChildReplyByUserId(HttpServletRequest request,HttpServletResponse response,Integer userId){
+	public ResultDTO selectConversationChildChildReplyByUserId(HttpServletRequest request,HttpServletResponse response,ConversationChildChild conversationChildChild){
 		ResultDTO result = new ResultDTO();
 		try{
-			result.setResult(conversationChildChildService.selectConversationChildChildReplyByUserId(userId));
+			result.setResult(conversationChildChildService.selectConversationChildChildReplyByUserId(conversationChildChild));
 			result.setSuccess(true);
 			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
 			return result;

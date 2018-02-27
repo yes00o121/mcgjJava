@@ -141,12 +141,16 @@ public class ConversationChildService implements IConversationChildService{
 	 * 查询用户所发布的贴子 
 	 * @return
 	 */
-	public List<ConversationChild> selectUserPublishConversationChild(
+	public Map<String,Object> selectUserPublishConversationChild(
 			ConversationChild conversationChild) {
 		//判断参数是否合法
 		if(conversationChild.getUserId() == null || "".equals(conversationChild.getUserId()))
 			throw new RuntimeException("用户id不能为空");
-		
-		return conversationChildMapper.selectUserPublishConversationChild(conversationChild);
+		List<ConversationChild> selectUserPublishConversationChild = conversationChildMapper.selectUserPublishConversationChild(conversationChild);
+		List<ConversationChild> list = PageUtil.createPage(conversationChild.getStart(),conversationChild.getLimit(), selectUserPublishConversationChild);
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("total",selectUserPublishConversationChild.size());
+		map.put("conversationChilds",list);
+		return map;
 	}
 }

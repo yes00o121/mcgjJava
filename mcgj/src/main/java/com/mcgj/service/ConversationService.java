@@ -119,7 +119,7 @@ public class ConversationService implements IConversationService{
 	 * @return
 	 */
 	public void deleteConversationFollow(UserFollowConversation userFollowConversation) {
-		if(userFollowConversation.getId() == null || "".equals(userFollowConversation.getId()))
+		if(userFollowConversation.getConversationId() == null || "".equals(userFollowConversation.getConversationId()))
 			throw new RuntimeException("关注贴吧id不能为空");
 		userFollowConversationMapper.deleteConversationFollow(userFollowConversation);
 	}

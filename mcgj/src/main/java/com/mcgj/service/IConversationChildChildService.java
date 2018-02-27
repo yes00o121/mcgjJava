@@ -31,7 +31,7 @@ public interface IConversationChildChildService extends BaseService<Conversation
 	 * @param conversationChildChild
 	 * @return
 	 */
-	List<ConversationChildChild> selectConversationChildChildReplyByUserId(Integer userId);
+	Map<String,Object> selectConversationChildChildReplyByUserId(ConversationChildChild conversationChildChild);
 	
 	/**
 	 * 将该用户所有的未查看楼层都修改为查看状态

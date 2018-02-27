@@ -1,6 +1,6 @@
 package com.mcgj.web.controller;
 
-import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -186,7 +186,7 @@ public class ConversationChildController {
 	public ResultDTO selectUserPublishConversationChild(ConversationChild conversationChild){
 		ResultDTO result = new ResultDTO();
 		try{
-			List<ConversationChild> selectUserPublishConversationChild = conversationChildService.selectUserPublishConversationChild(conversationChild);
+			Map<String,Object> selectUserPublishConversationChild = conversationChildService.selectUserPublishConversationChild(conversationChild);
 			result.setResult(selectUserPublishConversationChild);
 			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
 			result.setSuccess(true);

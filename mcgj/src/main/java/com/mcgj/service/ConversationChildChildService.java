@@ -97,13 +97,18 @@ public class ConversationChildChildService implements IConversationChildChildSer
 	}
 
 	@Override
-	public List<ConversationChildChild> selectConversationChildChildReplyByUserId(
-			Integer userId) {
-		if(userId == null){
+	public Map<String,Object> selectConversationChildChildReplyByUserId(
+			ConversationChildChild conversationChildChild) {
+		if(conversationChildChild.getUserId() == null){
 			throw new RuntimeException("用户id不能为空");
 		}
-		List<ConversationChildChild> ccc = conversationChildChildMapper.selectConversationChildChildReplyByUserId(userId);
-		return ccc;
+		List<ConversationChildChild> ccc = conversationChildChildMapper.selectConversationChildChildReplyByUserId(conversationChildChild.getUserId());//获取所有的数据
+		//对数据进行分页
+		List<ConversationChildChild> list = PageUtil.createPage(conversationChildChild.getStart(),conversationChildChild.getLimit(), ccc);
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("total",ccc.size());//设置总数
+		map.put("conversationChildChilds", list);
+		return map;
 	}
 
 	/**
