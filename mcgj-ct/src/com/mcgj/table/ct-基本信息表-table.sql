@@ -8,6 +8,9 @@ ADMIN				超级管理员(0否1是)		tinyint(1)		Y
 CREATE_DATE			创建时间				datetime		Y
 MODIFY_DATE			修改时间				datetime		Y
 PHOTO				头像					VARCHAR(255)	Y
+BACKGROUND			背景					VARCHAR(255)	Y
+CARD_BANNER			卡片横幅				VARCHAR(255)	Y
+AUTOGRAPH			贴吧签名				VARCHAR(100)	Y
 STATE				状态(0不可用1可用)		tinyint(1)	Y
 END
 
