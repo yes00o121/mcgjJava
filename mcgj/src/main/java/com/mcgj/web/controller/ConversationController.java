@@ -75,6 +75,28 @@ public class ConversationController extends AbstractBaseController{
 		}
 	}
 	/**
+	 * 修改贴吧数据
+	 * @return
+	 */
+	@RequestMapping("/updateConversation")
+	@ResponseBody
+	public ResultDTO updateConversation(Conversation conversation){
+		ResultDTO result = new ResultDTO();
+		try{
+			conversationService.updateConversation(conversation);
+			result.setMessage(MessageUtil.MSG_EDIT_SUCCESS);
+			result.setSuccess(true);
+			return result;
+		}catch(Exception e){
+			e.printStackTrace();
+			log.error(e.getMessage());
+			result.setResult(e.getMessage());
+			result.setMessage(e.getMessage());
+			result.setSuccess(false);
+			return result;
+		}
+	}
+	/**
 	 * 查询当前帖子的标题头像等内容
 	 * @return
 	 */
@@ -186,6 +208,29 @@ public class ConversationController extends AbstractBaseController{
 			result.setResult(e.getMessage());
 			result.setSuccess(false);
 			result.setMessage(MessageUtil.MSG_UNKONW_ERROR);
+			return result;
+		}
+	}
+	
+	/**
+	 * 查询贴吧的一些统计数据，如关注人数，发贴数等数据
+	 * @return
+	 */
+	@RequestMapping("/selectConversationStatistics")
+	@ResponseBody
+	public ResultDTO selectConversationStatistics(Conversation conversation){
+		ResultDTO result = new ResultDTO();
+		try{
+			Map<String,Object> conversations = conversationService.selectConversationStatistics(conversation);
+			result.setResult(conversations);
+			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
+			result.setSuccess(true);
+			return result;
+		}catch(Exception e){
+			e.printStackTrace();
+			result.setResult(e.getMessage());
+			result.setSuccess(false);
+			result.setMessage(MessageUtil.MSG_QUERY_ERROR);
 			return result;
 		}
 	}

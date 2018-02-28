@@ -32,4 +32,11 @@ public interface ConversationMapper extends BaseService<Conversation,Integer>{
 	 */
 	Conversation selectConversation(Conversation conversation);
 	
+	/**
+	 * 查询贴吧的一些统计数据，如关注人数，发贴数等数据
+	 * @param 贴吧对象
+	 * @return
+	 */
+	Map<String,Object> selectConversationStatistics(Conversation conversation);
+	
 }

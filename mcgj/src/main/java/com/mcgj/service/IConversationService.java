@@ -56,4 +56,16 @@ public interface IConversationService extends BaseService<Conversation,Integer>{
 	 * @return
 	 */
 	List<UserFollowConversation> selectConversationFollow(UserFollowConversation userFollowConversation);
+	
+	/**
+	 * 修改贴吧数据
+	 * @param conversation
+	 */
+	void updateConversation(Conversation conversation);
+	
+	/**
+	 * 查询最新的贴吧帖子数据(用户最后回复的帖子数据)
+	 * @return
+	 */
+	Map<String,Object> selectConversationStatistics(Conversation conversation);
 }

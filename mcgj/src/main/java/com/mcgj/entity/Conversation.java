@@ -18,7 +18,47 @@ public class Conversation extends BaseEntity{
 	
 	private String photo;//照片(贴吧头像)
 	
-	private Integer followUserNumber = 0;//用户流量
+	private Integer followUserNumber;//用户关注量
+	
+	private Integer publishNumber;//发布的贴子数量
+	
+	private String background;//背景图片
+	
+	private String cardBanner;//横幅图片
+	
+	private String autograph;//签名
+	
+	public Integer getPublishNumber() {
+		return publishNumber;
+	}
+
+	public void setPublishNumber(Integer publishNumber) {
+		this.publishNumber = publishNumber;
+	}
+
+	public String getAutograph() {
+		return autograph;
+	}
+
+	public void setAutograph(String autograph) {
+		this.autograph = autograph;
+	}
+
+	public String getBackground() {
+		return background;
+	}
+
+	public void setBackground(String background) {
+		this.background = background;
+	}
+
+	public String getCardBanner() {
+		return cardBanner;
+	}
+
+	public void setCardBanner(String cardBanner) {
+		this.cardBanner = cardBanner;
+	}
 
 	public Integer getCreateUserId() {
 		return createUserId;
