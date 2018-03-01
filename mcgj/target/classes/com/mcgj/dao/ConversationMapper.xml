@@ -26,7 +26,8 @@
 			cc.content,
 			max(ccc.create_date) as lastTime,
 			count(ccc.id) as replyNumber,
-			u.user_name as userName
+			u.user_name as userName,
+			u.photo
 		from conversation c
 		LEFT JOIN conversation_child cc on cc.conversation_id = c.id
 		RIGHT JOIN (select *from conversation_child_child order by create_date desc) ccc on ccc.conversation_child_id = cc.id
@@ -93,5 +94,24 @@
 		LEFT JOIN user_follow_conversation ufc on ufc.conversation_id = c.id
 		where c.id = #{id}) as c
 		LEFT JOIN conversation_child cc on c.id = cc.conversation_id
+	</select>
+	<select id="selectMaxFollow" parameterType = "int" resultType= "com.mcgj.entity.Conversation">
+		select 
+			count(*) as number,
+			c.id,
+			c.conversation_name as conversationName,
+			c.create_date as createDate,
+			c.create_user_id as createUserId,
+			c.conversation_type as conversationType,
+			c.photo,
+			c.background,
+			c.card_banner as cardBanner,
+			c.autograph,
+			c.state
+		 From user_follow_conversation ufc 
+		LEFT JOIN conversation c on c.id = ufc.conversation_id
+		group by ufc.conversation_id
+		order by number desc 
+		limit #{limit}
 	</select>
 </mapper>

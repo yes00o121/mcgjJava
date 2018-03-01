@@ -176,4 +176,15 @@ public class ConversationService implements IConversationService {
 		return conversationMapper.selectConversationStatistics(conversation);
 	}
 
+	/**
+	 * 查询贴吧数据，按用户关注量查询指定数量的贴吧数据
+	 * @param limit 数量
+	 * @return
+	 */
+	public List<Conversation> selectMaxFollow(Integer limit) {
+		if(limit == null || "".equals(limit))
+			throw new RuntimeException("数量不能为空");
+		return conversationMapper.selectMaxFollow(limit);
+	}
+
 }

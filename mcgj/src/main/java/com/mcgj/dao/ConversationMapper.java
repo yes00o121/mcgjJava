@@ -3,6 +3,8 @@ package com.mcgj.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.Conversation;
 import com.mcgj.entity.UserFollowConversation;
@@ -38,5 +40,12 @@ public interface ConversationMapper extends BaseService<Conversation,Integer>{
 	 * @return
 	 */
 	Map<String,Object> selectConversationStatistics(Conversation conversation);
+	
+	/**
+	 * 查询贴吧数据，按用户关注量查询指定数量的贴吧数据
+	 * @param limit 数量
+	 * @return
+	 */
+	List<Conversation> selectMaxFollow(@Param("limit")Integer limit);
 	
 }
