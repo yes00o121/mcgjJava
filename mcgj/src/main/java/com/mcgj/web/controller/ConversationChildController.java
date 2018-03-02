@@ -1,5 +1,6 @@
 package com.mcgj.web.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -199,6 +200,29 @@ public class ConversationChildController {
 			result.setSuccess(false);
 			return result;
 		}
-		
+	}
+	
+	/**
+	 * 查询对应天数内最为活跃的贴吧排名
+	 * @param limit 要查询的贴吧数量
+	 * @return
+	 */
+	@RequestMapping("/selectMaxConversationChildByDay")
+	@ResponseBody
+	public ResultDTO selectMaxConversationChildByDay(Integer day){
+		ResultDTO result = new ResultDTO();
+		try{
+			List<ConversationChild> selectMaxConversationChildByDays = conversationChildService.selectMaxConversationChildByDay(day);
+			result.setResult(selectMaxConversationChildByDays);
+			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
+			result.setSuccess(true);
+			return result;
+		}catch(Exception e){
+			e.printStackTrace();
+			result.setResult(e.getMessage());
+			result.setSuccess(false);
+			result.setMessage(MessageUtil.MSG_QUERY_ERROR);
+			return result;
+		}
 	}
 }

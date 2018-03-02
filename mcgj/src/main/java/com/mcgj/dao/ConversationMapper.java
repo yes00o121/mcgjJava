@@ -48,4 +48,10 @@ public interface ConversationMapper extends BaseService<Conversation,Integer>{
 	 */
 	List<Conversation> selectMaxFollow(@Param("limit")Integer limit);
 	
+	/**
+	 * 查询贴吧的类型以后类型下对应的贴吧数据
+	 * @return
+	 */
+	List<Map<String,Object>> selectConversationTypeAndData();
+	
 }

@@ -1,7 +1,10 @@
 package com.mcgj.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChild;
@@ -68,4 +71,12 @@ public interface ConversationChildMapper extends BaseService<ConversationChild,I
 	 * @return
 	 */
 	List<ConversationChild> selectUserPublishConversationChild(ConversationChild conversationChild);
+	
+	/**
+	 * 查询指定时间段内热门的贴子数据
+	 * @param startTime
+	 * @param endTime
+	 * @return
+	 */
+	List<ConversationChild> selectMaxConversationChildByDay(@Param("startTime") Date startTime,@Param("endTime") Date endTime);
 }

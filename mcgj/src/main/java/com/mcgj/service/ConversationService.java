@@ -1,8 +1,13 @@
 package com.mcgj.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -185,6 +190,31 @@ public class ConversationService implements IConversationService {
 		if(limit == null || "".equals(limit))
 			throw new RuntimeException("数量不能为空");
 		return conversationMapper.selectMaxFollow(limit);
+	}
+	/**
+	 * 查询贴吧的类型以后类型下对应的贴吧数据
+	 * @return
+	 */
+	@Override
+	public Map<String,List<Object>> selectConversationTypeAndData() {
+		List<Map<String, Object>> selectConversationTypeAndData = conversationMapper.selectConversationTypeAndData();
+		//获取所有的贴吧类型
+		Map<String,List<Object>> types = new HashMap<String, List<Object>>();
+		for(Map<String,Object> map:selectConversationTypeAndData){
+			List<Object> list2 = types.get(map.get("dictId").toString());
+			if(list2!= null){//key存在
+				//如果集合中的数据大于4条退出循环
+				if(list2.size() >4)
+					continue;
+				list2.add(map);
+			}else{//key不存在重新创建
+				List<Object> list =  new ArrayList<Object>();
+				list.add(map);
+				types.put(map.get("dictId").toString(), list);
+			}
+		}
+
+		return types;
 	}
 
 }

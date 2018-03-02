@@ -75,4 +75,10 @@ public interface IConversationService extends BaseService<Conversation,Integer>{
 	 * @return
 	 */
 	List<Conversation> selectMaxFollow(Integer limit);
+	
+	/**
+	 * 查询贴吧的类型以后类型下对应的贴吧数据
+	 * @return
+	 */
+	Map<String,List<Object>> selectConversationTypeAndData();
 }

@@ -114,4 +114,15 @@
 		order by number desc 
 		limit #{limit}
 	</select>
+	<!-- 该sql存在问题,如果贴吧数量巨大，会导致返回大量的无用数据，应默认返回每个指定类型的贴吧前数条的数据足以 -->
+	<select id="selectConversationTypeAndData" resultType= "Map">
+		select 
+			c.id,
+			d.id as dictId,
+			d.dict_name as dictName,
+			c.CONVERSATION_NAME as conversationName
+		 From conversation c
+		 LEFT JOIN (select *from dict where code_value = 'conversation_type' ) d on d.dict_type = c.conversation_type
+	</select>
+	
 </mapper>

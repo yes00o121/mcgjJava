@@ -88,6 +88,4 @@
 			expression="execution(public * com.mcgj.service.*Service.*(..))" />
 		<aop:advisor pointcut-ref="engine-pointcut" advice-ref="txAdvice" />
 	</aop:config>
-
-
 </beans>

@@ -152,4 +152,18 @@
 		GROUP BY CCC.CONVERSATION_CHILD_ID
 		ORDER BY CC.CREATE_DATE DESC
  	</select>
+ 	<select id="selectMaxConversationChildByDay" resultType = "com.mcgj.entity.ConversationChild">
+		select 
+			cc.id,
+			cc.title,
+			ccc.replyNumber
+		from conversation_child cc
+		RIGHT JOIN (select ccc.conversation_child_id,count(ccc.CONVERSATION_CHILD_ID) as replyNumber From conversation_child_child ccc
+		<where>
+			 ccc.create_date between #{startTime} and #{endTime}
+		</where>
+		group by ccc.CONVERSATION_CHILD_ID
+		order by count(ccc.CONVERSATION_CHILD_ID) desc) ccc on ccc.conversation_child_id = cc.id
+		limit 10
+	</select>
 </mapper>

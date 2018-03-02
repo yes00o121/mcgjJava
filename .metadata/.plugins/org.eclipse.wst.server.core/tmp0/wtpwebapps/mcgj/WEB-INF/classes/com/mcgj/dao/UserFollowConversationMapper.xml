@@ -6,7 +6,7 @@
 		insert into user_follow_conversation(id,user_id,conversation_id,create_date,state)values(#{id},#{userId},#{conversationId},#{createDate},#{state})
 	</insert>
 	<delete id = "deleteConversationFollow" parameterType="com.mcgj.entity.UserFollowConversation"> 
-		delete from user_follow_conversation where id = #{id}		
+		delete from user_follow_conversation where conversation_id = #{conversationId} and user_id = #{userId}	
 	</delete>
 	<select id="selectConversationFollow" parameterType="com.mcgj.entity.UserFollowConversation" resultType = "com.mcgj.entity.UserFollowConversation">
 		select 

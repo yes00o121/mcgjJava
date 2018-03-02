@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mcgj.dao.ConversationMapper">
+	<resultMap id="BaseResultMap" type="com.mcgj.entity.Conversation">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="DATE" />
+		<result column="conversation_name" property="conversationName" jdbcType="VARCHAR" />
+		<result column="current_manage_user_id" property="currentManageUserId" jdbcType="INTEGER" />
+		<result column="conversation_type" property="conversationType" jdbcType="INTEGER" />
+		<result column="photo" property="photo" jdbcType="VARCHAR" />
+		<result column="follow_user_number" property="followUserNumber" jdbcType="INTEGER" />
+		<result column="state" property="state" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,create_date,create_user_id,conversation_name,current_manage_user_id,conversation_type,photo,follow_user_number,state
+	</sql>
+	<select id="selectNewestConversation" resultType="Map">
+		select 
+			c.id,
+			c.conversation_name as conversationName,
+			cc.id as childId,
+			cc.title,
+			cc.content,
+			max(ccc.create_date) as lastTime,
+			count(ccc.id) as replyNumber,
+			u.user_name as userName
+		from conversation c
+		LEFT JOIN conversation_child cc on cc.conversation_id = c.id
+		RIGHT JOIN (select *from conversation_child_child order by create_date desc) ccc on ccc.conversation_child_id = cc.id
+		LEFT JOIN user u on u.id = cc.user_id 
+		where c.state =1 and cc.state =1
+		group by c.id
+		order by ccc.create_date desc
+		limit 0,10
+	</select>
+	<insert id="insert" parameterType="com.mcgj.entity.Conversation">
+		insert into conversation(id,create_date,create_user_id,conversation_name,current_manage_user_id,conversation_type,photo,follow_user_number,state)values(#{id},#{createDate},#{createUserId},#{conversationName},#{currentManageUserId},#{conversationType},#{photo},#{followUserNumber},#{state})
+	</insert>
+	<select id="selectConversation" parameterType="com.mcgj.entity.Conversation" resultMap="BaseResultMap">
+		select 
+			<include refid="Base_Column_List" />
+		from conversation
+		<where>
+			1 = 1
+			<if test="id != null">
+				and id = #{id}
+			</if>
+			<if test="conversationName != null">
+				and conversation_name = #{conversationName}
+			</if>
+		</where>
+
+	</select>
+	<update id="update" parameterType="com.mcgj.entity.Conversation">
+		update conversation 
+			<set>
+				<if test="conversationName != null">
+					conversation_name = #{conversationName},
+				</if>
+				<if test="currentManageUserId != null">
+					current_manage_user_id =#{currentManageUserId},					
+				</if>
+				<if test="conversationType != null">
+					conversation_type = #{conversationType},
+				</if>
+				<if test="photo != null">
+					photo = #{photo},
+				</if>
+				<if test="followUserNumber != null">
+					follow_user_number = #{followUserNumber},
+				</if>
+				<if test="state != null">
+					state = #{state},
+				</if>
+				<if test = "background != null">
+					background =#{background},
+				</if>
+				<if test = "cardBanner != null">
+					card_banner = {cardBanner},
+				</if>
+			</set>
+	</update>
+</mapper>

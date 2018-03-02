@@ -153,4 +153,18 @@ public class ConversationChildService implements IConversationChildService{
 		map.put("conversationChilds",list);
 		return map;
 	}
+
+	/**
+	 * 查询对应天数内最为活跃的贴吧排名
+	 */
+	public List<ConversationChild> selectMaxConversationChildByDay(Integer day) {
+		if(day == null)
+			throw new RuntimeException("天数不能为空");
+		//根据天数获取时间区间
+		long millisecond = day*24*60*60*1000;//得到指定天的毫秒数
+		Date startTime = new Date(new Date().getTime()-millisecond);//获取指定天数前的时间
+		Date endTime = new Date();//当前时间
+		List<ConversationChild> selectMaxConversationChildByDay = conversationChildMapper.selectMaxConversationChildByDay(startTime, endTime);
+		return selectMaxConversationChildByDay;
+	}
 }

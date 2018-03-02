@@ -51,6 +51,13 @@ public interface IConversationChildService extends BaseService<ConversationChild
 	 */
 	Map<String,Object> selectUserPublishConversationChild(ConversationChild conversationChild);
 	
+	/**
+	 * 查询对应天数内最为活跃的贴吧排名
+	 * @param day 天数
+	 * @return
+	 */
+	List<ConversationChild> selectMaxConversationChildByDay(Integer day);
+	
 }
 
 
