@@ -19,21 +19,30 @@
 	</sql>
 	<select id="selectNewestConversation" resultType="Map">
 		select 
-			c.id,
+			c.id as childId,
+			
 			c.conversation_name as conversationName,
-			cc.id as childId,
+			cc.id as id,
 			cc.title,
 			cc.content,
 			max(ccc.create_date) as lastTime,
-			count(ccc.id) as replyNumber,
 			u.user_name as userName,
-			u.photo
+			u.photo,
+			ccc.conversation_child_id,
+			count(ccc.conversation_child_id),
+			ccc.replyNumber
 		from conversation c
 		LEFT JOIN conversation_child cc on cc.conversation_id = c.id
-		RIGHT JOIN (select *from conversation_child_child order by create_date desc) ccc on ccc.conversation_child_id = cc.id
+		RIGHT JOIN (
+				select *,count(conversation_child_id) as replyNUmber From (
+				select * From conversation_child_child
+				 order by create_date desc) ccc
+				group by ccc.conversation_child_id,ccc.conversation_child_id order by ccc.create_date desc
+			) ccc on ccc.conversation_child_id = cc.id
+			
 		LEFT JOIN user u on u.id = cc.user_id 
 		where c.state =1 and cc.state =1
-		group by c.id
+		group by ccc.id
 		order by ccc.create_date desc
 		limit 0,10
 	</select>

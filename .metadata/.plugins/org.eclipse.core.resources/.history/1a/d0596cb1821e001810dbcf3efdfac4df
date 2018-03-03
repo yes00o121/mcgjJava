@@ -129,11 +129,11 @@ public class ConversationChildService implements IConversationChildService{
 	private void paramsJudge(UserCollectionConversationChild userCollectionConversationChild){
 		//判断参数合法性
 		if(userCollectionConversationChild.getUserId() == null || "".equals(userCollectionConversationChild.getUserId())){
-			throw new RuntimeException("用户id不能为空");
+			throw new RuntimeException(MessageUtil.MSG_COLLECTION_ERROR);
 		}
 		//判断参数合法性
 		if(userCollectionConversationChild.getConversationChildId() == null || "".equals(userCollectionConversationChild.getConversationChildId())){
-			throw new RuntimeException("贴子id不能为空");
+			throw new RuntimeException(MessageUtil.MSG_COLLECTION_ERROR);
 		}
 	}
 

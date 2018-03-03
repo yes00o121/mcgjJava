@@ -19,10 +19,9 @@
 	</sql>
 	<select id="selectNewestConversation" resultType="Map">
 		select 
-			c.id as childId,
-			
+			c.id,
 			c.conversation_name as conversationName,
-			cc.id as id,
+			cc.id as childId,
 			cc.title,
 			cc.content,
 			max(ccc.create_date) as lastTime,

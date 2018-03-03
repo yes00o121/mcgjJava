@@ -19,10 +19,9 @@
 	</sql>
 	<select id="selectNewestConversation" resultType="Map">
 		select 
-			c.id as childId,
-			
+			c.id,
 			c.conversation_name as conversationName,
-			cc.id as id,
+			cc.id as childId,
 			cc.title,
 			cc.content,
 			max(ccc.create_date) as lastTime,
@@ -39,10 +38,9 @@
 				 order by create_date desc) ccc
 				group by ccc.conversation_child_id,ccc.conversation_child_id order by ccc.create_date desc
 			) ccc on ccc.conversation_child_id = cc.id
-			
 		LEFT JOIN user u on u.id = cc.user_id 
 		where c.state =1 and cc.state =1
-		group by ccc.id
+		group by c.id
 		order by ccc.create_date desc
 		limit 0,10
 	</select>
