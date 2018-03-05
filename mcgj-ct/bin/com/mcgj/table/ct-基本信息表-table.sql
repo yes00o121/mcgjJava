@@ -86,3 +86,11 @@ DICT_NAME	        字典名称  				VARCHAR(512)	Y
 CODE_VALUE			代码值				VARCHAR(512) 	Y
 DICT_TYPE 			字典类型				VARCHAR(512)	Y
 END
+
+--用户关注用户表(用户直接相互关注关系表)
+CREATETABLE	USER_FOLLOW_USER	数据字典表		ID	PRIMARY			
+ID                  ID      			int(11)    		N	                              	                    		
+CREATE_DATE         创建时间  				datatime	 	Y        
+USER_ID				用户id(关注人)			int(11)			Y
+FOLLOW_USER_ID		被关注人				int(11)			Y
+END

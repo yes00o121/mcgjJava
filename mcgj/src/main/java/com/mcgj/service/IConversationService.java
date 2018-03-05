@@ -5,8 +5,8 @@ import java.util.Map;
 
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.Conversation;
+import com.mcgj.entity.User;
 import com.mcgj.entity.UserFollowConversation;
-import com.mcgj.web.dto.ResultDTO;
 
 public interface IConversationService extends BaseService<Conversation,Integer>{
 	
@@ -81,4 +81,18 @@ public interface IConversationService extends BaseService<Conversation,Integer>{
 	 * @return
 	 */
 	Map<String,List<Object>> selectConversationTypeAndData();
+	
+	/**
+	 * 根据用户id查询用户关注的贴吧下的贴子最新动态
+	 * @param user
+	 * @return
+	 */
+	List<Map<String,Object>> selectUserFollowConversation(User user);
+	
+	/**
+	 * 查询吧主相关数据
+	 * @param conversation
+	 * @return
+	 */
+	Map<String,Object> selectConversationMaster(Conversation conversation);
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mcgj.entity.Conversation;
+import com.mcgj.entity.User;
 import com.mcgj.entity.UserFollowConversation;
 import com.mcgj.service.IConversationService;
 import com.mcgj.utils.MessageUtil;
@@ -283,5 +284,51 @@ public class ConversationController extends AbstractBaseController{
 		}
 	}
 	
+	/**
+	 * 根据用户id查询用户关注的贴吧下的贴子最新动态
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/selectUserFollowConversation")
+	@ResponseBody
+	public ResultDTO selectUserFollowConversation(User user){
+		ResultDTO result = new ResultDTO();
+		try{
+			List<Map<String, Object>> selectUserFollowConversation = conversationService.selectUserFollowConversation(user);
+			result.setResult(selectUserFollowConversation);
+			result.setSuccess(true);
+			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
+			return result;
+		}catch(Exception e){
+			result.setSuccess(false);
+			result.setMessage(MessageUtil.MSG_QUERY_ERROR);
+			result.setResult(e.getMessage());
+			e.printStackTrace();
+			return result;
+		}
+	}
 	
+	/**
+	 * 查询吧主相关的数据
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("/selectConversationMaster")
+	@ResponseBody
+	public ResultDTO selectConversationMaster(Conversation conversation){
+		ResultDTO result = new ResultDTO();
+		try{
+			Map<String, Object> selectConversationMaster = conversationService.selectConversationMaster(conversation);
+			result.setResult(selectConversationMaster);
+			result.setSuccess(true);
+			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
+			return result;
+		}catch(Exception e){
+			result.setSuccess(false);
+			result.setMessage(MessageUtil.MSG_QUERY_ERROR);
+			result.setResult(e.getMessage());
+			e.printStackTrace();
+			return result;
+		}
+	}
 }

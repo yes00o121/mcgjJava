@@ -20,7 +20,6 @@
 	<select id="selectNewestConversation" resultType="Map">
 		select 
 			c.id as childId,
-			
 			c.conversation_name as conversationName,
 			cc.id as id,
 			cc.title,
@@ -125,7 +124,7 @@
 	</select>
 	<!-- 该sql存在问题,如果贴吧数量巨大，会导致返回大量的无用数据，应默认返回每个指定类型的贴吧前数条的数据足以 -->
 	<select id="selectConversationTypeAndData" resultType= "Map">
-		select 
+		select  
 			c.id,
 			d.id as dictId,
 			d.dict_name as dictName,
@@ -133,5 +132,44 @@
 		 From conversation c
 		 LEFT JOIN (select *from dict where code_value = 'conversation_type' ) d on d.dict_type = c.conversation_type
 	</select>
-	
+	<select id="selectUserFollowConversation" parameterType= "com.mcgj.entity.User" resultType = "Map">
+		select *From (
+			select 
+					c.id as conversationId,
+					cc.id,
+					ccc.id as conversationChildChildId,
+					c.conversation_name as conversationName,
+					c.photo,
+					u.user_name as userName,
+					cc.title,
+					ccc.create_date as lastTime,
+					cc.content
+			from conversation c 
+		RIGHT JOIN (
+			select *from user_follow_conversation 
+			<where>
+				 user_id = #{id}
+			</where>
+		) ufc on ufc.conversation_id = c.id	
+		LEFT JOIN conversation_child cc on cc.conversation_id = c.id
+		LEFT JOIN user u on u.id = cc.user_id
+		LEFT JOIN conversation_child_child ccc on ccc.conversation_child_id = cc.id
+		order by ccc.create_date desc
+		) cc
+		where cc.id is not null
+		group by cc.id
+		order by cc.lastTime desc
+		limit 20
+	</select>
+	<select id="selectConversationMaster" parameterType="com.mcgj.entity.Conversation" resultType = "Map">
+		select 
+			c.id,
+			u.user_name as userName,
+			u.photo,
+			d.dict_name as dictName
+		from conversation c
+		LEFT JOIN user u on u.id = c.CURRENT_MANAGE_USER_ID
+		LEFT JOIN dict d on d.dict_type = c.conversation_type
+		where c.id = #{id}
+	</select>
 </mapper>

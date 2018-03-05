@@ -217,4 +217,24 @@ public class ConversationService implements IConversationService {
 		return types;
 	}
 
+	/**
+	 * 根据用户id查询用户关注的贴吧下的贴子最新动态
+	 */
+	public List<Map<String, Object>> selectUserFollowConversation(User user) {
+		if(user.getId() == null || "".equals(user.getId()))
+			throw new RuntimeException("用户id不能为空");
+		List<Map<String, Object>> selectUserFollowConversation = conversationMapper.selectUserFollowConversation(user);
+		return selectUserFollowConversation;
+	}
+
+	/**
+	 * 查询吧主相关数据
+	 */
+	public Map<String, Object> selectConversationMaster(
+			Conversation conversation) {
+		if(conversation.getId() == null || "".equals(conversation.getId()))
+			throw new RuntimeException("id不能为空");
+		return conversationMapper.selectConversationMaster(conversation);
+	}
+
 }
