@@ -254,5 +254,28 @@ public class UserController extends AbstractBaseController {
 		System.out.println(list);
 	}
 	*/
+	/**
+	 * 爬虫****
+	 * 判断用户是否存在，不存在进行创建，然后返回用户信息
+	 * @return
+	 */
+	@RequestMapping("/selectIsExists")
+	@ResponseBody
+	public Integer selectIsExists(String userName,String photo){
+//		ResultDTO result = new ResultDTO();
+		try {
+			Integer selectIsExists = userService.selectIsExists(userName, photo);
+//			result.setResult(userService.selectCollectionConversationChildByUserId(userId));
+//			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
+//			result.setSuccess(true);
+//			return result;
+			return selectIsExists;
+		} catch (Exception e) {
+			e.printStackTrace();
+//			result.setSuccess(false);
+//			result.setMessage(e.getMessage());
+			return 1;
+		}
+	}
 	
 }

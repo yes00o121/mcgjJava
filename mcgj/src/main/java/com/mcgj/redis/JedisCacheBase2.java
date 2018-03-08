@@ -37,4 +37,9 @@ public class JedisCacheBase2 {
     protected static void returnConn(Jedis jedis) {
         getFactory().returnResource(jedis);
     }
+    
+    protected static void closeConn(Jedis jedis) {
+    	if(jedis!= null)
+    		jedis.close();
+    }
 }

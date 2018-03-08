@@ -25,7 +25,7 @@ import com.mcgj.web.dto.ResultDTO;
  */
 @Controller
 @RequestMapping("/conversationChild")
-public class ConversationChildController {
+public class ConversationChildController extends AbstractBaseController{
 	
 	Logger log = Logger.getLogger(ConversationChildController.class);
 	
@@ -85,8 +85,8 @@ public class ConversationChildController {
 	public ResultDTO addConversationChild(ConversationChild conversation){
 		ResultDTO result = new ResultDTO();
 		try{
-//			Conversation con = conversationService.selectConversationById(conversation);
 			conversationChildService.addConversationChild(conversation);
+			result.setResult(conversation.getId());//返回贴子id，爬虫使用
 //			result.setResult(con);
 			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
 			result.setSuccess(true);
@@ -225,4 +225,6 @@ public class ConversationChildController {
 			return result;
 		}
 	}
+	
+	
 }

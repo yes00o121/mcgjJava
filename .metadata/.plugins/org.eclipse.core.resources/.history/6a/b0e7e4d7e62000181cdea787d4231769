@@ -1,0 +1,26 @@
+package com.yc.tieba;
+/**
+ * 贴吧对象
+ * @author ad
+ *
+ */
+public class Conversation {
+	
+	private String address = "http://127.0.0.1:8090";//本地服务器地址
+	
+	private String tiebaUrl = "https://tieba.baidu.com/f?fr=wwwt&kw=";//贴吧地址
+	
+	private String tiebaName;//贴吧名称
+	
+	private Integer defaultLimit = 20;//默认下载的贴子数
+	
+	public Conversation(){
+		
+	}
+	public Conversation(String tiebaName){
+		this.tiebaName = tiebaName;
+		
+	}
+	
+	
+}

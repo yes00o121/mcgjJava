@@ -12,6 +12,7 @@ import com.mcgj.dao.ConversationChildChildMapper;
 import com.mcgj.dao.ConversationChildMapper;
 import com.mcgj.entity.ConversationChild;
 import com.mcgj.entity.ConversationChildChild;
+import com.mcgj.entity.User;
 import com.mcgj.entity.UserCollectionConversationChild;
 import com.mcgj.utils.MessageUtil;
 import com.mcgj.utils.PageUtil;
@@ -24,6 +25,9 @@ public class ConversationChildService implements IConversationChildService{
 	
 	@Autowired
 	private ConversationChildChildMapper conversationChildChildMapper;
+	
+	@Autowired
+	private IUserService userService;
 
 	public void delete(Integer id) {
 		
@@ -166,5 +170,18 @@ public class ConversationChildService implements IConversationChildService{
 		Date endTime = new Date();//当前时间
 		List<ConversationChild> selectMaxConversationChildByDay = conversationChildMapper.selectMaxConversationChildByDay(startTime, endTime);
 		return selectMaxConversationChildByDay;
+	}
+
+	/**
+	 * 添加楼层数据，爬虫专用
+	 */
+	public void addFloorDataSpider(ConversationChildChild conversationChildChild,Integer userId2) {
+	
+		if(conversationChildChild.getUserId().equals(userId2)){
+			conversationChildChild.setIsManage(1);
+		}else{
+			conversationChildChild.setIsManage(0);
+		}
+		conversationChildChildMapper.insert(conversationChildChild);
 	}
 }

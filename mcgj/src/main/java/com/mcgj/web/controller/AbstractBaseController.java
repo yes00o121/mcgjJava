@@ -12,6 +12,7 @@ import com.mcgj.service.MongoDBRemoteFileService;
  *
  */
 public class AbstractBaseController {
+	
 	@Autowired
 	protected IRemoteFileMongoSer mongoDBRemoteFileService;
 	

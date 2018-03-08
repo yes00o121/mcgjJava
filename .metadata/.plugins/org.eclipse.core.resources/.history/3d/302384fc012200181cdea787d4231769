@@ -1,0 +1,413 @@
+package com.yc.tieba;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.swing.JOptionPane;
+
+import com.alibaba.fastjson.JSONObject;
+import com.yc.Util;
+
+/**
+ * 贴吧对象
+ * @author ad
+ *下载的过程，指定贴吧名称，找到贴吧读取默认页数，对每一个贴子进行解析，进入楼层同时解析当前用户是否存在，如存在继续进行数据的写入，不存在将该用户入库，默认读取完所有楼层后继续下一个贴子抓取
+ */
+public class Conversation {
+	
+	private String address = "http://127.0.0.1:8090";//本地服务器地址
+	
+	private String dwImg = "/common/image?imgId=";//下载图片
+	
+	private String upImg = "/common/uploadFile";//上传图片
+	
+	private String tiebaUrl = "https://tieba.baidu.com/f?fr=wwwt&kw=";//贴吧地址
+	
+	private String tiebaName;//贴吧名称
+	
+//	private static String HREF_REGULAR = "href=\"(/p.*\")";
+//	private static String HREF_REGULAR = "href=\"/p/.*\">";
+	private static String HREF_REGULAR = "href=\"/p([\"\']*)([^\"\']*[\"\'])";
+	
+	private Integer defaultLimit = 20;//默认下载的贴子数
+	
+	public Conversation(){
+		
+	}
+	public Conversation(String tiebaName){
+		this.tiebaName = tiebaName;
+		this.running();//运行
+	}
+	//运行下载贴吧数据
+	private void running(){
+		
+		String url = Util.getHTML(this.tiebaUrl+this.tiebaName+"&pn=0");//贴吧主页的url
+		List<String> analysisUrl = this.analysisUrl(url);//获取当前贴吧当前页所有的url
+//		analysisUrl.get(0);
+		
+		String html = Util.getHTML("https://tieba.baidu.com"+analysisUrl.get(0));
+		this.analysisFloorOne(html);
+	}
+	//解析当前贴吧的中所有帖子的url
+	private List<String> analysisUrl(String url){
+		try {
+			List<String> imgs = new ArrayList<String>();
+			Pattern pattern = Pattern.compile(HREF_REGULAR);
+//			Pattern patternBase64 = Pattern.compile(IMAGE_REGULAR_BASE64);
+			Matcher matcher = pattern.matcher(url);
+			while(matcher.find()){
+				String a = matcher.group();
+				String address = a.split("=\"")[1];
+				address = address.substring(0,address.length()-1);//删除最后一个"
+				imgs.add(address);
+//				System.out.println(address);
+			}
+			return imgs;
+//			System.out.println(imgs);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	//解析楼层数据,标题为h3
+	private List<String> analysisFloorOne(String html){
+		try {
+			String html2 = Util.getHTML(html);
+			System.out.println("获取数据。。");
+			html2 = html2.trim();
+			String h3 = "<h3.*?title=.*?(.*?\">)";
+//			String h3 = "";
+			Pattern pattern = Pattern.compile(h3);
+			Matcher matcher = pattern.matcher(html2);
+			System.out.println("....................");
+			System.out.println("哈哈");
+//			System.out.println(html2);
+			String title= null;//标题
+			String content = null;//内容
+			String conversationName = null;//贴吧名
+			String userName = null;//用户名
+			String photo = null;//头像
+			//获取贴子标题
+			if(matcher.find()){
+				title = matcher.group().split("title=\"")[1];
+				title = title.split("\"")[0];
+				System.out.println(title);
+				String name = "title=\".*?><返回";
+				Pattern pattern3 = Pattern.compile(name);
+				Matcher matcher3 = pattern3.matcher(html2);
+				if(matcher3.find()){
+					String m3 = matcher3.group();
+					String[] strs = m3.split("\"><返回")[0].split("title=\"");
+					conversationName = strs[strs.length-1];
+					System.out.println(conversationName);
+				}
+			}else{
+				//标题获取不到启动二号方案
+				this.analysisFloorTwo(html2);
+				return null;//标题获取不到直接退出
+			}
+			//获取一楼所有的内容
+			String floor = "<div class=\"l_post l_post_bright j_l_post clearfix  \".*?pb_tpoint.*?>";
+			Pattern pattern2 = Pattern.compile(floor);
+			Matcher matcher2 = pattern2.matcher(html2);
+			List<List<String>> list = new ArrayList<List<String>>();
+			List<String> list2 = new ArrayList<String>();;
+			while(matcher2.find()){
+				String a = matcher2.group();
+				String[] str = a.split("data-field=\'");
+				if(str.length == 2){
+//					list.add(str2);
+					String str2 = str[1].replace("&quot;", "\"").replace("&lt;","<").replace("&gt;",">").replace("⭐","").replace("🙇","");
+					str2 = str2.substring(0,str2.length()-3);
+//					System.out.println(str2);
+//					map.put("floor",str2);
+					list2.add(str2);
+//					list.add(map);
+				}
+			}
+			//获取当前楼层的用户名和头像
+			String name = "<img username=\".*?/>";
+			Pattern pattern3 = Pattern.compile(name);
+			Matcher matcher3 = pattern3.matcher(html2);
+			while(matcher3.find()){
+//				System.out.println(matcher3.group());
+				String n = matcher3.group();
+				String p =null;
+				if(n.indexOf("data-tb-lazyload") != -1){
+					p= n.split("data-tb-lazyload=\"")[1].split("\"")[0];
+				}else{
+					p = n.split("src=\"")[1].split("\"")[0];
+				}
+				n =n.split("username=\"")[1].split("\"")[0];
+				list2.add(n);
+				list2.add(p);
+			}
+			list.add(list2);
+			String oneFloor = list2.get(0).toString();
+			userName = list2.get(1).toString();
+			photo = list.get(2).toString();
+			System.out.println("开始获取id..........");
+			System.out.println(userName);
+			System.out.println(photo);
+//			String userId = this.getUserId(userName,this.imgDownload(photo).split("imgId=")[1]);
+//			JSONObject parseObject = JSONObject.parseObject(oneFloor);
+//			JSONObject parseObject2 = JSONObject.parseObject(parseObject.get("content").toString());
+//			content = parseObject2.get("content").toString();
+//			content = this.contentHandler(content);
+////			System.out.println(userId);
+//			//对content内容进行处理将里面的img标签的图片下载到本地库中进行替换
+//			this.writeConversationSurface(title, content, conversationName,userId);
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	private String getUserId(String userName,String photo){
+		try {
+			URL url  = new URL(this.address+"/user/selectIsExists?userName="+userName+"&photo="+photo);
+			URLConnection openConnection = url.openConnection();
+			HttpURLConnection httpURLConnection = (HttpURLConnection)openConnection;
+			if(httpURLConnection.getResponseCode() != 200)
+				throw new RuntimeException("获取用户失败");
+			InputStream is = httpURLConnection.getInputStream();
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			int read = 0;
+			byte[] bts = new byte[1024];
+			while((read= is.read(bts)) != -1){
+				baos.write(bts,0,read);
+			}
+			String id = new String(baos.toByteArray());
+			return id;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "1";
+	}
+	//百度贴吧不同的页面，标题为h1
+	private List<String> analysisFloorTwo(String html){
+		try {
+			String title = "";//标题
+			String content = "";//内容
+			String conversationName = "";//贴吧名称
+			String h1 = "<h1.*?title.*?>";
+			Pattern pattern = Pattern.compile(h1);
+			Matcher matcher = pattern.matcher(html);
+			if(matcher.find()){
+				title = matcher.group();
+				title = title.split("title=\"")[1].split("\"")[0];
+				System.out.println("标题为。。。。。。。"+title);
+			}else{
+				//找不到h1的标题
+			}
+			List<String> floors = new ArrayList<String>();//楼层内容
+			String cc = "<cc.*?</cc>";
+			Pattern pattern2 = Pattern.compile(cc);
+			Matcher matcher2 = pattern2.matcher(html);
+			while(matcher2.find()){
+				String str = matcher2.group();
+				str = str.split("clearfix\">")[1].trim().split("</div><br></cc>")[0].replace("⭐","").replace("🙇","");
+//				System.out.println(str);
+				floors.add(str);
+			}
+			//获取楼主的发言
+			String floor = floors.get(0);
+			System.out.println(floor);
+//			System.out.println(floor.replace("🙇",""));
+			content = this.contentHandler(floor);
+			System.out.println(content);
+			//获取贴吧名称
+			String name = "fname=.*?<title>";
+			Pattern pattern3 = Pattern.compile(name);
+			Matcher matcher3 = pattern3.matcher(html);
+			if(matcher3.find()){
+				conversationName = matcher3.group().replace("⭐","").replace("🙇","").split("\"><meta")[0].split("\"")[1].replace("&amp;","").replace("&lt;","<").replace("&gt;",">").trim();
+				System.out.println(conversationName);
+			}
+			String userId = "1";
+			//对content内容进行处理将里面的img标签的图片下载到本地库中进行替换
+			this.writeConversationSurface(title, content, conversationName,userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	//内容处理
+	private String contentHandler(String content){
+		try {
+			String img = "<img.*?(.*?>)";
+			System.out.println(content);
+			String result = "";
+			Pattern compile = Pattern.compile(img);
+			Matcher matcher = compile.matcher(content);
+			while(matcher.find()){
+				
+//				System.out.println(matcher.group());
+				String str  = matcher.group();
+				String str2 = str.split("src=\"")[1].split("\"")[0];
+				if(str2.indexOf("https://gsp0.baidu.com") == -1){
+					System.out.println(str2);
+					String imgId = imgDownload(str2);//下载图片
+					System.out.println(imgId);
+					//替换当前content中的图片
+					content = content.replace(str,"<img src=\""+this.address+imgId.trim()+"\">");
+				}
+			}
+			System.out.println(content);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return content;
+	}
+	private InputStream requestData(String url){
+		try {
+			URL url2 = new URL(url);
+			URLConnection openConnection = url2.openConnection();
+			HttpURLConnection httpURLConnection = (HttpURLConnection)openConnection;
+			
+			return httpURLConnection.getInputStream();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return null;
+	}
+	private String imgDownload(String img){
+		try {
+			//先将百度的图片下载下来
+			URL url2 = new URL(img);
+			URLConnection openConnection = url2.openConnection();
+			HttpURLConnection httpURLConnection = (HttpURLConnection)openConnection;
+	        InputStream is = httpURLConnection.getInputStream();
+	        String end = "\r\n";
+	        String twoHyphens = "--";
+	        String boundary = "*****";
+	        String newName = "image.jpg";
+	        URL url3 = new URL(this.address+this.upImg);
+			URLConnection openConnection3 = url3.openConnection();
+			HttpURLConnection httpURLConnection3 = (HttpURLConnection)openConnection3;
+			httpURLConnection3.setDoInput(true);  
+	        httpURLConnection3.setDoOutput(true);  
+	        httpURLConnection3.setUseCaches(false);  
+	        /* 设置传送的method=POST */
+	        httpURLConnection3.setRequestMethod("POST");
+	        /* setRequestProperty */
+	        httpURLConnection3.setRequestProperty("Connection", "Keep-Alive");
+	        httpURLConnection3.setRequestProperty("Charset", "UTF-8");
+	        httpURLConnection3.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + "*****");
+	        /* 设置DataOutputStream */
+	        DataOutputStream ds = new DataOutputStream(httpURLConnection3.getOutputStream());
+	        ds.writeBytes(twoHyphens + boundary + end);
+	        ds.writeBytes("Content-Disposition: form-data; "+ "name=\"file\";filename=\"" + newName + "\"" + end);
+	        ds.writeBytes(end);
+	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	        int read = 0;
+	        byte[] bts = new byte[1024];
+	        while((read = is.read(bts)) != -1){
+	        	baos.write(bts,0,read);
+	        }
+	        ds.write(baos.toByteArray());
+	        ds.writeBytes(end);
+	        ds.writeBytes(twoHyphens + boundary + twoHyphens + end);  
+	        ds.flush();
+	        InputStream is3 = httpURLConnection3.getInputStream();
+	        ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+	        int read3 =0;
+	        byte[] bts3 = new byte[1024];
+	        while((read3 = is3.read(bts3)) != -1){
+	        	baos2.write(bts3);
+	        }
+	        String imgId = new String(baos2.toByteArray());
+	        return imgId;//图片id
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	private void writeConversationSurface(String title,String content,String conversationName,String userId){
+		System.out.println(title);
+		System.out.println(content);
+		System.out.println(conversationName);
+		//根据贴吧名查询贴吧相关数据
+		try {
+//			System.out.println(new String(conversationName.getBytes(),"utf-8"));
+			URL url = new URL(this.address+"/conversation/selectConversationByName?conversationName="+URLEncoder.encode(conversationName,"utf-8"));
+			URLConnection openConnection = url.openConnection();
+			HttpURLConnection huc = (HttpURLConnection)openConnection;
+			InputStream is = huc.getInputStream();
+			int read = 0;
+			byte[] buff = new byte[1024];
+			ByteArrayOutputStream btas = new ByteArrayOutputStream();
+			while((read = is.read(buff)) != -1){
+				btas.write(buff,0,read);
+			}
+			String str = new String(btas.toByteArray(),"utf-8");
+			System.out.println(str);
+			JSONObject parseObject = JSONObject.parseObject(str);
+			Object conversationName2 = parseObject.get("result");
+			if(conversationName2 == null){
+				JOptionPane.showMessageDialog(null,"系统没创建该贴吧","提示",JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+				
+			JSONObject parseObject2 = JSONObject.parseObject(conversationName2.toString());
+			String id = parseObject2.get("id").toString();
+			System.out.println(id);
+			//数据插入库里，默认用户id为14
+			URL url2 = new URL(this.address+"/conversationChild/addConversationChild");
+			URLConnection openConnection2 = url2.openConnection();
+			HttpURLConnection httpConn = (HttpURLConnection)openConnection2;
+			httpConn.setDoOutput(true);   //需要输出
+		    httpConn.setDoInput(true);   //需要输入
+		    httpConn.setUseCaches(false);  //不允许缓存
+		    httpConn.setRequestMethod("POST");   //设置POST方式连接
+		    //设置请求属性
+		    httpConn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+		    httpConn.setRequestProperty("Connection", "Keep-Alive");// 维持长连接
+		    httpConn.setRequestProperty("Charset", "UTF-8");
+		    //建立输入流，向指向的URL传入参数
+		    DataOutputStream dos=new DataOutputStream(httpConn.getOutputStream());
+		    dos.writeBytes("conversationId="+id+"&userId="+Integer.parseInt(userId)+"&content="+URLEncoder.encode(content,"utf-8")+"&title="+URLEncoder.encode(title,"utf-8")+"&token=2598d8aa59c629defce28d5c23307a9d");
+		    dos.flush();
+		    dos.close();
+			if(httpConn.getResponseCode() == 200)
+				System.out.println("数据插入成功。。。");
+			httpConn.getInputStream();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//获取该楼层的用户名称和头像，判断本地是否有，如果没有将该用户进行创建
+	private void isExistsUser(){
+		//调用接口判断用户是否存在，不存在进行创建，最终返回该用户的id
+		
+	}
+	public static void main(String[] args) {
+		Conversation c = new Conversation();
+//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5578793300");
+//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/4426151897");
+		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5582229352");//问道
+//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5580560114");//新垣结衣
+//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5577663709");//海贼王
+//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5562612621");//渡边麻友
+//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5581288677");//古天乐
+		
+		//
+		
+		
+		
+//		System.out.println(analysisFloor.size());
+	}
+}

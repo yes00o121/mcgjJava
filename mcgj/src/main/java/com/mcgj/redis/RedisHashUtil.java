@@ -41,7 +41,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 
 	        return l;
@@ -64,7 +65,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	            log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	    }
 	    /**
@@ -81,7 +83,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	            log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	        Object result = null;
 	        if(value != null && value.length() >0){
@@ -109,7 +112,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	    }
 
@@ -124,7 +128,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	        return exist;
 	    }
@@ -137,7 +142,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	        Object value = null;
 	        if ((bulk != null) && (bulk.length() > 0)) {
@@ -168,7 +174,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 
 	        return objMap;
@@ -188,7 +195,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 
 	        return hashObject;
@@ -205,7 +213,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	    }
 
@@ -217,7 +226,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	    }
 
@@ -228,7 +238,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 	    }
 
@@ -240,7 +251,8 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        } catch (Exception e) {
 	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
 	        } finally {
-	            returnConn(jedis);
+//	            returnConn(jedis);
+	        	closeConn(jedis);
 	        }
 
 	        return l.longValue();

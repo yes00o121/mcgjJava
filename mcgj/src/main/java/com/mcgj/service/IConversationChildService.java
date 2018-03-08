@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChild;
+import com.mcgj.entity.ConversationChildChild;
 import com.mcgj.entity.UserCollectionConversationChild;
 
 public interface IConversationChildService extends BaseService<ConversationChild, Integer>{
@@ -57,6 +58,13 @@ public interface IConversationChildService extends BaseService<ConversationChild
 	 * @return
 	 */
 	List<ConversationChild> selectMaxConversationChildByDay(Integer day);
+	
+	
+	/**
+	 * 添加楼层数据，爬虫专用
+	 * @param conversationChild
+	 */
+	void addFloorDataSpider(ConversationChildChild conversationChildChild,Integer userId2);
 	
 }
 

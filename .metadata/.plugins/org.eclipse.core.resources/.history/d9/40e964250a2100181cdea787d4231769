@@ -1,0 +1,123 @@
+package com.yc.tieba;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.alibaba.fastjson.JSONObject;
+import com.yc.Util;
+
+/**
+ * 贴吧对象
+ * @author ad
+ *下载的过程，指定贴吧名称，找到贴吧读取默认页数，对每一个贴子进行解析，进入楼层同时解析当前用户是否存在，如存在继续进行数据的写入，不存在将该用户入库，默认读取完所有楼层后继续下一个贴子抓取
+ */
+public class Conversation {
+	
+	private String address = "http://127.0.0.1:8090";//本地服务器地址
+	
+	private String tiebaUrl = "https://tieba.baidu.com/f?fr=wwwt&kw=";//贴吧地址
+	
+	private String tiebaName;//贴吧名称
+	
+//	private static String HREF_REGULAR = "href=\"(/p.*\")";
+//	private static String HREF_REGULAR = "href=\"/p/.*\">";
+	private static String HREF_REGULAR = "href=\"/p([\"\']*)([^\"\']*[\"\'])";
+	
+	private Integer defaultLimit = 20;//默认下载的贴子数
+	
+	public Conversation(){
+		
+	}
+	public Conversation(String tiebaName){
+		this.tiebaName = tiebaName;
+		this.running();//运行
+	}
+	//运行下载贴吧数据
+	private void running(){
+		
+		String url = Util.getHTML(this.tiebaUrl+this.tiebaName+"&pn=0");//贴吧主页的url
+		List<String> analysisUrl = this.analysisUrl(url);//获取当前贴吧当前页所有的url
+//		analysisUrl.get(0);
+		
+		String html = Util.getHTML("https://tieba.baidu.com"+analysisUrl.get(0));
+		this.analysisFloor(html);
+	}
+	//解析当前贴吧的中所有帖子的url
+	private List<String> analysisUrl(String url){
+		try {
+			List<String> imgs = new ArrayList<String>();
+			Pattern pattern = Pattern.compile(HREF_REGULAR);
+//			Pattern patternBase64 = Pattern.compile(IMAGE_REGULAR_BASE64);
+			Matcher matcher = pattern.matcher(url);
+			while(matcher.find()){
+				String a = matcher.group();
+				String address = a.split("=\"")[1];
+				address = address.substring(0,address.length()-1);//删除最后一个"
+				imgs.add(address);
+//				System.out.println(address);
+			}
+			return imgs;
+//			System.out.println(imgs);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	//解析楼层数据
+	private List<String> analysisFloor(String html){
+		try {
+			String html2 = Util.getHTML(html);
+			html2 = html2.trim();
+			String h3 = "<h3.*?title=.*?(.*?\">)";
+//			String h3 = "";
+			Pattern pattern = Pattern.compile(h3);
+			Matcher matcher = pattern.matcher(html2);
+//			System.out.println(matcher.find());
+//			while(matcher.find()){
+//				System.out.println(matcher.group());
+//			}
+			//获取贴子标题
+			if(matcher.find()){
+				String title = matcher.group().split("title=\"")[1];
+				title = title.split("\"")[0];
+				System.out.println(title);
+			}else{
+				return null;//标题获取不到直接退出
+			}
+			//获取一楼所有的内容
+//			String floor = "<div.*?l_post l_post_bright j_l_post clearfix.*?data-data-field=.*?\">";
+//			String floor = "<div.*l_post l_post_bright j_l_post clearfix(.*?).*data.*\">";
+			String floor = "<div class=\"l_post l_post_bright j_l_post clearfix  \".*?pb_tpoint.*?>";
+			Pattern pattern2 = Pattern.compile(floor);
+			Matcher matcher2 = pattern2.matcher(html2);
+			List<String> list = new ArrayList<String>();
+			while(matcher2.find()){
+				System.out.println("???");
+//				System.out.println(matcher2.group());
+				String a = matcher2.group();
+				String[] str = a.split("data-field=\'");
+				if(str.length == 2){
+					String str2 = str[1].replace("&quot;","\"").replace("'","").replace(">","").trim();//楼层json数据
+//					System.out.println(str2);
+					list.add(str2);
+				}
+			}
+			String oneFloor = list.get(0);
+			System.out.println(oneFloor);
+//			JSONObject parseObject = JSONObject.parseObject(oneFloor);
+//			JSONObject parseObject2 = JSONObject.parseObject(parseObject.get("content").toString());
+//			System.out.println(parseObject2.get("content"));
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	public static void main(String[] args) {
+		Conversation c = new Conversation();
+		List<String> analysisFloor = c.analysisFloor("https://tieba.baidu.com/p/5578793300");
+//		System.out.println(analysisFloor.size());
+	}
+}

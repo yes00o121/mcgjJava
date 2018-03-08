@@ -2,6 +2,8 @@ package com.mcgj.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChild;
 import com.mcgj.entity.User;
@@ -39,4 +41,12 @@ public interface IUserService extends BaseService<User,Integer>{
 	 * @return
 	 */
 	List<ConversationChild> selectCollectionConversationChildByUserId(Integer userId);
+	
+	/**
+	 * 爬虫****
+	 * 判断用户是否存在，不存在进行创建，然后返回用户信息
+	 * @param userName
+	 * @return
+	 */
+	public Integer selectIsExists(String userName,String photo);
 }

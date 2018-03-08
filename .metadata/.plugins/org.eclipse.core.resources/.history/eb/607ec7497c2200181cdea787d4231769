@@ -1,0 +1,15 @@
+package com.mcgj.spider;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * ÅÀ³æ¿ØÖÆÆ÷
+ * @author ad
+ *
+ */
+@Controller
+@RequestMapping("/spider")
+public class SpiderController extends AbstractBaseController{
+		
+}
