@@ -22537,3 +22537,454 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2018-03-07 20:00:11,007 [Worker-349] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
 2018-03-07 20:00:11,010 [Worker-349] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2018-03-07 20:00:11,011 [Worker-349] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 09:11:33,409 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:11:33,471 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 09:11:33,475 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:11:33,476 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 09:11:46,279 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:11:46,281 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 09:11:46,284 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:11:46,285 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 09:45:02,835 [Worker-417] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:45:02,838 [Worker-417] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-08 09:45:02,839 [Worker-417] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 09:45:02,840 [Worker-417] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:43:08,433 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:08,456 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:43:08,468 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:08,470 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:43:12,300 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:12,302 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:43:12,305 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:12,307 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:43:51,936 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:51,938 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:43:51,940 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:43:51,941 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:54:45,646 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:54:45,648 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:54:45,651 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:54:45,652 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:55:20,582 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:20,585 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:55:20,587 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:20,587 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:55:29,990 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:29,992 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:55:29,995 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:29,996 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:55:35,712 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:35,713 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:55:35,715 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:35,716 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:55:44,092 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:44,094 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:55:44,098 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:44,099 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:55:58,551 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:58,553 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:55:58,555 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:55:58,556 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:56:00,599 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:00,601 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:56:00,603 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:00,604 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:56:20,674 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:20,676 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:56:20,678 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:20,679 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:56:24,584 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:24,586 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:56:24,588 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:24,589 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:56:32,133 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:32,135 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:56:32,138 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:32,139 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:56:46,124 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:46,126 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:56:46,128 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:56:46,129 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:57:02,054 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:02,057 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:57:02,059 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:02,059 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:57:16,613 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:16,615 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:57:16,618 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:16,620 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:57:24,146 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:24,148 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:57:24,150 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:24,150 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:57:26,529 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:26,531 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:57:26,533 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:57:26,534 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:58:26,788 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:58:26,791 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:58:26,794 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:58:26,794 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:58:48,611 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:58:48,613 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:58:48,615 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:58:48,616 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:59:08,770 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:59:08,772 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:59:08,774 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:59:08,774 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 10:59:10,916 [Worker-427] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:59:10,918 [Worker-427] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 10:59:10,920 [Worker-427] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 10:59:10,921 [Worker-427] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:00:26,811 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:26,833 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:00:26,835 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:26,836 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:00:38,166 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:38,168 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:00:38,173 [Worker-416] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:38,175 [Worker-416] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:00:50,183 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:50,185 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:00:50,188 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:00:50,189 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:01:08,739 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:08,741 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:01:08,743 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:08,744 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:01:10,847 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:10,849 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:01:10,850 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:10,851 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:01:51,424 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:51,426 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:01:51,429 [Worker-425] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:51,430 [Worker-425] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:01:55,591 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:55,593 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:01:55,594 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:01:55,595 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:02:16,110 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:02:16,112 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:02:16,115 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:02:16,116 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:02:34,692 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:02:34,694 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:02:34,696 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:02:34,697 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:03:35,081 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:35,083 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:03:35,085 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:35,086 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:03:42,532 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:42,534 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:03:42,536 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:42,537 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:03:57,598 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:57,600 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:03:57,602 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:03:57,603 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:04:08,413 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:08,415 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:04:08,418 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:08,418 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:04:13,766 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:13,768 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:04:13,770 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:13,771 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:04:40,326 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:40,328 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:04:40,330 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:04:40,330 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:05:23,883 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:23,885 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:05:23,886 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:23,887 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:05:36,532 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:36,548 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:05:36,550 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:36,551 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:05:41,217 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:41,219 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:05:41,221 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:05:41,222 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:06:36,789 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:36,791 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:06:36,793 [Worker-424] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:36,794 [Worker-424] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:06:39,533 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:39,534 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:06:39,537 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:39,537 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:06:43,219 [Worker-427] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:43,221 [Worker-427] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:06:43,223 [Worker-427] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:06:43,224 [Worker-427] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:07:02,859 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:07:02,860 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:07:02,862 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:07:02,863 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:07:12,375 [Worker-426] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:07:12,378 [Worker-426] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:07:12,379 [Worker-426] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:07:12,380 [Worker-426] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:09:00,685 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:09:00,687 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:09:00,691 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:09:00,692 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:10:13,700 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:10:13,702 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:10:13,704 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:10:13,704 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:11:54,839 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:11:54,842 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:11:54,846 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:11:54,847 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:12:19,322 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:12:19,324 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:12:19,326 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:12:19,327 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:12:49,696 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:12:49,699 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:12:49,701 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:12:49,702 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:15:33,161 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:15:33,164 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:15:33,167 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:15:33,168 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:16:49,072 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:16:49,074 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:16:49,076 [Worker-415] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:16:49,077 [Worker-415] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:16:55,103 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:16:55,105 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:16:55,107 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:16:55,108 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:19:56,548 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:19:56,550 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:19:56,552 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:19:56,553 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:20:14,020 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:14,022 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:20:14,024 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:14,026 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:20:40,804 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:40,806 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:20:40,808 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:40,809 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:20:51,031 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:51,033 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:20:51,035 [Worker-378] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:20:51,036 [Worker-378] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:21:26,993 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:21:26,995 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:21:26,997 [Worker-409] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:21:26,998 [Worker-409] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:30:58,080 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:30:58,083 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:30:58,085 [Worker-422] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:30:58,087 [Worker-422] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:32:39,030 [Worker-429] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:32:39,032 [Worker-429] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:32:39,034 [Worker-429] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:32:39,036 [Worker-429] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:32:41,340 [Worker-432] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:32:41,342 [Worker-432] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:32:41,344 [Worker-432] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:32:41,345 [Worker-432] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 11:33:29,254 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:33:29,256 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 11:33:29,258 [Worker-428] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 11:33:29,259 [Worker-428] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 12:41:56,918 [Worker-441] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 12:41:56,921 [Worker-441] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 12:41:56,924 [Worker-441] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 12:41:56,925 [Worker-441] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 13:33:07,423 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:33:07,425 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 13:33:07,427 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:33:07,428 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 13:33:12,570 [Worker-439] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:33:12,572 [Worker-439] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 13:33:12,573 [Worker-439] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:33:12,576 [Worker-439] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 13:39:51,708 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:39:51,713 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 13:39:51,716 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 13:39:51,718 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:32:16,216 [Worker-453] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:32:16,219 [Worker-453] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:32:16,222 [Worker-453] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:32:16,223 [Worker-453] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:51:53,027 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:51:53,029 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:51:53,035 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:51:53,037 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:52:11,211 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:11,212 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:52:11,214 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:11,215 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:52:26,930 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:26,932 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:52:26,935 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:26,936 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:52:55,731 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:55,732 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:52:55,734 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:52:55,735 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:53:01,905 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:53:01,906 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 15:53:01,908 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:53:01,909 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 15:58:37,680 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:58:37,681 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 15:58:37,684 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 15:58:37,685 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:10:29,032 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:29,033 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:10:29,036 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:29,037 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:10:40,870 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:40,871 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:10:40,874 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:40,875 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:10:55,152 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:55,154 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:10:55,156 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:10:55,157 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:11:12,200 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:12,202 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:11:12,212 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:12,224 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:11:34,135 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:34,136 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:11:34,138 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:34,139 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:11:38,862 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:38,863 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:11:38,866 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:38,867 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:11:54,976 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:54,977 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:11:54,981 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:11:54,982 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:12:20,558 [Worker-457] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:12:20,559 [Worker-457] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:12:20,562 [Worker-457] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:12:20,563 [Worker-457] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:13:11,477 [Worker-459] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:11,478 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:13:11,480 [Worker-459] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:11,482 [Worker-459] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:13:16,136 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:16,137 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:13:16,143 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:16,146 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:13:58,271 [Worker-463] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:58,272 [Worker-463] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:13:58,275 [Worker-463] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:13:58,276 [Worker-463] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:14:04,724 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:04,725 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:14:04,728 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:04,729 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:14:09,340 [Worker-457] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:09,341 [Worker-457] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:14:09,343 [Worker-457] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:09,344 [Worker-457] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:14:12,604 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:12,605 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:14:12,608 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:12,609 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:14:13,921 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:13,922 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:14:13,924 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:13,926 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:14:16,970 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:16,971 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:14:16,983 [Worker-445] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:14:16,984 [Worker-445] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:42:34,306 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:42:34,307 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-08 16:42:34,309 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:42:34,310 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:47:03,836 [Worker-469] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar
+2018-03-08 16:47:04,281 [Worker-469] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://maven.aliyun.com/nexus/content/groups/public/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar
+2018-03-08 16:47:04,911 [Worker-469] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.commons:commons-pool2:2.4.2
+2018-03-08 16:47:05,674 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:47:05,675 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2018-03-08 16:47:05,675 [Worker-405] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:47:05,676 [Worker-405] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 16:58:04,940 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:58:04,942 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 16:58:04,945 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 16:58:04,946 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:02:48,019 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:02:48,022 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:02:48,024 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:02:48,025 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:03:27,785 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:03:27,788 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:03:27,790 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:03:27,791 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:03:48,937 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:03:48,939 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:03:48,941 [Worker-460] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:03:48,942 [Worker-460] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:26:58,331 [Worker-462] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:26:58,333 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:26:58,335 [Worker-462] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:26:58,336 [Worker-462] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:27:43,683 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:27:43,685 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:27:43,687 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:27:43,688 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:27:56,437 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:27:56,439 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:27:56,440 [Worker-468] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:27:56,441 [Worker-468] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:41,675 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:41,677 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:41,678 [Worker-434] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:41,679 [Worker-434] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:45,643 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:45,645 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:45,647 [Worker-450] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:45,648 [Worker-450] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:49,529 [Worker-472] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:49,530 [Worker-472] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:49,532 [Worker-472] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:49,533 [Worker-472] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:53,660 [Worker-464] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:53,662 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:53,664 [Worker-464] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:53,665 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:55,772 [Worker-463] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:55,774 [Worker-463] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:55,776 [Worker-463] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:55,777 [Worker-463] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:28:58,267 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:58,270 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:28:58,271 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:28:58,272 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:29:00,996 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:00,998 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:29:00,999 [Worker-465] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:01,001 [Worker-465] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:29:03,313 [Worker-475] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:03,314 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:29:03,316 [Worker-475] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:03,317 [Worker-475] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:29:05,471 [Worker-464] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:05,473 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:29:05,474 [Worker-464] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:05,475 [Worker-464] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:29:08,185 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:08,187 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:29:08,189 [Worker-455] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:08,189 [Worker-455] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
+2018-03-08 17:29:11,176 [Worker-470] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:11,178 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 9 resources
+2018-03-08 17:29:11,179 [Worker-470] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2018-03-08 17:29:11,180 [Worker-470] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory G:\mcgjJava\mcgjJava\mcgj\src\test\resources
