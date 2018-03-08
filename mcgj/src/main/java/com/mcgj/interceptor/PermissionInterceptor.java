@@ -82,7 +82,6 @@ public class PermissionInterceptor implements HandlerInterceptor {
 				return false;
 			}
 			// 判断用户会话是否存在或者过期
-			/*
 			Object record = RedisHashUtil.get(token);
 			if (record == null) {
 				sendOverTimeMessage(new PrintWriter(response.getOutputStream()));
@@ -91,7 +90,6 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			// 用户状态正常更新会话时长
 			RedisHashUtil.setex(token, (User) record,
 					PropertiesUtil.getLoginDelay());
-			*/
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
