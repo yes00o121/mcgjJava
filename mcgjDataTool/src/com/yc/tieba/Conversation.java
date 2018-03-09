@@ -117,7 +117,7 @@ public class Conversation {
 				}
 			}else{
 				//标题获取不到启动二号方案
-				this.analysisFloorTwo(html2);
+				this.analysisFloorTwo(html2,html);
 				return null;//标题获取不到直接退出
 			}
 			//获取一楼所有的内容
@@ -143,7 +143,6 @@ public class Conversation {
 			Matcher matcher3 = pattern3.matcher(html2);
 			System.out.println("+++");
 			while(matcher3.find()){
-//				System.out.println(matcher3.group());
 				String n = matcher3.group();
 				String p =null;
 				if(n.indexOf("data-tb-lazyload") != -1){
@@ -160,7 +159,6 @@ public class Conversation {
 			photo = list3.get(0).toString();
 			System.out.println(userName);
 			System.out.println(photo);
-			System.out.println("开始获取id..........");
 			String userId = this.getUserId(userName,this.imgDownload(photo).split("imgId=")[1]);
 			JSONObject parseObject = JSONObject.parseObject(oneFloor);
 			JSONObject parseObject2 = JSONObject.parseObject(parseObject.get("content").toString());
@@ -173,14 +171,14 @@ public class Conversation {
 				JSONObject parseObject3 = JSONObject.parseObject(list.get(i));
 				JSONObject parseObject4 = JSONObject.parseObject(parseObject3.get("content").toString());
 				content = parseObject4.get("content").toString();
-				content = this.contentHandler(content);
+				content = this.contentHandler2(content);
 				System.out.println("楼层操作。。。");
 				System.out.println(list3.get(i));
 				String imgId = this.imgDownload(list3.get(i));
 				String id = this.getUserId(list2.get(i),imgId.split("imgId=")[1]);
 				this.writeFloor(childId, content, id,userId);
 			}
-			/*
+			
 			//获取的当前贴子的页数
 			String total = "共<span.*?</span>页";
 			Pattern pattern4 = Pattern.compile(total);
@@ -192,8 +190,10 @@ public class Conversation {
 				number = Integer.parseInt(split[0]);
 			}
 			System.out.println("总页数为。。。。。。。"+number);
-			for(int i=1;i<number;i++){
+			for(int i=1;i<=number;i++){
 				String html3 = Util.getHTML(html+"?pn="+i);
+				System.out.println("................................"+html+"?pn="+i);
+				
 				String html4 = html3.trim();
 				//获取当前楼层的用户名和头像
 				String name2 = "<img username=\".*?/>";
@@ -215,20 +215,31 @@ public class Conversation {
 					list4.add(n);
 					list5.add(p);
 				}
-				for(String l:list4){
-					JSONObject parseObject3 = JSONObject.parseObject(list.get(i));
+				String floor2 = "<div class=\"l_post l_post_bright j_l_post clearfix  \".*?pb_tpoint.*?>";
+				Pattern pattern6 = Pattern.compile(floor2);
+				Matcher matcher6 = pattern6.matcher(html4);
+				List<String> list6 = new ArrayList<String>();
+				while(matcher6.find()){
+					String a = matcher6.group();
+					String[] str = a.split("data-field=\'");
+					if(str.length == 2){
+						String str2 = str[1].replace("&quot;", "\"").replace("&lt;","<").replace("&gt;",">").replace("⭐","").replace("🙇","");
+						str2 = str2.substring(0,str2.length()-3);
+						list6.add(str2);
+					}
+				}
+				for(int j=1;j<list4.size();j++){
+					JSONObject parseObject3 = JSONObject.parseObject(list6.get(j));
 					JSONObject parseObject4 = JSONObject.parseObject(parseObject3.get("content").toString());
 					content = parseObject4.get("content").toString();
-					content = this.contentHandler(content);
+					content = this.contentHandler2(content);
 					System.out.println("楼层操作。。。");
-					System.out.println(list3.get(i));
-					String imgId = this.imgDownload(list3.get(i));
-					String id = this.getUserId(list2.get(i),imgId.split("imgId=")[1]);
+					String imgId = this.imgDownload(list5.get(j));
+					String id = this.getUserId(list4.get(j),imgId.split("imgId=")[1]);
 					this.writeFloor(childId, content, id,userId);
 				}
+				
 			}
-			*/
-			System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++");
 			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -292,7 +303,7 @@ public class Conversation {
 		return "1";
 	}
 	//百度贴吧不同的页面，标题为h1
-	private List<String> analysisFloorTwo(String html){
+	private List<String> analysisFloorTwo(String html,String url){
 		try {
 			String title = "";//标题
 			String content = "";//内容
@@ -319,7 +330,6 @@ public class Conversation {
 			}
 			//获取楼主的发言
 			String floor = floors.get(0);
-			System.out.println(floor);
 //			System.out.println(floor.replace("🙇",""));
 			content = this.contentHandler(floor);
 			System.out.println(content);
@@ -364,8 +374,65 @@ public class Conversation {
 //				System.out.println("楼层操作。。。");
 				String id = this.getUserId(list2.get(i), imgId.split("imgId=")[1]);
 				String con = floors.get(i);
-				con = this.contentHandler(con);//处理楼层内容
+				con = this.contentHandler2(con);//处理楼层内容
 				this.writeFloor(childId, con, id,userId);
+			}
+			
+			//获取后续楼层
+			//获取的当前贴子的页数
+			String total = "共<span.*?</span>页";
+			Pattern pattern5 = Pattern.compile(total);
+			Matcher matcher5 = pattern5.matcher(html);
+			int number = 0;//贴子总页数
+			if(matcher5.find()){
+				String group = matcher5.group();
+				String[] split = group.split("\">")[1].split("</span");
+				number = Integer.parseInt(split[0]);
+			}
+			System.out.println("总页数为。。。。。。。"+number);
+			
+			for(int i=2;i<=number;i++){
+				String html3 = Util.getHTML(url+"?pn="+i);
+				System.out.println("................................"+url+"?pn="+i);
+				
+				String html4 = html3.trim();
+				//获取当前楼层的用户名和头像
+				String name2 = "<img username=\".*?/>";
+				Pattern pattern6 = Pattern.compile(name2);
+				Matcher matcher6 = pattern6.matcher(html4);
+				List<String> list4 = new ArrayList<String>();
+				List<String> list5=  new ArrayList<String>();
+				System.out.println("+++");
+				while(matcher6.find()){
+//					System.out.println(matcher3.group());
+					String n = matcher6.group();
+					String p =null;
+					if(n.indexOf("data-tb-lazyload") != -1){
+						p= n.split("data-tb-lazyload=\"")[1].split("\"")[0];
+					}else{
+						p = n.split("src=\"")[1].split("\"")[0];
+					}
+					n =n.split("username=\"")[1].split("\"")[0];
+					list4.add(n);
+					list5.add(p);
+				}
+				List<String> floor2 = new ArrayList<String>();//楼层内容
+				String cc2 = "<cc.*?</cc>";
+				Pattern pattern7 = Pattern.compile(cc2);
+				Matcher matcher7 = pattern7.matcher(html3);
+				while(matcher7.find()){
+					String str = matcher7.group();
+					str = str.split("clearfix\">")[1].trim().split("</div><br></cc>")[0].replace("⭐","").replace("🙇","");
+					floor2.add(str);
+				}
+				System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				for(int j=0;j<list4.size();j++){
+					System.out.println("楼层操作。。。");
+					String imgId = this.imgDownload(list5.get(j));
+					String id = this.getUserId(list4.get(j),imgId.split("imgId=")[1]);
+					String con = this.contentHandler2(floor2.get(j));
+					this.writeFloor(childId, con, id,userId);
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -403,6 +470,29 @@ public class Conversation {
 		}
 		return content;
 	}
+	//内容处理
+		private String contentHandler2(String content){
+			try {
+				String img = "<img.*?(.*?>)";
+				Pattern compile = Pattern.compile(img);
+				Matcher matcher = compile.matcher(content);
+				while(matcher.find()){
+					String str  = matcher.group();
+					String str2 = str.split("src=\"")[1].split("\"")[0];
+					if(str2.indexOf("imgsrc.baidu")!=-1){
+						System.out.println(str2);
+						System.out.println("!!!!!!!!!!!!!!!!!!!!!!@@@@@");
+						String imgId = imgDownload(str2);//下载图片
+						System.out.println(imgId);
+						//替换当前content中的图片
+						content = content.replace(str,"<img src=\""+this.address+imgId.trim()+"\">");
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return content;
+		}
 	private String imgDownload(String img){
 		ByteArrayOutputStream baos = null;
 		InputStream is3 = null;
@@ -568,8 +658,12 @@ public class Conversation {
 				String html = Util.getHTML(this.tiebaUrl+URLEncoder.encode(conversationName)+"&pn="+pn);//当前贴吧的页面
 				List<String> list = analysisUrl(html);//存放当前页的所有贴子路径
 				for(String l:list){
-					System.out.println(l);
-//					analysisFloorOne("https://tieba.baidu.com"+l);
+					new Thread(){//开启多个线程处理
+						public void run(){
+							analysisFloorOne("https://tieba.baidu.com"+l);
+						}
+					}.start();;
+					
 				}
 				pn+=50;
 			}
@@ -610,12 +704,14 @@ public class Conversation {
 		}
 	}
 	public static void main(String[] args) {
-//		Conversation c = new Conversation();
+		Conversation c = new Conversation();
 //		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/3499034331");//问道
-//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5582482142");//新垣结衣
-//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5577663709");//海贼王
-//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5579860790");//渡边麻友
+//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5175163008");//新垣结衣
+//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5584115736");//海贼王
+//		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5280160421");//渡边麻友
 //		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5581288677");//古天乐
+		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/4082155050");//日本
+		
 		
 //		c.analysisConversation("足球1");
 	}

@@ -86,8 +86,8 @@ public class Util {
 	public static String getHTML(String url){
 //		getAbsPath(url);
 //		BufferedReader br = null;
-//		Main.center_text.append("开始下载:"+url+"\n");
-//		Main.center_text.setSelectionStart(Main.center_text.getText().length());
+		Main.center_text.append("开始下载:"+url+"\n");
+		Main.center_text.setSelectionStart(Main.center_text.getText().length());
 		InputStream is= null;
 		ByteArrayOutputStream baos = null;
 		String sb = "";

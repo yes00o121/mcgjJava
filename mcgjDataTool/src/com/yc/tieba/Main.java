@@ -158,15 +158,9 @@ public class Main extends JFrame{
 					return;
 				}
 				//清空上次下载的日志
-//				center_text.setText("");
 				String str = (String)comboBox.getSelectedItem();//获取用户选择的下载类型
-//				System.out.println(str);
 				Main.BtnQuiet();//禁用按钮
 				//重新开启一页线程执行，不然会导致窗口假死
-					
-//					InputStream imgStream = img.getImgStream("http://127.0.0.1:8090/common/image?imgId=5a9d04e3a1618c05d45524d5");
-//					String a = Util.getHTML("http://127.0.0.1:8090/common/image?imgId=5a9d04e3a1618c05d45524d5");
-//					System.out.println(imgStream);
 				new Thread(){
 					public void run(){
 						new Conversation(url);
@@ -175,7 +169,6 @@ public class Main extends JFrame{
 				if(str.equals("视频")){
 					System.out.println("用户选择了视频");
 				}
-				
 			}
 		});
 		this.add(jp,"North");
