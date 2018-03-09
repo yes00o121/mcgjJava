@@ -611,7 +611,6 @@ public class Conversation {
 	}
 	public static void main(String[] args) {
 		Conversation c = new Conversation();
-//		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/4426151897");
 		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/3499034331");//问道
 //		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5582482142");//新垣结衣
 //		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5577663709");//海贼王
