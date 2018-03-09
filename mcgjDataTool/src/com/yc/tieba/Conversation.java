@@ -616,6 +616,7 @@ public class Conversation {
 //		List<String> analysisFloor = c.analysisFloorOne("https://tieba.baidu.com/p/5577663709");//海贼王
 //		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5579860790");//渡边麻友
 //		List<String> analysisFloor = c.analysisFloorOne("http://tieba.baidu.com/p/5581288677");//古天乐
+		  
 //		c.analysisConversation("足球1");
 	}
 }
