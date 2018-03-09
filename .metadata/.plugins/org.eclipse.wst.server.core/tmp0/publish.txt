@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Thu Mar 08 17:29:13 CST 2018
-org.eclipse.jst.jee.server\:/binary\:G\:\\mcgj\\repo\\org\\springframework\\spring-web\\3.2.8.RELEASE\\spring-web-3.2.8.RELEASE.jar=WEB-INF/lib/org.springFramework-spring-web-3.2.8.RELEASE.jar

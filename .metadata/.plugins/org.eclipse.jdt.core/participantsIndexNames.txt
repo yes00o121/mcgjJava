@@ -1,3 +1,0 @@
-INDEX VERSION 1.127
-G:\mcgjJava\mcgjJava\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3003034436.index
-\mcgj\src\main\java
