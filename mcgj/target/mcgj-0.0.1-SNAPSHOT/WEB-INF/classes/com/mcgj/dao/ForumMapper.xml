@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mcgj.dao.ForumMapper">
-	<insert id="saveRelease" parameterType = "com.mcgj.entity.MainContentInfo">
-		insert into main_content_info(id,user_id,create_date,title,content,status)values(#{id},#{userId},#{createDate},#{title},#{content},#{status})
-	</insert>
-</mapper>
