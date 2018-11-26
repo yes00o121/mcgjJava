@@ -75,4 +75,7 @@ public class MessageUtil implements Serializable{
 	
 	public static final String MSG_FOLLOW_ERROR = "πÿ◊¢ ß∞‹";
 	
+	public static final String MSG_SECURITY_DCODE_ERROR = "Ω‚√‹ ß∞‹";
+	
+	public static final String MSG_SECURITY_ECODE_ERROR = "º”√‹ ß∞‹";
 }

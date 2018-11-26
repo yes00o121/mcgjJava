@@ -45,7 +45,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {
 		// 如果是不拦截接口直接通过
-		String url = request.getRequestURI();
+		String url = request.getServletPath();
 		if (url.indexOf("select") != -1) {// 如果为查询接口不进行拦截
 			//收到请求首先判断用户是否登录，如果登录就更新其会话可以知道用户是否活跃，不然不做操作
 			updateConversation(request);

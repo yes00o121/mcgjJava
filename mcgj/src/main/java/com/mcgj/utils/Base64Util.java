@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.RandomAccessFile;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 /**
@@ -58,6 +59,27 @@ public class Base64Util {
             e.printStackTrace();  
         }  
     }  
+	
+	/**
+	 * Ω‚√‹
+	 * @param param
+	 */
+	public static String dcode(String param){
+		if(param == null)
+			throw new RuntimeException(MessageUtil.MSG_SECURITY_DCODE_ERROR);
+		return new String(new Base64().decodeBase64(param));
+	}
+	
+	/**
+	 * º”√‹
+	 * @param param
+	 */
+	public static String ecode(String param){
+		if(param == null)
+			throw new RuntimeException(MessageUtil.MSG_SECURITY_ECODE_ERROR);
+		return new String(new Base64().encodeToString(param.getBytes()));
+	}
+	
 	public static void main(String[] args) {
 		String con = getPicBASE64("E://timg.jpg");
 		System.out.println(con);

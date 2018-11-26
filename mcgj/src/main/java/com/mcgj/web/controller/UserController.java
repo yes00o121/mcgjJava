@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.mcgj.entity.User;
 import com.mcgj.service.IUserService;
+import com.mcgj.utils.CommonUtil;
 import com.mcgj.utils.ExcelUtil;
 import com.mcgj.utils.MessageUtil;
 import com.mcgj.web.dto.ResultDTO;
@@ -63,23 +64,21 @@ public class UserController extends AbstractBaseController {
 	 */
 	@RequestMapping(value = "/login",method={RequestMethod.POST})
 	@ResponseBody
-	public Object login(HttpServletResponse response,
+	public ResultDTO login(HttpServletResponse response,
 			HttpServletRequest request, User user, HttpSession session,
 			@PathParam("userName") String userName) {
-		ResultDTO result = new ResultDTO();
 		try {
+			//获取用户浏览器和操作系统
+			String[] osAndBrowserInfo = CommonUtil.getOsAndBrowserInfo(request);
+			user.setOs(osAndBrowserInfo[0]);//操作系统
+			user.setBrowser(osAndBrowserInfo[1]);//浏览器
+			user.setIp(request.getLocalAddr());//获取ip
 			User record = this.userService.login(user);
-			result.setSuccess(true);
-			result.setMessage(MessageUtil.MSG_LOGIN_SUCCESS);
-			result.setResult(record);
-			return result;
+			return new ResultDTO(MessageUtil.MSG_LOGIN_SUCCESS,true,record);
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error(e.getMessage(), e);
-			result.setMessage(e.getMessage());
-			result.setSuccess(false);
-			result.setResult(e.getMessage());
-			return result;
+			return new ResultDTO(e.getMessage(),false,null);
 		}
 	}
 

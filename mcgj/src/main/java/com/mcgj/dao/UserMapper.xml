@@ -40,7 +40,7 @@
  	</select>
  	
  	<insert id="insertLoginLog">
- 		insert into login_log(id,login_date,login_ip,user_id)values(#{id},#{createDate},#{loginIp},#{userId})
+ 		insert into login_log(id,login_date,login_ip,user_id,os,browser)values(#{id},#{createDate},#{loginIp},#{userId},#{os},#{browser})
  	</insert>
  	<select id="selectIsExists" resultType="int">
  		select id From user  where  user_name =#{userName}

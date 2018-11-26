@@ -9,6 +9,8 @@ import java.util.List;
 public class User extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
+	
+	//表对应字段
 
 	private String userName;//用户名称
 	
@@ -20,6 +22,38 @@ public class User extends BaseEntity{
 	
 	private String photo;//用户头像，照片
 	
+	//扩展字段
+	
+	private String browser;//使用浏览器
+	
+	private String os;//用户系统
+	
+	private String ip;//用户ip
+	
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getBrowser() {
+		return browser;
+	}
+
+	public void setBrowser(String browser) {
+		this.browser = browser;
+	}
+
+	public String getOs() {
+		return os;
+	}
+
+	public void setOs(String os) {
+		this.os = os;
+	}
+
 	public String getAccount() {
 		return account;
 	}
