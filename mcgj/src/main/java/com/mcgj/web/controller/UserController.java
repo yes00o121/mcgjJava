@@ -22,6 +22,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -60,7 +61,7 @@ public class UserController extends AbstractBaseController {
 	 * @param req
 	 * @return
 	 */
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/login",method={RequestMethod.POST})
 	@ResponseBody
 	public Object login(HttpServletResponse response,
 			HttpServletRequest request, User user, HttpSession session,
@@ -68,7 +69,6 @@ public class UserController extends AbstractBaseController {
 		ResultDTO result = new ResultDTO();
 		try {
 			User record = this.userService.login(user);
-			// User record = new User();
 			result.setSuccess(true);
 			result.setMessage(MessageUtil.MSG_LOGIN_SUCCESS);
 			result.setResult(record);

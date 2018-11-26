@@ -17,4 +17,5 @@ public class UserUtil {
 	public static User getCurrentUser(String token){
 		return (User)RedisHashUtil.get(token);
 	}
+	
 }

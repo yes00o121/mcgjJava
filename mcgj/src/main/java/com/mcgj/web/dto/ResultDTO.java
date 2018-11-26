@@ -56,4 +56,12 @@ public class ResultDTO {
 	public void setSuccess(Boolean success) {
 		this.success = success;
 	}
+
+	public ResultDTO(String message, Boolean success, Object result) {
+		this.message = message;
+		this.success = success;
+		this.result = result;
+	}
+	
+	
 }

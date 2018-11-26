@@ -4,28 +4,6 @@
 	xsi:schemaLocation="
 			http://www.springframework.org/schema/beans
         	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
-
-
-	<!-- 
-	Operational views
-
-		Interface Description 
-		
-		Key Type Operations 
-			ValueOperations Redis string (or value) operations 
-			ListOperations Redis list operations 
-			SetOperations Redis set operations 
-			ZSetOperations Redis zset (or sorted set) operations 
-			HashOperations Redis hash operations 
-		
-		Key Bound Operations 
-			BoundValueOperations Redis string (or value) key bound operations 
-			BoundListOperations Redis list key bound operations 
-			BoundSetOperations Redis set key bound operations 
-			BoundZSetOperations Redis zset (or sorted set) key bound operations 
-			BoundHashOperations Redis hash key bound operations 
-	
-	 -->
 	<!-- ********************************** redis支持(名称端口号根据用途添加自定义名称)**********************************
 	<bean id="connectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"

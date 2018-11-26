@@ -20,9 +20,9 @@
 	<!-- mysql连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mcgj?useUnicode=true&amp;characterEncoding=utf8"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/mcgj_db?useUnicode=true&amp;characterEncoding=utf8"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="123456"></property>
+		<property name="password" value="root123"></property>
  		<property name="removeAbandonedTimeout" value="1800" />
  		<!-- 初始化连接大小 10-->
         <property name="initialSize" value="10"/>
@@ -35,6 +35,7 @@
         <!-- 关闭长时间不使用的连接 1800秒 30分钟 当连接超过时间 后会强制进行回收-->
         <property name="removeAbandoned" value="true"/>
 	</bean>
+	
 	<!-- mongo配置 -->
 	<mongo:mongo id="mongo" replica-set="127.0.0.1:27017">
 	 <mongo:options 
