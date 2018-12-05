@@ -79,4 +79,11 @@ public interface ConversationChildMapper extends BaseService<ConversationChild,I
 	 * @return
 	 */
 	List<ConversationChild> selectMaxConversationChildByDay(@Param("startTime") Date startTime,@Param("endTime") Date endTime);
+	
+	/**
+	 * 获取贴子数据
+	 * @param conversationChild
+	 * @return
+	 */
+	ConversationChild selectConversationChild(ConversationChild conversationChild);
 }

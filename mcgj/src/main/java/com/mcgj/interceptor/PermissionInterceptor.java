@@ -23,7 +23,7 @@ import com.mcgj.web.dto.ResultDTO;
 /**
  * 拦截器
  * 
- * @author ad
+ * @author 杨晨
  *
  */
 public class PermissionInterceptor implements HandlerInterceptor {
@@ -59,6 +59,11 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		} else if ("/common/image".equals(url)) {// 查询图片接口
 			return true;
 		} else if ("/common/generateVerification".equals(url)) {// 验证码接口
+			return true;
+		}else if ("/common/upNetWorkImg".equals(url)) {// 上传网络图片
+			return true;
+		}else if(url.indexOf("add") !=-1){
+			//爬虫插入数据，暂时开启，后期添加到系统配置
 			return true;
 		}
 		//除以上接口之外其他接口都需要用户登录后才能进行操作

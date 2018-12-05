@@ -130,10 +130,10 @@ public class ConversationController extends AbstractBaseController{
 		ResultDTO result = new ResultDTO();
 		try{
 			Conversation con = conversationService.selectConversationByName(conversation);
-			result.setResult(con);
-			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
-			result.setSuccess(true);
-			return result;
+			if(con == null){
+				return new ResultDTO(MessageUtil.MSG_CONVERSAION_NOT_EXISTENT,false,null);
+			}
+			return new ResultDTO(MessageUtil.MSG_QUERY_SUCCESS,true,con);
 		}catch(Exception e){
 			e.printStackTrace();
 			log.error(e.getMessage());

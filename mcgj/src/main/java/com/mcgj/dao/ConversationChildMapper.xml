@@ -44,7 +44,8 @@
 			u.user_name AS createUserName,
 			ccc.user_name AS lastUserName,
 			ccc.create_date AS lastDate,
-			ccc.replyNumber
+			ccc.replyNumber,
+			u.photo
 		FROM
 			conversation_child cc
 		LEFT JOIN USER u ON u.id = cc.user_id
@@ -165,5 +166,14 @@
 		group by ccc.CONVERSATION_CHILD_ID
 		order by count(ccc.CONVERSATION_CHILD_ID) desc) ccc on ccc.conversation_child_id = cc.id
 		limit 10
+	</select>
+	<select id="selectConversationChild" resultMap="BaseResultMap">
+		select * from conversation_child cc
+		<where>
+			1 = 1
+			<if test="title != null and title != ''">
+				AND title = #{title}
+			</if>
+		</where>
 	</select>
 </mapper>

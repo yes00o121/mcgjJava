@@ -119,7 +119,7 @@ public class UserService implements IUserService{
 			throw new RuntimeException("账号已存在");
 		}
 		//对密码进行加密
-		user.setPassword(MD5Util.getMD5(user.getPassword().getBytes()));
+		user.setPassword(MD5Util.getMD5(yan.concat(user.getPassword()).getBytes()));
 		this.insert(user);//将数据插入user表
 	}
 	/**
@@ -202,5 +202,8 @@ public class UserService implements IUserService{
 //		Integer id = userMapper.insertpachong(record);
 		// TODO Auto-generated method stub
 		return record.getId();
+	}
+	public static void main(String[] args) {
+		System.out.println(MD5Util.getMD5("yangchen123456".getBytes()));
 	}
 }	

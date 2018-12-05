@@ -24,7 +24,7 @@ import com.yc.Util;
  */
 public class Conversation {
 	
-	private String address = "http://127.0.0.1:8090";//本地服务器地址
+	private String address = "http://127.0.0.1:8090/mcgj";//本地服务器地址
 	
 	private String dwImg = "/common/image?imgId=";//下载图片
 	
@@ -44,7 +44,7 @@ public class Conversation {
 //	private static String HREF_REGULAR = "href=\"/p/.*\">";
 	private static String HREF_REGULAR = "href=\"/p([\"\']*)([^\"\']*[\"\'])";
 	
-	private Integer defaultLimit = 2;//默认下载的贴子数
+	private Integer defaultLimit = 1;//默认下载的贴子数
 	
 	public Conversation(){
 		

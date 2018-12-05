@@ -1,35 +1,20 @@
 package com.mcgj.web.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.PathParam;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.mcgj.entity.User;
 import com.mcgj.service.IUserService;
 import com.mcgj.utils.CommonUtil;
-import com.mcgj.utils.ExcelUtil;
 import com.mcgj.utils.MessageUtil;
 import com.mcgj.web.dto.ResultDTO;
 
@@ -43,6 +28,7 @@ public class UserController extends AbstractBaseController {
 
 	@Autowired
 	private IUserService userService;
+	
 
 	// @RequestMapping(value="/tset/{id}",method = RequestMethod.GET)
 	@RequestMapping("/test")
@@ -95,6 +81,7 @@ public class UserController extends AbstractBaseController {
 		try {
 			userService.register(user);
 			result.setMessage(MessageUtil.MSG_REGISTER_SUCCESS);
+			result.setResult(user);
 			result.setSuccess(true);
 			return result;
 		} catch (Exception e) {
@@ -276,5 +263,7 @@ public class UserController extends AbstractBaseController {
 			return 1;
 		}
 	}
+	
+
 	
 }

@@ -31,6 +31,16 @@ public class ConversationChild extends BaseEntity{
 	
 	private Integer conversationChildId;//对应的贴吧id
 	
+	private String photo;//用户头像
+	
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
 	public Integer getConversationChildId() {
 		return conversationChildId;
 	}
