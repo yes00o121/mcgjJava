@@ -16,7 +16,7 @@ import com.yc.spider.tieba.util.HttpClientUtil;
  */
 public class TieZiService {
 	
-	private int page = 10;//获取10页的贴子数据
+	private int page = 20;//获取10页的贴子数据
 	
 	private String serverIp;
 	
@@ -142,21 +142,40 @@ public class TieZiService {
 		//处理楼主头像
 		pattern = Pattern.compile("<img username=\".*?src=\".*?>");
 		matcher = pattern.matcher(html);
+		//如果是匿名用户这个贴子直接不要了
+		if(matcher.find(0)){
+			String img = matcher.group(0);
+			if(img.indexOf("src=\"http://tb.himg.baidu.com/sys/portrait/item/\"/>") != -1){
+				System.out.println("匿名用户数据直接不要.....");
+				System.out.println(img);
+				return;
+			}
+		}
 		if(matcher.find(0)){
 			String img = matcher.group(0);
 			photo = this.lcyh(img);
+			if(photo == null || "".equals(photo)){
+				System.out.println("照片.....");
+				System.out.println(photo);
+				System.out.println(img);
+			}
 		}
 		//处理用户名称
 		pattern = Pattern.compile("<a data-field.*?>.*?</a>");
 		matcher = pattern.matcher(html);
 		if(matcher.find(0)){
 			username = matcher.group(0).replaceAll("<a.*?>", "").replaceAll("</a>|<img.*?>", "");
+			if(username == null ||"".equals(username) ){
+				System.out.println("用户..........");
+				System.out.println(username);
+				System.out.println(matcher.group(0));
+			}
 		}
 		String yh = this.insertYh(photo,username);//插入用户数据
 		String id = JSONObject.parseObject(yh).getString("id");//获取用户主键
 		boolean state = this.insertTiezi(title,content,id);//插入贴子数据
 		if(!state){
-			System.out.println("贴子存在不处理"+title);
+//			System.out.println("贴子存在不处理"+title);
 			return;//贴子存在不处理楼层
 		}
 		//处理楼层数据
@@ -170,7 +189,14 @@ public class TieZiService {
 		String element = div.replaceAll("<a.*?>|</a>", "");//去除所有a
 		element = element.replaceAll("<img.*?static.*?>", "");//去除贴吧表情
 		element = element.replaceAll("<div.*?bdstatic.*?>", "");//去除不需要图片
+		element = element.replaceAll("<img.*?static.tieba.baidu.com.*?>", "");
+		element = element.replaceAll("<img.*?image_emoticon.*?>", "");
+		element = element.replaceAll("<img.*?bdstatic.*?>", "");//去除不需要图片
 		element = element.replaceAll("<img.*?gps0.*?>", "");//去除不需要图片
+//		System.out.println(element);
+		if(element.indexOf("static") != -1){
+			System.out.println(element);
+		}
 		//取出楼层的图片本地化
 		Pattern pattern = Pattern.compile("<img.*?>");
 		Matcher matcher = pattern.matcher(element);

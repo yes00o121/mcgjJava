@@ -2,8 +2,6 @@ package com.yc.spider.tieba.factory.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -15,8 +13,6 @@ import com.yc.spider.tieba.factory.ISpiderFactory;
 import com.yc.spider.tieba.util.ConnectionUtil;
 import com.yc.spider.tieba.util.HttpClientUtil;
 import com.yc.tieba.entity.Conversaion;
-
-import sun.java2d.pipe.SpanShapeRenderer.Simple;
 
 public class SpiderTieBaFactoryImpl implements ISpiderFactory{
 
@@ -127,7 +123,7 @@ public class SpiderTieBaFactoryImpl implements ISpiderFactory{
 			}
 			//插入贴吧数据
 //			System.out.println("conversationName="+conversaion.getConversaionName()+"&conversationType"+this.type+"&conversationType=1&createUserId=1&currentManageUserId=1&photo="+conversaion.getPhoto()+"&cardBanner="+conversaion.getCardBanner()+"&autograph="+conversaion.getAutograph());
-			String result = HttpClientUtil.sendGet(this.serverIp+"/spider/addConversation", "conversationName="+conversaion.getConversaionName()+"&conversationType"+this.type+"&conversationType=1&createUserId=1&currentManageUserId=1&photo="+conversaion.getPhoto()+(conversaion.getCardBanner()!= null ? "&cardBanner="+conversaion.getCardBanner() : "" )+(conversaion.getAutograph() != null ? "&autograph="+conversaion.getAutograph()+"":""));
+			String result = HttpClientUtil.sendGet(this.serverIp+"/spider/addConversation", "conversationName="+conversaion.getConversaionName()+"&conversationType"+this.type+"&conversationType="+this.type+"&createUserId=1&currentManageUserId=1&photo="+conversaion.getPhoto()+(conversaion.getCardBanner()!= null ? "&cardBanner="+conversaion.getCardBanner() : "" )+(conversaion.getAutograph() != null ? "&autograph="+conversaion.getAutograph()+"":""));
 			JSONObject parseObject = JSONObject.parseObject(result);
 			if(parseObject.getString("success").equals("false")){
 				throw new RuntimeException("插入贴吧数据异常:"+parseObject.getString("message"));
@@ -149,7 +145,7 @@ public class SpiderTieBaFactoryImpl implements ISpiderFactory{
 	
 	public static void main(String[] args) throws ParseException {
 		ISpiderFactory tiebaFactory = new SpiderTieBaFactoryImpl();
-		tiebaFactory.getDataList("相亲","3");
+		tiebaFactory.getDataList("美女","13");
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //		System.out.println(sdf.parse("2016-08-17 13:25"));;
 	}

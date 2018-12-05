@@ -122,7 +122,7 @@ public class CommonController extends AbstractBaseController{
 	@Async
 	@ResponseBody
 	public String upNetWorkImg(String url,HttpServletRequest request){
-		System.out.println(request.getRequestURI());
+//		System.out.println(request.getRequestURI());
 		HttpURLConnection conn = null;
 		String imgId = "";//Í¼Æ¬Ö÷¼ü
 		try {

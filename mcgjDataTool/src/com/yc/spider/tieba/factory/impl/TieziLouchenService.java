@@ -65,10 +65,14 @@ public class TieziLouchenService {
 			username.add(matcher.group().replaceAll("<a.*?>", "").replaceAll("</a>|<img.*?>", ""));
 		}
 		//获取楼层的时间
-		pattern = Pattern.compile("<span class=\"tail-info\">.*?-.*?-.*?:.*?</span>");
+		pattern = Pattern.compile("<span class=\"tail-info\">.*?-.*?-.*?:.*?</span>|[0-9]{4}[-][0-9]{1,2}[-][0-9]{1,2}[ ][0-9]{1,2}[:][0-9]{2}");
 		matcher = pattern.matcher(html);
 		while(matcher.find()){
-			String str = matcher.group().replaceAll(".*?tail-info\">", "").replaceAll("<.*?>", "");
+			String group = matcher.group();
+//			System.out.println(group);
+			String str = group.replaceAll(".*?tail-info\">", "").replaceAll("<.*?>", "");
+//			System.out.println(str);
+			
 			//转为date后转换为时间戳
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			try{
@@ -77,9 +81,8 @@ public class TieziLouchenService {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-//			System.out.println(time);
 		}
-//		System.out.println(username.size());
+//		System.out.println(username.size()+"-"+photo.size()+"-"+content.size()+"-"+date.size());
 //		System.out.println(photo.size());
 //		System.out.println(content.size());
 		if(photo.size() == username.size() && username.size() == content.size() && content.size() == photo.size()){
