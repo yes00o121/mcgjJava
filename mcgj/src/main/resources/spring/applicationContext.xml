@@ -17,14 +17,6 @@
 	<!-- 注解扫描 -->
 	<mvc:annotation-driven> 
     </mvc:annotation-driven>
-	<!-- 读取配置文件 -->
-	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath*:application.properties</value>
-            </list>
-        </property>
-    </bean>
 	
 	<!-- 实例化对象，解决@ResponseBody乱码问题 -->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  

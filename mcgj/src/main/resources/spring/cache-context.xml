@@ -14,9 +14,16 @@
 		p:connection-factory-ref="connectionFactory"/> -->
 	
 	<!-- 请自定义非Spring容器使用到的cache类 -->
-
+		<!-- 读取配置文件 -->
+	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath*:application.properties</value>
+            </list>
+        </property>
+    </bean>
     <bean id="redisUtil" class="com.mcgj.redis.JedisCacheBase" init-method="initialPool">
-    	<property name="addr"><value>127.0.0.1</value></property>
+    	<property name="addr"><value>${redis.address}</value></property>
         <property name="port"><value>6379</value></property>
         <property name="auth"><value></value></property>
         <property name="maxIdle"><value>200</value></property>

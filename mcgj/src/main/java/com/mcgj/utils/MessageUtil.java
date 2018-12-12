@@ -80,4 +80,6 @@ public class MessageUtil implements Serializable{
 	public static final String MSG_SECURITY_ECODE_ERROR = "加密失败";
 	
 	public static final String MSG_CONVERSAION_NOT_EXISTENT = "贴吧不存在";
+	
+	public static final String MSG_GET_SYSTEMCONFIG_ERROR = "获取系统配置异常";
 }
