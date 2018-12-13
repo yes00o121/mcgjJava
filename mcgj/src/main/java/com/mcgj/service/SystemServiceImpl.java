@@ -3,7 +3,7 @@ package com.mcgj.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mcgj.dao.SystemConfigDAO;
+import com.mcgj.dao.SystemConfigMapper;
 import com.mcgj.entity.SystemConfig;
 import com.mcgj.utils.MessageUtil;
 
@@ -18,7 +18,7 @@ import com.mcgj.utils.MessageUtil;
 public class SystemServiceImpl implements ISystemConfigService{
 	
 	@Autowired
-	private SystemConfigDAO systemConfigDAO;
+	private SystemConfigMapper systemConfigDAO;
 
 	@Override
 	public void delete(Integer id) {
@@ -42,11 +42,12 @@ public class SystemServiceImpl implements ISystemConfigService{
 
 	@Override
 	public String selectSystemConfigByKey(String key) {
-		SystemConfig systemConfig = systemConfigDAO.selectSystemConfigByKey(key);
-		if(systemConfig == null){
-			throw new RuntimeException(MessageUtil.MSG_GET_SYSTEMCONFIG_ERROR);
-		}
-		return systemConfig.getValue();
+		return null;
+//		SystemConfig systemConfig = systemConfigDAO.selectSystemConfigByKey(key);
+//		if(systemConfig == null){
+//			throw new RuntimeException(MessageUtil.MSG_GET_SYSTEMCONFIG_ERROR);
+//		}
+//		return systemConfig.getValue();
 	}
 
 }

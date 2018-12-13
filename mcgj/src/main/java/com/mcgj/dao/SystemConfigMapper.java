@@ -1,5 +1,7 @@
 package com.mcgj.dao;
 
+import java.util.List;
+
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.SystemConfig;
 
@@ -10,12 +12,11 @@ import com.mcgj.entity.SystemConfig;
  * @address 合肥
  *
  */
-public interface SystemConfigDAO extends BaseService<SystemConfig, Integer>{
+public interface SystemConfigMapper extends BaseService<SystemConfig, Integer>{
 	
 	/**
-	 * 根据key获取配置的值
-	 * @param key
+	 * 查询所有数据
 	 * @return
 	 */
-	SystemConfig selectSystemConfigByKey(String key);
+	List<SystemConfig> selectAll();
 }

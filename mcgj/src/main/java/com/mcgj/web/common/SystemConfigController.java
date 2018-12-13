@@ -1,10 +1,10 @@
 package com.mcgj.web.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mcgj.service.ISystemConfigService;
+import com.mcgj.utils.SystemConfigUtil;
 
 /**
  * œµÕ≥≈‰÷√øÿ÷∆∆˜
@@ -16,11 +16,9 @@ import com.mcgj.service.ISystemConfigService;
 @RequestMapping("/systemConfig")
 public class SystemConfigController {
 	
-	@Autowired
-	private ISystemConfigService systemConfigService;
-	
-	public String getSystemConfigByKey(String key){
-		
-		return null;
+	@RequestMapping("/selectSystemConfigByKey")
+	@ResponseBody
+	public String selectSystemConfigByKey(String key){
+		return SystemConfigUtil.getSystemConfigByKey(key);
 	}
 }

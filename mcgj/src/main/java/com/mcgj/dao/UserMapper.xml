@@ -10,6 +10,8 @@
 		<result column="create_date" property="createDate" jdbcType="DATE" />
 		<result column="modify_date" property="modifyDate" jdbcType="DATE" />
 		<result column="photo" property="photo" jdbcType="VARCHAR" />
+		<result column="background" property="background" jdbcType="VARCHAR" />
+		<result column="card" property="card" jdbcType="VARCHAR" />
 		<result column="state" property="state" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">

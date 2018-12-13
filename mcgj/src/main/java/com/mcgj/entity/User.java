@@ -22,6 +22,10 @@ public class User extends BaseEntity{
 	
 	private String photo;//用户头像，照片
 	
+	private String background;//个人中心背景图片
+	
+	private String card;//卡片横幅
+	
 	//扩展字段
 	
 	private String browser;//使用浏览器
@@ -30,6 +34,26 @@ public class User extends BaseEntity{
 	
 	private String ip;//用户ip
 	
+	public String getBackground() {
+		return background;
+	}
+
+	public void setBackground(String background) {
+		this.background = background;
+	}
+
+	public String getCard() {
+		return card;
+	}
+
+	public void setCard(String card) {
+		this.card = card;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public String getIp() {
 		return ip;
 	}
