@@ -31,7 +31,7 @@ public class SystemConfigUtil {
 	public static String getSystemConfigByKey(String key){
 		return values.get(key);
 	}
-	
+		
 	//À¢–¬≈‰÷√ ˝æ›
 	public  static void reload(){
 		SystemConfigMapper systemConfigDAO = (SystemConfigMapper)SpringUtil.getBean(SystemConfigMapper.class);

@@ -145,7 +145,7 @@ public class SpiderTieBaFactoryImpl implements ISpiderFactory{
 	
 	public static void main(String[] args) throws ParseException {
 		ISpiderFactory tiebaFactory = new SpiderTieBaFactoryImpl();
-		tiebaFactory.getDataList("美女","13");
+		tiebaFactory.getDataList("高圆圆","1");
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //		System.out.println(sdf.parse("2016-08-17 13:25"));;
 	}
