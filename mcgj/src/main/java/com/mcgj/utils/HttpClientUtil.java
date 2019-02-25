@@ -2,13 +2,19 @@ package com.mcgj.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.log4j.Logger;
+
 
 public class HttpClientUtil {
+	
+	private static Logger log = Logger.getLogger(HttpClientUtil.class);
     
     /***
      * 使用get请求获取数据
@@ -38,6 +44,7 @@ public class HttpClientUtil {
                 result += line;
             }
         } catch (Exception e) {
+        	log.error(e);
 //            LoggerUtil.error(HttpClientUtil.class, e.getMessage(), e);
         }
         // 使用finally块来关闭输入流
@@ -47,6 +54,7 @@ public class HttpClientUtil {
                     in.close();
                 }
             } catch (Exception e2) {
+            	log.error(e2);
 //                LoggerUtil.error(HttpClientUtil.class, e2.getMessage(), e2);
             }
         }
@@ -88,6 +96,7 @@ public class HttpClientUtil {
                 result += line;
             }
         } catch (Exception e) {
+        	log.error(e);
 //            LoggerUtil.error(HttpClientUtil.class, e.getMessage(), e);
         }
         //使用finally块来关闭输出流、输入流
@@ -100,6 +109,7 @@ public class HttpClientUtil {
                     in.close();
                 }
             }catch(IOException ex){
+            	log.error(ex);
 //                LoggerUtil.error(HttpClientUtil.class, ex.getMessage(), ex);
             }
         }
@@ -107,11 +117,31 @@ public class HttpClientUtil {
     }
     
     /**
-     * 上传图片方法
-     * @return 图片主键
+     * 获取远程文件流
+     * @param url
+     * @return
      */
-    public String upImg(String url){
-    	
+    public static InputStream getFileInputStream(String url){
+    	try {
+    		url = url.startsWith("//") ? url.replaceAll("//", "http://") : url;
+    		url = url.startsWith("http://") ? url : url.replaceAll(url, "http://" + url);
+    		URL realUrl = new URL(url);
+    		HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
+    		System.out.println(conn.getResponseCode());
+        	if(conn.getResponseCode() == 200){
+        		return conn.getInputStream();
+        	}else{
+        		throw new RuntimeException(MessageUtil.MSG_GET_FILEINPUTSTREAM_ERROR);
+        	}
+		} catch (Exception e) {
+			log.error(e);
+		}finally {
+			
+		}
     	return null;
     }
+    public static void main(String[] args) {
+		String url = "tb1.bdstatic.com/tb/cms/frs/bg/default_head20141014.jpg";
+		getFileInputStream(url);
+	}
 }

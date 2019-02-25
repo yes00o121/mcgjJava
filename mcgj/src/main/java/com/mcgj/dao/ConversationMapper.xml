@@ -78,13 +78,13 @@
 				<if test="conversationType != null">
 					conversation_type = #{conversationType},
 				</if>
-				<if test="photo != null">
+				<if test="photo != null and photo != ''">
 					photo = #{photo},
 				</if>
-				<if test = "background != null">
+				<if test = "background != null and background != ''">
 					background =#{background},
 				</if>
-				<if test = "cardBanner != null">
+				<if test = "cardBanner != null and cardBanner != ''">
 					card_banner = #{cardBanner},
 				</if>
 				<if test="autograph != null">

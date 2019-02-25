@@ -26,5 +26,4 @@ public class AbstractBaseController {
 	public String uploadFile(MultipartFile file) throws Exception{
 		return "/common/image?imgId="+mongoDBRemoteFileService.upload(file.getInputStream());
 	}
-	
 }

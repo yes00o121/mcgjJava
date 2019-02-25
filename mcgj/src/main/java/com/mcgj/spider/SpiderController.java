@@ -1,5 +1,6 @@
 package com.mcgj.spider;
 
+import java.io.InputStream;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -18,7 +19,9 @@ import com.mcgj.entity.ConversationChildChild;
 import com.mcgj.entity.User;
 import com.mcgj.service.IConversationChildService;
 import com.mcgj.service.IUserService;
+import com.mcgj.utils.HttpClientUtil;
 import com.mcgj.utils.MessageUtil;
+import com.mcgj.utils.StringUtil;
 import com.mcgj.web.controller.AbstractBaseController;
 import com.mcgj.web.dto.ResultDTO;
 
@@ -74,18 +77,74 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * 
+	 * 插入贴吧数据
 	 */
 	@RequestMapping("/addConversation")
 	@ResponseBody
 	public ResultDTO addConversation(Conversation conversation){
 		try {
-			conversationMapper.insert(conversation);// 插入贴吧
+			//判断贴吧是否存在,存在不进行插入操作,在判断其他数据是否变更,变更了更新当前记录
+			Conversation con = conversationMapper.selectConversation(conversation);
+			if(con != null){
+				//头像和横幅已经本地化,无从得知原先的地址是多少,目前只能通过签名来判断贴吧更新,就是改了头像和横幅的时候检测不到贴吧基本信息的变更
+				if(StringUtil.isNotEmpty(conversation.getAutograph()) && !conversation.getAutograph().equals(con.getAutograph())){
+					//将头像和横幅本地化
+					if(StringUtil.isNotEmpty(conversation.getPhoto())){
+						InputStream isPhoto = HttpClientUtil.getFileInputStream(conversation.getPhoto());
+						String photo = mongoDBRemoteFileService.upload(isPhoto);
+						if(isPhoto != null){
+							isPhoto.close();
+						}
+						con.setPhoto(photo);
+					}else{
+						con.setPhoto(null);
+					}
+					if(StringUtil.isNotEmpty(conversation.getCardBanner())){
+						InputStream isCardBanner = HttpClientUtil.getFileInputStream(conversation.getCardBanner());
+						String cardBanner = mongoDBRemoteFileService.upload(isCardBanner);
+						if(isCardBanner != null){
+							isCardBanner.close();
+						}
+						con.setCardBanner(cardBanner);
+					}else{
+						con.setCardBanner(null);
+					}
+					con.setModifyDate(new Date());
+					con.setAutograph(conversation.getAutograph());
+					conversationMapper.update(con);
+				}
+			}else{
+				//将头像和横幅本地化
+				if(StringUtil.isNotEmpty(conversation.getPhoto())){
+					InputStream isPhoto = HttpClientUtil.getFileInputStream(conversation.getPhoto());
+					String photo = mongoDBRemoteFileService.upload(isPhoto);
+					if(isPhoto != null){
+						isPhoto.close();
+					}
+					conversation.setPhoto(photo);
+				}else{
+					conversation.setPhoto(null);
+				}
+				if(StringUtil.isNotEmpty(conversation.getCardBanner())){
+					InputStream isCardBanner = HttpClientUtil.getFileInputStream(conversation.getCardBanner());
+					String cardBanner = mongoDBRemoteFileService.upload(isCardBanner);
+					if(isCardBanner != null){
+						isCardBanner.close();
+					}
+					conversation.setCardBanner(cardBanner);
+				}else{
+					conversation.setCardBanner(null);
+				}
+				conversationMapper.insert(conversation);// 插入贴吧
+			}
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS, true, conversation);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResultDTO(MessageUtil.MSG_INSERT_FAILED, false, null);
 		}
+		
+	}
+	public static void main(String[] args) {
 		
 	}
 	

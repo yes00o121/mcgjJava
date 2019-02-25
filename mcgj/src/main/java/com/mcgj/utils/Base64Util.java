@@ -81,9 +81,9 @@ public class Base64Util {
 	}
 	
 	public static void main(String[] args) {
-		String con = getPicBASE64("E://timg.jpg");
-		System.out.println(con);
-		getPicFormatBASE64(con, "E://timg2.jpg");
+//		String con = getPicBASE64("E://timg.jpg");
+//		System.out.println(con);
+//		getPicFormatBASE64(con, "E://timg2.jpg");
 //		File file = new File("E://timg2.jpg");
 		
 	}
