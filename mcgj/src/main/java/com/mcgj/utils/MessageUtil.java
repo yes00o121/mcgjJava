@@ -84,4 +84,8 @@ public class MessageUtil implements Serializable{
 	public static final String MSG_GET_SYSTEMCONFIG_ERROR = "获取系统配置异常";
 	
 	public static final String MSG_GET_FILEINPUTSTREAM_ERROR = "获取文件流失败";
+	
+	public static final String MSG_UPLOAD_FILE_ERROR = "上传文件异常";
+	
+	public static final String MSG_CLOSE_STREAM_ERROR = "关闭文件流异常";
 }

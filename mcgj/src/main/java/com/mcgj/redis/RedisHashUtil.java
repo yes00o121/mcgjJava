@@ -47,6 +47,74 @@ public class RedisHashUtil extends JedisCacheBase2{
 
 	        return l;
 	    }
+	    
+	    /**
+	     * 添加list数据
+	     * @param key
+	     * @param value
+	     * @return
+	     */
+	    public static Long put(String key, String value) {
+	        if (value == null) {
+	            return Long.valueOf(0L);
+	        }
+	        Long l = null;
+	        Jedis jedis = getConn();
+	        try {
+	            l = jedis.lpush(key, value);
+	        } catch (Exception e) {
+	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
+	        } finally {
+	        	closeConn(jedis);
+	        }
+
+	        return l;
+	    }
+	    
+	    /**
+	     * 获取list数据
+	     * @param key
+	     * @param value
+	     * @return
+	     */
+	    public static List<String> getListAll(String key) {
+	        if (key == null) {
+	            return null;
+	        }
+	        List<String> l = null;
+	        Jedis jedis = getConn();
+	        try {
+	            l = jedis.lrange(key, 0, -1);
+	        } catch (Exception e) {
+	        	log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR, e);
+	        } finally {
+	        	closeConn(jedis);
+	        }
+
+	        return l;
+	    }
+	    
+	    /**
+	     * 判断某个值是否存在list中
+	     * @param key
+	     * @param value
+	     * @return
+	     */
+	    public static boolean isExistList(String key,String value){
+	    	if(key == null){
+	    		return false;
+	    	}
+	    	try {
+	    		List<String> list = getListAll(key);
+	    		if(list.contains(value)){
+	    			return true;
+	    		}
+			} catch (Exception e) {
+				log.error(MessageUtil.MSG_OPERATION_CACHE_ERROR);
+			}
+	    	return false;
+	    }
+	    
 	    /**
 	     * 写入过期数据
 	     * @param key

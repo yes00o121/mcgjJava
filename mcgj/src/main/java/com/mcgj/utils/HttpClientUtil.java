@@ -6,10 +6,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
 import org.apache.log4j.Logger;
+
+import com.mcgj.web.websocket.Message;
 
 
 public class HttpClientUtil {
@@ -140,8 +143,31 @@ public class HttpClientUtil {
 		}
     	return null;
     }
+    
+    /**
+     * »ñÈ¡ÍøÕ¾µÄhost
+     * @param url
+     * @return
+     */
+    public static String getHost(String url){
+    	try {
+			URL ul = new URL(url);
+			return ul.getHost();
+		} catch (Exception e) {
+			log.error(MessageUtil.MSG_UNKONW_ERROR);
+		}
+    	return null;
+    }
+    
     public static void main(String[] args) {
-		String url = "tb1.bdstatic.com/tb/cms/frs/bg/default_head20141014.jpg";
-		getFileInputStream(url);
+		String url = "http://tb1.bdstatic.com/tb/cms/frs/bg/default_head20141014.jpg";
+		try {
+			URL ul = new URL(url);
+			System.out.println(ul.getHost());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		System.out.println();
+//		getFileInputStream(url);
 	}
 }

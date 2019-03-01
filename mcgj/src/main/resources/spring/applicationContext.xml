@@ -45,4 +45,5 @@
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
 		<bean class="com.mcgj.interceptor.PermissionInterceptor"/>
 	</mvc:interceptors>
+	<import resource="classpath:spring/initBean.xml"/>
 </beans>
