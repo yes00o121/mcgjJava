@@ -210,4 +210,15 @@ public class SpiderController extends AbstractBaseController{
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS, false, null);
 		}
 	}
+	
+	/**
+	 * 注册,返回主键
+	 * @return
+	 */
+	@RequestMapping("/register")
+	@ResponseBody
+	public Integer register(User user){
+		//获取用户名称判断是否存在,存在直接返回,反之插入数据
+		return userService.selectIsExists(user.getAccount(), user.getPhoto());
+	}
 }

@@ -62,10 +62,15 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			return true;
 		}else if ("/common/upNetWorkImg".equals(url)) {// 上传网络图片
 			return true;
-		}/*else if(url.indexOf("add") !=-1){
-			//爬虫插入数据，暂时开启，后期根据token来判断
-			return true;
-		}*/
+		}
+		//如果参数中的爬虫key和配置中的一致,给予通过
+		String token = request.getParameter("spiderToken");
+		if(token != null){
+			String spiderKey = PropertiesUtil.get("delay.properties", "spider_key");
+			if(token.equals(spiderKey)){
+				return true;
+			}
+		}
 		//除以上接口之外其他接口都需要用户登录后才能进行操作
 		return loginLegitimate(request, response);// 拦截用户的登录状态
 //		return true;

@@ -16,4 +16,7 @@
  			<include refid="Base_Column_List" />
  		from file_repertory
  	</select>
+ 	<select id="insert" parameterType="com.mcgj.entity.FileRepertory">
+ 		INSERT INTO file_repertory(id,source,address,create_date,mongodbId)VALUES(#{id},#{source},#{address},#{createDate},#{mongodbId})
+ 	</select>
 </mapper>

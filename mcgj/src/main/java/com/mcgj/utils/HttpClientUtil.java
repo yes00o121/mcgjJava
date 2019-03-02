@@ -130,7 +130,6 @@ public class HttpClientUtil {
     		url = url.startsWith("http://") ? url : url.replaceAll(url, "http://" + url);
     		URL realUrl = new URL(url);
     		HttpURLConnection conn = (HttpURLConnection) realUrl.openConnection();
-    		System.out.println(conn.getResponseCode());
         	if(conn.getResponseCode() == 200){
         		return conn.getInputStream();
         	}else{

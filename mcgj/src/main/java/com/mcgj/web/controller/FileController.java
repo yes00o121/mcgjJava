@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mcgj.dao.FileRepertoryMapper;
 import com.mcgj.entity.FileRepertory;
@@ -38,7 +39,8 @@ public class FileController extends AbstractBaseController{
 	 * @return
 	 */
 	@RequestMapping("/upLoadRemoteFile")
-	public String upLoadRemoteFile(@RequestParam("url") String url){
+	@ResponseBody
+	public synchronized String  upLoadRemoteFile(@RequestParam("url") String url){
 		
 		Object mongoId = RedisHashUtil.get(PropertiesUtil.get("redisConifg.properties","fileRepertory" ), url);
 		//判断缓存中是否有该图片,没有插入数据库和缓存
@@ -53,6 +55,7 @@ public class FileController extends AbstractBaseController{
 			FileRepertory record = new FileRepertory(HttpClientUtil.getHost(url),url,mondoid);
 			//将数据插入
 			fileRepertoryMapper.insert(record);
+			RedisHashUtil.put(PropertiesUtil.get("redisConifg.properties", "fileRepertory"), url, mondoid);
 			return mondoid;
 		} catch (Exception e) {
 			log.error(MessageUtil.MSG_UPLOAD_FILE_ERROR);
