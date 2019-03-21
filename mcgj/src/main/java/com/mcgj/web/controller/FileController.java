@@ -58,7 +58,8 @@ public class FileController extends AbstractBaseController{
 			RedisHashUtil.put(PropertiesUtil.get("redisConifg.properties", "fileRepertory"), url, mondoid);
 			return mondoid;
 		} catch (Exception e) {
-			log.error(MessageUtil.MSG_UPLOAD_FILE_ERROR);
+			log.error(MessageUtil.MSG_UPLOAD_FILE_ERROR + ":"+url);
+			return null;
 		}finally {
 			if(fileInputStream != null){
 				try {
@@ -68,8 +69,6 @@ public class FileController extends AbstractBaseController{
 				}
 			}
 		}
-		return null;
-		
 	}
 //	@RequestMapping("/select")
 //	public void select(){

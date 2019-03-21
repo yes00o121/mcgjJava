@@ -131,8 +131,8 @@ public class CommonController extends AbstractBaseController{
 			if(conn.getResponseCode() == 200){
 				//获取正常,获取图片流
 				InputStream inputStream = conn.getInputStream();
-				System.out.println(inputStream);
-				System.out.println("图片上传成功:"+imgId);
+//				System.out.println("图片上传成功:"+imgId);
+				log.info("图片上传成功:"+imgId);
 				//上传图片
 				imgId = mongoDBRemoteFileService.upload(inputStream);
 				inputStream.close();//关闭输入流

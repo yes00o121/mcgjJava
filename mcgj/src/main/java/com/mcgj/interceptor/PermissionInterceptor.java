@@ -139,7 +139,6 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			result.setSuccess(false);
 			result.setState(2);// ״̬Ϊfalse
 			result.setMessage(new String(MessageUtil.MSG_CONVERSATION_OVERTIME.getBytes("utf-8")));
-//			pw.append(new String(JSONObject.toJSONString(result).getBytes("utf-8")));
 			pw.append(JSONObject.toJSONString(result));
 			pw.flush();
 			pw.close();

@@ -153,6 +153,7 @@
 		GROUP BY CCC.CONVERSATION_CHILD_ID
 		ORDER BY CC.CREATE_DATE DESC
  	</select>
+ 	<!-- 根据日期查询前十条数据   -->
  	<select id="selectMaxConversationChildByDay" resultType = "com.mcgj.entity.ConversationChild">
 		select 
 			cc.id,
@@ -167,12 +168,16 @@
 		order by count(ccc.CONVERSATION_CHILD_ID) desc) ccc on ccc.conversation_child_id = cc.id
 		limit 10
 	</select>
+	<!-- 查询贴子数据 -->
 	<select id="selectConversationChild" resultMap="BaseResultMap">
 		select * from conversation_child cc
 		<where>
 			1 = 1
 			<if test="title != null and title != ''">
 				AND title = #{title}
+			</if>
+			<if test="conversationId != null and conversationId != ''">
+				AND conversation_id =  #{conversationId}
 			</if>
 		</where>
 	</select>

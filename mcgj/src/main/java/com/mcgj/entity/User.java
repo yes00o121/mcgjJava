@@ -1,11 +1,5 @@
 package com.mcgj.entity;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 public class User extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
@@ -117,33 +111,4 @@ public class User extends BaseEntity{
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-//	static List<String> list = new ArrayList<String>();
-	static List<String> list = Collections.synchronizedList(new ArrayList<String>());
-	public static void main(String[] args) throws InterruptedException, IOException {
-//		List<String> list = new ArrayList<String>();
-		long start = new Date().getTime();
-		System.out.println(Thread.currentThread().getId());
-//		myTest m = new myTest();
-		Thread m = new Thread(new myTest());
-		m.start();
-//		myTest m2 = new myTest();
-		System.out.println("¹þ¹þ");
-//		m2.run();
-//		m2.start();
-		long end = new Date().getTime();
-//		System.out.println(end-start);
-		
-	}
-}
-class myTest implements Runnable{
-
-	private static int num = 0;
-	public  myTest() {
-		num++;
-	}
-	@Override
-	public void run() {
-		System.out.println(num+"Ïß³ÌÖ´ÐÐ...."+Thread.currentThread().getId());
-	}
-	
 }

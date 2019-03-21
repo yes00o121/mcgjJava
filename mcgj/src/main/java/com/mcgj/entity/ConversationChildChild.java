@@ -1,4 +1,8 @@
 package com.mcgj.entity;
+
+import com.mcgj.utils.CharUtil;
+import com.mcgj.utils.StringUtil;
+
 /**
  * 帖子楼层实体类
  * @author ad
@@ -91,7 +95,7 @@ public class ConversationChildChild extends BaseEntity{
 	}
 
 	public String getContent() {
-		return content;
+		return StringUtil.isNotEmpty(content) ? CharUtil.filterStr4Char(content, null) : null;
 	}
 
 	public void setContent(String content) {

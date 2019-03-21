@@ -2,6 +2,9 @@ package com.mcgj.entity;
 
 import java.util.Date;
 
+import com.mcgj.utils.CharUtil;
+import com.mcgj.utils.StringUtil;
+
 /**
  * 贴吧子帖子实体类
  * @author ad
@@ -98,7 +101,7 @@ public class ConversationChild extends BaseEntity{
 	}
 
 	public String getTitle() {
-		return title;
+		return StringUtil.isNotEmpty(title) ? CharUtil.filterStr4Char(title, null) : null;
 	}
 
 	public void setTitle(String title) {
@@ -106,7 +109,7 @@ public class ConversationChild extends BaseEntity{
 	}
 
 	public String getContent() {
-		return content;
+		return StringUtil.isNotEmpty(content) ? CharUtil.filterStr4Char(content, null) : null;
 	}
 
 	public void setContent(String content) {

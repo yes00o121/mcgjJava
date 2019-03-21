@@ -174,11 +174,15 @@ public class SpiderController extends AbstractBaseController{
 	@ResponseBody
 	public ResultDTO insertConversationChild(ConversationChild conversationChild){
 		try {
-//			conversationChild.setContent(conversationChild.getContent());
+			//判断贴子在该贴吧是否存在,存在直接返回,不存在插入数据
+			ConversationChild cc = conversationChildMapper.selectConversationChild(conversationChild);
+			if(cc != null){
+				return new ResultDTO(MessageUtil.MSG_UNKONW_SUCCESS, true, cc);
+			}
 			conversationChildMapper.insert(conversationChild);//插入帖子
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS,true,conversationChild);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 			return new ResultDTO(MessageUtil.MSG_INSERT_FAILED,false,null);
 		}
 	}
