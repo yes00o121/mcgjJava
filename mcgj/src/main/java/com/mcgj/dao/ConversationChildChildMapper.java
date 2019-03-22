@@ -28,4 +28,11 @@ public interface ConversationChildChildMapper extends BaseService<ConversationCh
 	 * @param userId
 	 */
 	void updateConversationChildChildReplyByUerId(Integer userId);
+	
+	/**
+	 * ²éÑ¯Â¥²ãÊý¾Ý
+	 * @param conversationChildChild
+	 * @return
+	 */
+	ConversationChildChild selectConversationChildChild(ConversationChildChild conversationChildChild);
 }

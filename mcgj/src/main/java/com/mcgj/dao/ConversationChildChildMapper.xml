@@ -52,4 +52,23 @@
 					where cc.user_id = #{userId} and ccc.is_look = 0) cc on cc.id = ccc.id
 		  set ccc.is_look = 1 
 	</update>
+	<!-- 查询楼层数据 -->
+	<select id="selectConversationChildChild" resultType="com.mcgj.entity.ConversationChildChild">
+		select 
+			id
+		from
+		conversation_child_child
+		<where>
+			1 = 1
+			<if test="createDate != null">
+				AND DATE_FORMAT(create_date,'%Y-%m-%d %H:%i') = DATE_FORMAT(#{createDate},'%Y-%m-%d %H:%i') 
+			</if>
+			<if test="userId != null and userId != ''">
+				AND user_id = #{userId}
+			</if>
+			<if test="conversationChildId != null and conversationChildId != ''">
+				AND conversation_child_id = #{conversationChildId}
+			</if>
+		</where>
+	</select>
 </mapper>

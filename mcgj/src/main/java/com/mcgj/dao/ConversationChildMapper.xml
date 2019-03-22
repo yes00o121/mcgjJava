@@ -170,15 +170,18 @@
 	</select>
 	<!-- 查询贴子数据 -->
 	<select id="selectConversationChild" resultMap="BaseResultMap">
-		select * from conversation_child cc
+		select 
+			cc.id,
+			cc.user_id,
+			cc.title,
+			cc.content
+		from conversation_child cc
 		<where>
 			1 = 1
-			<if test="title != null and title != ''">
 				AND title = #{title}
-			</if>
-			<if test="conversationId != null and conversationId != ''">
 				AND conversation_id =  #{conversationId}
-			</if>
+				AND user_id = #{userId}
+				AND id = #{id}
 		</where>
 	</select>
 </mapper>

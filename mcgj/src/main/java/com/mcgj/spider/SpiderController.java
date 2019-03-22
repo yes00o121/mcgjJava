@@ -144,9 +144,6 @@ public class SpiderController extends AbstractBaseController{
 		}
 		
 	}
-	public static void main(String[] args) {
-		
-	}
 	
 	@RequestMapping("/selectConversation")
 	@ResponseBody
@@ -206,6 +203,24 @@ public class SpiderController extends AbstractBaseController{
 	@ResponseBody
 	public ResultDTO addConversationChildChild(ConversationChildChild conversationChildChild,String time){
 		try {
+			//判断这条楼层数据是否存在,不存在插入数据，不然直接退出
+			conversationChildChild.setCreateDate(new Date(Long.parseLong(time)));
+			ConversationChildChild ccc = conversationChildChildMapper.selectConversationChildChild(conversationChildChild);
+			if(ccc != null){
+				return new ResultDTO(MessageUtil.MSG_UNKONW_SUCCESS,true,null);
+			}
+			//判断用户是否是楼主
+			ConversationChild cc = new ConversationChild();
+			cc.setUserId(conversationChildChild.getUserId());
+			cc.setId(conversationChildChild.getConversationChildId());
+			cc = conversationChildMapper.selectConversationChild(cc);
+			if(cc != null){
+				//是楼主
+				conversationChildChild.setIsManage(1);
+			}else{
+				//不是楼主
+				conversationChildChild.setIsManage(0);
+			}
 			conversationChildChild.setCreateDate(new Date(Long.parseLong(time)));//转换时间
 			conversationChildChildMapper.insert(conversationChildChild);//插入楼层
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS, true, null);
@@ -224,5 +239,8 @@ public class SpiderController extends AbstractBaseController{
 	public Integer register(User user){
 		//获取用户名称判断是否存在,存在直接返回,反之插入数据
 		return userService.selectIsExists(user.getAccount(), user.getPhoto());
+	}
+	public static void main(String[] args) {
+		System.out.println(new Date(1457965140000L));
 	}
 }
