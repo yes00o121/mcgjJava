@@ -17,7 +17,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter
+import org.springframework.stereotype.Component;
+
+@Component
+@WebFilter(filterName="mcgjFilter",urlPatterns = "/*")
 public class MCGJFilter implements Filter {
 
 	public void destroy() {
@@ -45,7 +48,7 @@ public class MCGJFilter implements Filter {
 				String paramValue = entry.getValue();
 				uri = uri + "&" + paramName + "=" + paramValue;
 			}
-//			System.out.println(uri);
+			System.out.println(uri);
 			response.setHeader("Access-Control-Allow-Origin", "*");// 添加跨域访问权限
 			response.setHeader("Access-Control-Allow-Credentials", "true");
 			// 响应头设置
