@@ -6,16 +6,16 @@ import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.SystemConfig;
 
 /**
- * ÏµÍ³ÅäÖÃdaoÓ³Éä½Ó¿Ú
- * @author Ñî³¿
+ * ç³»ç»Ÿé…ç½®daoæ˜ å°„æ¥å£
+ * @author æ¨æ™¨
  * @create_date 2018-12-05 12:33
- * @address ºÏ·Ê
+ * @address åˆè‚¥
  *
  */
 public interface SystemConfigMapper extends BaseService<SystemConfig, Integer>{
 	
 	/**
-	 * ²éÑ¯ËùÓĞÊı¾İ
+	 * æŸ¥è¯¢æ‰€æœ‰æ•°æ®
 	 * @return
 	 */
 	List<SystemConfig> selectAll();

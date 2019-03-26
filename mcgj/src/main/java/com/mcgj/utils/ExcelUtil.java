@@ -8,9 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.crypto.dsig.Transform;
-
-import org.apache.commons.collections4.map.TransformedMap;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,14 +16,14 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
- * excel¹¤¾ß
+ * excelå·¥å…·
  * @author ad
  *
  */
 public class ExcelUtil {
 	
 	/**
-	 * @param fileName Â·¾¶
+	 * @param fileName è·¯å¾„
 	 * @param sheet	sheet
 	 * @return
 	 */
@@ -35,14 +32,14 @@ public class ExcelUtil {
 			Workbook workbook = null;
 			File file  = new File(fileName);
 			if(!file.exists()){
-				return null;//ÎÄ¼ş²»´æÔÚ
+				return null;//æ–‡ä»¶ä¸å­˜åœ¨
 			}
 			InputStream fis = new FileInputStream(file);
-			/** ¶ÔÎÄ¼şµÄºÏ·¨ĞÔ½øĞĞÑéÖ¤ */
+			/** å¯¹æ–‡ä»¶çš„åˆæ³•æ€§è¿›è¡ŒéªŒè¯ */
 			if (file.getName().matches("^.+\\.(?i)(xlsx)$")) {
 				workbook = new XSSFWorkbook(fis);
 			}
-			/** ¶ÔÎÄ¼şµÄºÏ·¨ĞÔ½øĞĞÑéÖ¤ */
+			/** å¯¹æ–‡ä»¶çš„åˆæ³•æ€§è¿›è¡ŒéªŒè¯ */
 			if (file.getName().matches("^.+\\.(?i)(xls)$")) {
 				workbook = new HSSFWorkbook(fis);
 			}
@@ -54,7 +51,7 @@ public class ExcelUtil {
 	}
 	
 	/**
-	 * @param fileName Â·¾¶
+	 * @param fileName è·¯å¾„
 	 * @param sheet	sheetNum
 	 * @return
 	 */
@@ -63,14 +60,14 @@ public class ExcelUtil {
 			Workbook workbook = null;
 			File file  = new File(fileName);
 			if(!file.exists()){
-				return null;//ÎÄ¼ş²»´æÔÚ
+				return null;//æ–‡ä»¶ä¸å­˜åœ¨
 			}
 			InputStream fis = new FileInputStream(file);
-			/** ¶ÔÎÄ¼şµÄºÏ·¨ĞÔ½øĞĞÑéÖ¤ */
+			/** å¯¹æ–‡ä»¶çš„åˆæ³•æ€§è¿›è¡ŒéªŒè¯ */
 			if (file.getName().matches("^.+\\.(?i)(xlsx)$")) {
 				workbook = new XSSFWorkbook(fis);
 			}
-			/** ¶ÔÎÄ¼şµÄºÏ·¨ĞÔ½øĞĞÑéÖ¤ */
+			/** å¯¹æ–‡ä»¶çš„åˆæ³•æ€§è¿›è¡ŒéªŒè¯ */
 			if (file.getName().matches("^.+\\.(?i)(xls)$")) {
 				workbook = new HSSFWorkbook(fis);
 			}
@@ -81,33 +78,33 @@ public class ExcelUtil {
 			return null;
 		}
 	}
-	//½«list×ªÎªMap
+	//å°†listè½¬ä¸ºMap
 	private static Map<String,ArrayList<String>> transformMap(List<ArrayList<String>> list){
 		Map<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
 		for(int i=0;i<list.size();i++){
-			//¼ÌĞø±éÀú
-			String key = "";//¼ÇÂ¼µÚÒ»ÌõÊı¾İ,ºóĞø×÷Îªkey
-			ArrayList<String> value = new ArrayList<String>();//valueÖµ
+			//ç»§ç»­éå†
+			String key = "";//è®°å½•ç¬¬ä¸€æ¡æ•°æ®,åç»­ä½œä¸ºkey
+			ArrayList<String> value = new ArrayList<String>();//valueå€¼
 			for(int j = 0;j<list.get(i).size();j++){
-				//»ñÈ¡µÚÒ»ÌõÊı¾İ×÷ÎªmapµÄkey
+				//è·å–ç¬¬ä¸€æ¡æ•°æ®ä½œä¸ºmapçš„key
 				if(j == 0){
 					key = list.get(i).get(j);
 					continue;
 				}
 				value.add(list.get(i).get(j));
-				if(j == list.get(i).size()-1){//µ½ÁË×îºóÒ»ÌõÊı¾İ£¬½«Êı¾İ×·¼Óµ½mapÖĞ
+				if(j == list.get(i).size()-1){//åˆ°äº†æœ€åä¸€æ¡æ•°æ®ï¼Œå°†æ•°æ®è¿½åŠ åˆ°mapä¸­
 					map.put(key, value);
 				}
 			}
 		}
 		return map;
 	}
-	//¸ù¾İsheetName»ñÈ¡
+	//æ ¹æ®sheetNameè·å–
 	private static List<ArrayList<String>> read(Workbook wb, String sheetName) {
 
-		/** µ¥¸ösheet×ÜĞĞÊı */
+		/** å•ä¸ªsheetæ€»è¡Œæ•° */
 		int totalRows = 0;
-		/** µ¥¸ösheet×ÜÁĞÊı */
+		/** å•ä¸ªsheetæ€»åˆ—æ•° */
 		int totalCells = 0;
 
 		List<ArrayList<String>> dataLst = new ArrayList<ArrayList<String>>();
@@ -115,14 +112,14 @@ public class ExcelUtil {
 		Sheet sheet = null;
 		Row row = null;
 		Cell cell = null;
-		/** µÃµ½sheet */
+		/** å¾—åˆ°sheet */
 		sheet = wb.getSheet(sheetName);
 		totalRows = sheet.getPhysicalNumberOfRows();
 		if (totalRows >= 1 && sheet.getRow(0) != null) {
 			totalCells = sheet.getRow(0).getPhysicalNumberOfCells();
 		}
 
-		/** Ñ­»·ExcelµÄĞĞ£¬×¢£º´ÓµÚ¶şĞĞ¿ªÊ¼¶ÁÈ¡Êı¾İ£¬ÒòÎª»ù´¡Êı¾İ±í.xlsºÍ½Ì²ÄÄ¿Â¼±í.xlsÄ£°å¶¼ÓĞ±êÌâ */
+		/** å¾ªç¯Excelçš„è¡Œï¼Œæ³¨ï¼šä»ç¬¬äºŒè¡Œå¼€å§‹è¯»å–æ•°æ®ï¼Œå› ä¸ºåŸºç¡€æ•°æ®è¡¨.xlså’Œæ•™æç›®å½•è¡¨.xlsæ¨¡æ¿éƒ½æœ‰æ ‡é¢˜ */
 		for (int r = 1; r < totalRows; r++) {
 			row = sheet.getRow(r);
 			if (row == null) {
@@ -130,7 +127,7 @@ public class ExcelUtil {
 			}
 
 			ArrayList<String> rowLst = new ArrayList<String>();
-			/** Ñ­»·ExcelµÄÁĞ */
+			/** å¾ªç¯Excelçš„åˆ— */
 			for (short c = 0; c < totalCells; c++) {
 				cell = row.getCell(c);
 				String cellValue = "";
@@ -138,15 +135,15 @@ public class ExcelUtil {
 					continue;
 				}
 
-				/** ´¦Àí¿ÕÖµÀàĞÍ */
+				/** å¤„ç†ç©ºå€¼ç±»å‹ */
 				if (Cell.CELL_TYPE_BLANK == cell.getCellType()) {
 					continue;
 				}
-				/** ´¦Àí×Ö·û´®ĞÍ */
+				/** å¤„ç†å­—ç¬¦ä¸²å‹ */
 				else if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
 					cellValue = cell.getStringCellValue();
 				}
-				/** ÆäËüµÄ,·ÇÒÔÉÏ¼¸ÖÖÊı¾İÀàĞÍ */
+				/** å…¶å®ƒçš„,éä»¥ä¸Šå‡ ç§æ•°æ®ç±»å‹ */
 				else {
 					cellValue = cell.toString() + "";
 				}
@@ -158,12 +155,12 @@ public class ExcelUtil {
 	}
 	
 	/******************/
-	//¸ù¾İÏÂ±ê»ñÈ¡
+	//æ ¹æ®ä¸‹æ ‡è·å–
 	private static List<ArrayList<String>> read(Workbook wb, int sheetNum) {
 
-		/** µ¥¸ösheet×ÜĞĞÊı */
+		/** å•ä¸ªsheetæ€»è¡Œæ•° */
 		int totalRows = 0;
-		/** µ¥¸ösheet×ÜÁĞÊı */
+		/** å•ä¸ªsheetæ€»åˆ—æ•° */
 		int totalCells = 0;
 
 		List<ArrayList<String>> dataLst = new ArrayList<ArrayList<String>>();
@@ -171,14 +168,14 @@ public class ExcelUtil {
 		Sheet sheet = null;
 		Row row = null;
 		Cell cell = null;
-		/** µÃµ½sheet */
+		/** å¾—åˆ°sheet */
 		sheet = wb.getSheetAt(sheetNum);
 		totalRows = sheet.getPhysicalNumberOfRows();
 		if (totalRows >= 1 && sheet.getRow(0) != null) {
 			totalCells = sheet.getRow(0).getPhysicalNumberOfCells();
 		}
 		Map<String,ArrayList<String>> maps = new HashMap<String, ArrayList<String>>();
-		/** Ñ­»·ExcelµÄĞĞ£¬×¢£º´ÓµÚ¶şĞĞ¿ªÊ¼¶ÁÈ¡Êı¾İ£¬ÒòÎª»ù´¡Êı¾İ±í.xlsºÍ½Ì²ÄÄ¿Â¼±í.xlsÄ£°å¶¼ÓĞ±êÌâ */
+		/** å¾ªç¯Excelçš„è¡Œï¼Œæ³¨ï¼šä»ç¬¬äºŒè¡Œå¼€å§‹è¯»å–æ•°æ®ï¼Œå› ä¸ºåŸºç¡€æ•°æ®è¡¨.xlså’Œæ•™æç›®å½•è¡¨.xlsæ¨¡æ¿éƒ½æœ‰æ ‡é¢˜ */
 		for (int r = 1; r < totalRows; r++) {
 			row = sheet.getRow(r);
 			if (row == null) {
@@ -186,7 +183,7 @@ public class ExcelUtil {
 			}
 
 			ArrayList<String> rowLst = new ArrayList<String>();
-			/** Ñ­»·ExcelµÄÁĞ */
+			/** å¾ªç¯Excelçš„åˆ— */
 			for (short c = 0; c < totalCells; c++) {
 				cell = row.getCell(c);
 				String cellValue = "";
@@ -194,15 +191,15 @@ public class ExcelUtil {
 					continue;
 				}
 
-				/** ´¦Àí¿ÕÖµÀàĞÍ */
+				/** å¤„ç†ç©ºå€¼ç±»å‹ */
 				if (Cell.CELL_TYPE_BLANK == cell.getCellType()) {
 					continue;
 				}
-				/** ´¦Àí×Ö·û´®ĞÍ */
+				/** å¤„ç†å­—ç¬¦ä¸²å‹ */
 				else if (Cell.CELL_TYPE_STRING == cell.getCellType()) {
 					cellValue = cell.getStringCellValue();
 				}
-				/** ÆäËüµÄ,·ÇÒÔÉÏ¼¸ÖÖÊı¾İÀàĞÍ */
+				/** å…¶å®ƒçš„,éä»¥ä¸Šå‡ ç§æ•°æ®ç±»å‹ */
 				else {
 					cellValue = cell.toString() + "";
 				}

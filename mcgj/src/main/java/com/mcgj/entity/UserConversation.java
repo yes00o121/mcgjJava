@@ -1,18 +1,18 @@
 package com.mcgj.entity;
 /**
- * 用户关注的贴吧实体类
- * @author ad
+ * 鐢ㄦ埛鍏虫敞鐨勮创鍚у疄浣撶被
+ * @author 鏉ㄦ櫒
  *
  */
 public class UserConversation extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer userId;//用户id
+	private Integer userId;//鐢ㄦ埛id
 	
-	private Integer conversationId;//关注的贴吧id
+	private Integer conversationId;//鍏虫敞鐨勮创鍚d
 	
-	private Integer grade;//贴吧等级
+	private Integer grade;//璐村惂绛夌骇
 
 	public Integer getUserId() {
 		return userId;

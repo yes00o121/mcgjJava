@@ -2,12 +2,9 @@ package com.mcgj.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +16,7 @@ import com.mcgj.entity.UserFollowConversation;
 import com.mcgj.utils.UserUtil;
 
 /**
- * Ìù°ÉÒµÎñ²ã
+ * è´´å§ä¸šåŠ¡å±‚
  * 
  * @author ad
  *
@@ -51,7 +48,7 @@ public class ConversationService implements IConversationService {
 	}
 
 	/**
-	 * ²éÑ¯×îĞÂµÄÌù°ÉÌû×ÓÊı¾İ(ÓÃ»§×îºó»Ø¸´µÄÌû×ÓÊı¾İ)
+	 * æŸ¥è¯¢æœ€æ–°çš„è´´å§å¸–å­æ•°æ®(ç”¨æˆ·æœ€åå›å¤çš„å¸–å­æ•°æ®)
 	 * 
 	 * @return
 	 */
@@ -62,59 +59,59 @@ public class ConversationService implements IConversationService {
 	}
 
 	/**
-	 * Ìí¼ÓĞÂµÄÌù°ÉÊı¾İ
+	 * æ·»åŠ æ–°çš„è´´å§æ•°æ®
 	 * 
 	 * @return
 	 */
 	public void addConversation(Conversation conversation) {
-		// ÅĞ¶Ï²ÎÊıºÏ·¨ĞÔ
+		// åˆ¤æ–­å‚æ•°åˆæ³•æ€§
 		if (conversation.getConversationName() == null
 				|| "".equals(conversation.getConversationName())) {
-			throw new RuntimeException("Ãû³Æ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("åç§°ä¸èƒ½ä¸ºç©º");
 		}
 		if (conversation.getConversationType() == null
 				|| "".equals(conversation.getConversationType())) {
-			throw new RuntimeException("ÀàĞÍ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç±»å‹ä¸èƒ½ä¸ºç©º");
 		}
 		if (conversation.getPhoto() == null
 				|| "".equals(conversation.getPhoto())) {
-			throw new RuntimeException("Í¼Æ¬²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å›¾ç‰‡ä¸èƒ½ä¸ºç©º");
 		}
-		User user = UserUtil.getCurrentUser(conversation.getToken());// »ñÈ¡µ±Ç°ÓÃ»§¶ÔÏó
-		// ½«µ±Ç°ÓÃ»§µÄÖµÌí¼Óµ½¶ÔÏóÖĞ
+		User user = UserUtil.getCurrentUser(conversation.getToken());// è·å–å½“å‰ç”¨æˆ·å¯¹è±¡
+		// å°†å½“å‰ç”¨æˆ·çš„å€¼æ·»åŠ åˆ°å¯¹è±¡ä¸­
 		conversation.setCurrentManageUserId(user.getId());
 		conversation.setCreateUserId(user.getId());
-		conversationMapper.insert(conversation);// ²åÈëÌù°É
+		conversationMapper.insert(conversation);// æ’å…¥è´´å§
 	}
 
 	/**
-	 * ²éÑ¯µ±Ç°Ìû×ÓµÄ±êÌâÍ·ÏñµÈÄÚÈİ
+	 * æŸ¥è¯¢å½“å‰å¸–å­çš„æ ‡é¢˜å¤´åƒç­‰å†…å®¹
 	 */
 	public Conversation selectConversationById(Conversation conversation) {
 		if (conversation.getId() == null || "".equals(conversation.getId())) {
-			throw new RuntimeException("id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("idä¸èƒ½ä¸ºç©º");
 		}
 		Conversation c = conversationMapper.selectConversation(conversation);
-		// ÅĞ¶ÏÊÇ·ñ¿ÉÒÔ²éÑ¯µ½¸ÃÌù°É
+		// åˆ¤æ–­æ˜¯å¦å¯ä»¥æŸ¥è¯¢åˆ°è¯¥è´´å§
 		if (c == null) {
-			throw new RuntimeException("Ìù°É²»´æÔÚ");
+			throw new RuntimeException("è´´å§ä¸å­˜åœ¨");
 		}
 		return c;
 	}
 
 	/**
-	 * ¸ù¾İÃû³Æ²éÑ¯Ìù°ÉÊı¾İ
+	 * æ ¹æ®åç§°æŸ¥è¯¢è´´å§æ•°æ®
 	 */
 	public Conversation selectConversationByName(Conversation conversation) {
 		if (conversation.getConversationName() == null
 				|| "".equals(conversation.getConversationName())) {
-			throw new RuntimeException("Ãû³Æ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("åç§°ä¸èƒ½ä¸ºç©º");
 		}
 		return conversationMapper.selectConversation(conversation);
 	}
 
 	/**
-	 * Ìí¼ÓÓÃ»§¹Ø×¢µÄÌù°É
+	 * æ·»åŠ ç”¨æˆ·å…³æ³¨çš„è´´å§
 	 * 
 	 * @param userFollowConversation
 	 * @return
@@ -123,16 +120,16 @@ public class ConversationService implements IConversationService {
 			UserFollowConversation userFollowConversation) {
 		if (userFollowConversation.getUserId() == null
 				|| "".equals(userFollowConversation.getUserId()))
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		if (userFollowConversation.getConversationId() == null
 				|| "".equals(userFollowConversation.getConversationId()))
-			throw new RuntimeException("Ìù°Éid²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´´å§idä¸èƒ½ä¸ºç©º");
 		userFollowConversationMapper
-				.addConversationFollow(userFollowConversation);// Ìí¼Ó¹Ø×¢
+				.addConversationFollow(userFollowConversation);// æ·»åŠ å…³æ³¨
 	}
 
 	/**
-	 * È¡ÏûÓÃ»§¹Ø×¢µÄÌù°É
+	 * å–æ¶ˆç”¨æˆ·å…³æ³¨çš„è´´å§
 	 * 
 	 * @param userFollowConversation
 	 * @return
@@ -141,73 +138,73 @@ public class ConversationService implements IConversationService {
 			UserFollowConversation userFollowConversation) {
 		if (userFollowConversation.getConversationId() == null
 				|| "".equals(userFollowConversation.getConversationId()))
-			throw new RuntimeException("¹Ø×¢Ìù°Éid²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å…³æ³¨è´´å§idä¸èƒ½ä¸ºç©º");
 		userFollowConversationMapper
 				.deleteConversationFollow(userFollowConversation);
 	}
 
 	/**
-	 * ²éÑ¯ÓÃ»§¹Ø×¢µÄÌù°É
+	 * æŸ¥è¯¢ç”¨æˆ·å…³æ³¨çš„è´´å§
 	 */
 	public List<UserFollowConversation> selectConversationFollow(
 			UserFollowConversation userFollowConversation) {
 		if (userFollowConversation.getUserId() == null
 				|| "".equals(userFollowConversation.getUserId()))
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		// if(userFollowConversation.getConversationId() == null ||
 		// "".equals(userFollowConversation.getConversationId()))
-		// throw new RuntimeException("Ìù°Éid²»ÄÜÎª¿Õ");
+		// throw new RuntimeException("è´´å§idä¸èƒ½ä¸ºç©º");
 		return userFollowConversationMapper
 				.selectConversationFollow(userFollowConversation);
 	}
 
 	/**
-	 * ¸üĞÂÌù°ÉÊı¾İ
+	 * æ›´æ–°è´´å§æ•°æ®
 	 */
 	public void updateConversation(Conversation conversation) {
 		if (conversation.getId() == null || "".equals(conversation.getId())) {
-			throw new RuntimeException("Ìù°Éid²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´´å§idä¸èƒ½ä¸ºç©º");
 		}
 		conversationMapper.update(conversation);
 	}
 
 	/**
-	 * ²éÑ¯×îĞÂµÄÌù°ÉÌû×ÓÊı¾İ(ÓÃ»§×îºó»Ø¸´µÄÌû×ÓÊı¾İ)
+	 * æŸ¥è¯¢æœ€æ–°çš„è´´å§å¸–å­æ•°æ®(ç”¨æˆ·æœ€åå›å¤çš„å¸–å­æ•°æ®)
 	 */
 	public Map<String, Object> selectConversationStatistics(
 			Conversation conversation) {
 		if(conversation.getId() == null || "".equals(conversation.getId()))
-			throw new RuntimeException("Ìù°Éid²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´´å§idä¸èƒ½ä¸ºç©º");
 		return conversationMapper.selectConversationStatistics(conversation);
 	}
 
 	/**
-	 * ²éÑ¯Ìù°ÉÊı¾İ£¬°´ÓÃ»§¹Ø×¢Á¿²éÑ¯Ö¸¶¨ÊıÁ¿µÄÌù°ÉÊı¾İ
-	 * @param limit ÊıÁ¿
+	 * æŸ¥è¯¢è´´å§æ•°æ®ï¼ŒæŒ‰ç”¨æˆ·å…³æ³¨é‡æŸ¥è¯¢æŒ‡å®šæ•°é‡çš„è´´å§æ•°æ®
+	 * @param limit æ•°é‡
 	 * @return
 	 */
 	public List<Conversation> selectMaxFollow(Integer limit) {
 		if(limit == null || "".equals(limit))
-			throw new RuntimeException("ÊıÁ¿²»ÄÜÎª¿Õ");
+			throw new RuntimeException("æ•°é‡ä¸èƒ½ä¸ºç©º");
 		return conversationMapper.selectMaxFollow(limit);
 	}
 	/**
-	 * ²éÑ¯Ìù°ÉµÄÀàĞÍÒÔºóÀàĞÍÏÂ¶ÔÓ¦µÄÌù°ÉÊı¾İ
+	 * æŸ¥è¯¢è´´å§çš„ç±»å‹ä»¥åç±»å‹ä¸‹å¯¹åº”çš„è´´å§æ•°æ®
 	 * @return
 	 */
 	@Override
 	public Map<String,List<Object>> selectConversationTypeAndData() {
 		List<Map<String, Object>> selectConversationTypeAndData = conversationMapper.selectConversationTypeAndData();
-		//»ñÈ¡ËùÓĞµÄÌù°ÉÀàĞÍ
+		//è·å–æ‰€æœ‰çš„è´´å§ç±»å‹
 		Map<String,List<Object>> types = new HashMap<String, List<Object>>();
 		for(Map<String,Object> map:selectConversationTypeAndData){
 			List<Object> list2 = types.get(map.get("dictId").toString());
-			if(list2!= null){//key´æÔÚ
-				//Èç¹û¼¯ºÏÖĞµÄÊı¾İ´óÓÚ4ÌõÍË³öÑ­»·
+			if(list2!= null){//keyå­˜åœ¨
+				//å¦‚æœé›†åˆä¸­çš„æ•°æ®å¤§äº4æ¡é€€å‡ºå¾ªç¯
 				if(list2.size() >4)
 					continue;
 				list2.add(map);
-			}else{//key²»´æÔÚÖØĞÂ´´½¨
+			}else{//keyä¸å­˜åœ¨é‡æ–°åˆ›å»º
 				List<Object> list =  new ArrayList<Object>();
 				list.add(map);
 				types.put(map.get("dictId").toString(), list);
@@ -218,22 +215,22 @@ public class ConversationService implements IConversationService {
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§id²éÑ¯ÓÃ»§¹Ø×¢µÄÌù°ÉÏÂµÄÌù×Ó×îĞÂ¶¯Ì¬
+	 * æ ¹æ®ç”¨æˆ·idæŸ¥è¯¢ç”¨æˆ·å…³æ³¨çš„è´´å§ä¸‹çš„è´´å­æœ€æ–°åŠ¨æ€
 	 */
 	public List<Map<String, Object>> selectUserFollowConversation(User user) {
 		if(user.getId() == null || "".equals(user.getId()))
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		List<Map<String, Object>> selectUserFollowConversation = conversationMapper.selectUserFollowConversation(user);
 		return selectUserFollowConversation;
 	}
 
 	/**
-	 * ²éÑ¯°ÉÖ÷Ïà¹ØÊı¾İ
+	 * æŸ¥è¯¢å§ä¸»ç›¸å…³æ•°æ®
 	 */
 	public Map<String, Object> selectConversationMaster(
 			Conversation conversation) {
 		if(conversation.getId() == null || "".equals(conversation.getId()))
-			throw new RuntimeException("id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("idä¸èƒ½ä¸ºç©º");
 		return conversationMapper.selectConversationMaster(conversation);
 	}
 

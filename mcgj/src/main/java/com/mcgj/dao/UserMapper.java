@@ -1,49 +1,46 @@
 package com.mcgj.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 import com.mcgj.base.service.BaseService;
-import com.mcgj.entity.ConversationChild;
 import com.mcgj.entity.User;
 import com.mcgj.entity.loginLog;
 /**
- * ÓÃ»§½Ó¿Ú
+ * ç”¨æˆ·æ¥å£
  * @author ad
  *
  */
 public interface UserMapper extends BaseService<User,Integer>{
 	
 	/**
-	 * µÇÂ¼½Ó¿Ú
+	 * ç™»å½•æ¥å£
 	 * @param user
 	 * @return
 	 */
 	User login(User user);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÕËºÅ²éÑ¯ÓÃ»§Êı¾İ
+	 * æ ¹æ®ç”¨æˆ·è´¦å·æŸ¥è¯¢ç”¨æˆ·æ•°æ®
 	 * @param account
 	 * @return
 	 */
 	User findUserByAccount(@Param("account") String account);
 	
 	/**
-	 * »ñÈ¡ÓÃ»§Î´²é¿´»Ø¸´Êı¾İµÄÊıÁ¿
+	 * è·å–ç”¨æˆ·æœªæŸ¥çœ‹å›å¤æ•°æ®çš„æ•°é‡
 	 * @return
 	 */
 	Integer selectUserUnreadMessageCountByUserId(Integer userId);
 	
 	/**
-	 * ¼ÇÂ¼ÓÃ»§µÇÂ¼ÈÕÖ¾
+	 * è®°å½•ç”¨æˆ·ç™»å½•æ—¥å¿—
 	 * @param loginLog
 	 */
 	void insertLoginLog(loginLog loginLog);
 	
 	/**
-	 * ÅÀ³æ****
-	 * ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ£¬²»´æÔÚ½øĞĞ´´½¨£¬È»ºó·µ»ØÓÃ»§ĞÅÏ¢
+	 * çˆ¬è™«****
+	 * åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨è¿›è¡Œåˆ›å»ºï¼Œç„¶åè¿”å›ç”¨æˆ·ä¿¡æ¯
 	 * @param userName
 	 * @return
 	 */

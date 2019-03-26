@@ -1,10 +1,10 @@
 package com.mcgj.redis;
 
+import com.mcgj.utils.SpringUtil;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-
-import com.mcgj.utils.SpringUtil;
 
 public class JedisCacheBase2 {
 	

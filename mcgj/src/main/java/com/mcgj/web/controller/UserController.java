@@ -22,7 +22,7 @@ import com.mcgj.web.dto.ResultDTO;
 @RequestMapping("/user")
 public class UserController extends AbstractBaseController {
 	/**
-	 * ¼ÇÂ¼ÈÕÖ¾
+	 * è®°å½•æ—¥å¿—
 	 */
 	Logger log = Logger.getLogger(UserController.class);
 
@@ -36,13 +36,13 @@ public class UserController extends AbstractBaseController {
 	public Object aa(HttpServletRequest request, HttpServletResponse response) {
 		// request.get
 		String str = response.getHeader("user-token");
-		System.out.println("½ÓÊÕÓÃ»§µÄtoken" + str);
-		// System.out.println("²âÊÔ·½·¨¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£"+id);
+		System.out.println("æ¥æ”¶ç”¨æˆ·çš„token" + str);
+		// System.out.println("æµ‹è¯•æ–¹æ³•ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚"+id);
 		return null;
 	}
 
 	/**
-	 * ÓÃ»§µÇÂ¼·½·¨ ÓÉÓÚ¿çÓòÇëÇó£¬Ã¿´Î»ñÈ¡µÄsessionId¶¼²»Í¬£¬ËùÒÔÊ¹ÓÃtoken½øĞĞÓÃ»§ÅĞ¶Ï
+	 * ç”¨æˆ·ç™»å½•æ–¹æ³• ç”±äºè·¨åŸŸè¯·æ±‚ï¼Œæ¯æ¬¡è·å–çš„sessionIdéƒ½ä¸åŒï¼Œæ‰€ä»¥ä½¿ç”¨tokenè¿›è¡Œç”¨æˆ·åˆ¤æ–­
 	 * 
 	 * @param res
 	 * @param req
@@ -54,11 +54,11 @@ public class UserController extends AbstractBaseController {
 			HttpServletRequest request, User user, HttpSession session,
 			@PathParam("userName") String userName) {
 		try {
-			//»ñÈ¡ÓÃ»§ä¯ÀÀÆ÷ºÍ²Ù×÷ÏµÍ³
+			//è·å–ç”¨æˆ·æµè§ˆå™¨å’Œæ“ä½œç³»ç»Ÿ
 			String[] osAndBrowserInfo = CommonUtil.getOsAndBrowserInfo(request);
-			user.setOs(osAndBrowserInfo[0]);//²Ù×÷ÏµÍ³
-			user.setBrowser(osAndBrowserInfo[1]);//ä¯ÀÀÆ÷
-			user.setIp(request.getLocalAddr());//»ñÈ¡ip
+			user.setOs(osAndBrowserInfo[0]);//æ“ä½œç³»ç»Ÿ
+			user.setBrowser(osAndBrowserInfo[1]);//æµè§ˆå™¨
+			user.setIp(request.getLocalAddr());//è·å–ip
 			User record = this.userService.login(user);
 			return new ResultDTO(MessageUtil.MSG_LOGIN_SUCCESS,true,record);
 		} catch (Exception e) {
@@ -69,7 +69,7 @@ public class UserController extends AbstractBaseController {
 	}
 
 	/**
-	 * ÓÃ»§×¢²á·½·¨
+	 * ç”¨æˆ·æ³¨å†Œæ–¹æ³•
 	 * 
 	 * @return
 	 */
@@ -92,7 +92,7 @@ public class UserController extends AbstractBaseController {
 		}
 	}
 	/**
-	 * ¸ù¾İÓÃ»§id²éÑ¯ÓÃ»§Î´¶ÁµÄÏûÏ¢Êı¾İÊıÁ¿
+	 * æ ¹æ®ç”¨æˆ·idæŸ¥è¯¢ç”¨æˆ·æœªè¯»çš„æ¶ˆæ¯æ•°æ®æ•°é‡
 	 * @return
 	 */
 	@RequestMapping("/selectUserUnreadMessageCountByUserId")
@@ -114,7 +114,7 @@ public class UserController extends AbstractBaseController {
 	}
 	
 	/**
-	 * ¸ù¾İÓÃ»§idÆäÊÕ²ØµÄÌû×ÓÊı¾İ
+	 * æ ¹æ®ç”¨æˆ·idå…¶æ”¶è—çš„å¸–å­æ•°æ®
 	 * @return
 	 */
 	@RequestMapping("/selectCollectionConversationChildByUserId")
@@ -141,20 +141,20 @@ public class UserController extends AbstractBaseController {
 			HttpServletResponse response, Integer templateType) {
 		try {
 			if (templateType > 3 || templateType <= 0) {
-				System.out.println("Ä£°åÏÂÔØÊ§°Ü");
+				System.out.println("æ¨¡æ¿ä¸‹è½½å¤±è´¥");
 			}
 			InputStream is = null;
 			if (templateType == 1) {
 //				file = new File(templatePath);
-				is =UserController.class.getClassLoader().getResourceAsStream("template/È«¹ú»·ÎÀÄ£°å.xlsx");
+				is =UserController.class.getClassLoader().getResourceAsStream("template/å…¨å›½ç¯å«æ¨¡æ¿.xlsx");
 			}
 			if (templateType == 2) {
-				is = UserController.class.getClassLoader().getResourceAsStream("template/È«¹ú»·ÎÀÄ£°å.xlsx");
+				is = UserController.class.getClassLoader().getResourceAsStream("template/å…¨å›½ç¯å«æ¨¡æ¿.xlsx");
 			}
 			if (templateType == 3) {
-				is = UserController.class.getClassLoader().getResourceAsStream("template/È«¹ú»·ÎÀÄ£°å.xlsx");
+				is = UserController.class.getClassLoader().getResourceAsStream("template/å…¨å›½ç¯å«æ¨¡æ¿.xlsx");
 			}
-			response.setHeader("Content-Disposition", "attachment;fileName="+URLEncoder.encode("È«¹ú»·ÎÀÄ£°å.xlsx", "UTF-8"));//ÉèÖÃÎÄ¼ş±êÌâ
+			response.setHeader("Content-Disposition", "attachment;fileName="+URLEncoder.encode("å…¨å›½ç¯å«æ¨¡æ¿.xlsx", "UTF-8"));//è®¾ç½®æ–‡ä»¶æ ‡é¢˜
 			OutputStream os = response.getOutputStream();
 			byte[] bts = new byte[100];
 			while((is.read(bts)) != -1){
@@ -173,16 +173,16 @@ public class UserController extends AbstractBaseController {
 		try{
 			String templatePath = "E://userUpTemplate";
 			System.out.println(templatePath);
-			File mkdir = new File(templatePath);//»ñÈ¡ÎÄ¼ş¼Ğ
-			if(!mkdir.exists()){//ÎÄ¼ş¼Ğ²»´æÔÚ½øĞĞ´´½¨
+			File mkdir = new File(templatePath);//è·å–æ–‡ä»¶å¤¹
+			if(!mkdir.exists()){//æ–‡ä»¶å¤¹ä¸å­˜åœ¨è¿›è¡Œåˆ›å»º
 				mkdir.mkdir();
 			}
-			templatePath=templatePath+"\\ÓÃ»§ÉÏ´«Ä£°å"+new Date().getTime()+".xls";
+			templatePath=templatePath+"\\ç”¨æˆ·ä¸Šä¼ æ¨¡æ¿"+new Date().getTime()+".xls";
 			System.out.println(templatePath);
-			File template  = new File(templatePath);//´´½¨Ä£°åÎÄ¼ş
-			template.createNewFile();//´´½¨ÎÄ¼ş
-			InputStream is = file.getInputStream();//½ÓÊÕÓÃ»§ÉÏ´«ÎÄ¼şÁ÷
-			FileOutputStream fos  = new FileOutputStream(template);//×ª»»ÎªÎÄ¼şÊäÈëÁ÷
+			File template  = new File(templatePath);//åˆ›å»ºæ¨¡æ¿æ–‡ä»¶
+			template.createNewFile();//åˆ›å»ºæ–‡ä»¶
+			InputStream is = file.getInputStream();//æ¥æ”¶ç”¨æˆ·ä¸Šä¼ æ–‡ä»¶æµ
+			FileOutputStream fos  = new FileOutputStream(template);//è½¬æ¢ä¸ºæ–‡ä»¶è¾“å…¥æµ
 			byte[] bts = new byte[100];
 			while((is.read(bts))!= -1){
 				fos.write(bts);
@@ -216,14 +216,14 @@ public class UserController extends AbstractBaseController {
 				workbook = new HSSFWorkbook(is);
 			}
 			if(workbook == null){
-				return;//²»ÎªÖ¸¶¨ºó×ºÊı¾İ
+				return;//ä¸ä¸ºæŒ‡å®šåç¼€æ•°æ®
 			}
 //			Workbook wk = new HSSFWorkbook(is);
 //			System.out.println(workbook.getNumberOfSheets());
-//			Sheet sh =workbook.getSheet("µØÍ¼ÓëÂÖ²¥ÁĞ±í");
+//			Sheet sh =workbook.getSheet("åœ°å›¾ä¸è½®æ’­åˆ—è¡¨");
 //			System.out.println(sh);
 //			System.out.println(sh.getNumMergedRegions());
-			Map<String,ArrayList<String>> list = ExcelUtil.readData("D://È«¹ú»·ÎÀÄ£°å-ÓĞÊı¾İ.xlsx", "»·ÎÀÉèÊ©ÀàĞÍÊıÁ¿±í");
+			Map<String,ArrayList<String>> list = ExcelUtil.readData("D://å…¨å›½ç¯å«æ¨¡æ¿-æœ‰æ•°æ®.xlsx", "ç¯å«è®¾æ–½ç±»å‹æ•°é‡è¡¨");
 			System.out.println(list);
 //			List<ArrayList<String>> list = UserController.read(workbook, 0);
 //			System.out.println(list);
@@ -235,14 +235,14 @@ public class UserController extends AbstractBaseController {
 	}
 	
 	public static void main(String[] args) {
-		Map<String,ArrayList<String>> list = ExcelUtil.readData("D://È«¹ú»·ÎÀÄ£°å-ÓĞÊı¾İ.xlsx", 1);
-//		List<ArrayList<String>> list = ExcelUtil.readData("D://ÖÕ¶Ë¹ÜÀí20180103.xls",0);
+		Map<String,ArrayList<String>> list = ExcelUtil.readData("D://å…¨å›½ç¯å«æ¨¡æ¿-æœ‰æ•°æ®.xlsx", 1);
+//		List<ArrayList<String>> list = ExcelUtil.readData("D://ç»ˆç«¯ç®¡ç†20180103.xls",0);
 		System.out.println(list);
 	}
 	*/
 	/**
-	 * ÅÀ³æ****
-	 * ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ£¬²»´æÔÚ½øĞĞ´´½¨£¬È»ºó·µ»ØÓÃ»§ĞÅÏ¢
+	 * çˆ¬è™«****
+	 * åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨è¿›è¡Œåˆ›å»ºï¼Œç„¶åè¿”å›ç”¨æˆ·ä¿¡æ¯
 	 * @return
 	 */
 	@RequestMapping("/selectIsExists")

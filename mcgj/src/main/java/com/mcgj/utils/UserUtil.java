@@ -4,14 +4,14 @@ import com.mcgj.entity.User;
 import com.mcgj.redis.RedisHashUtil;
 
 /**
- * ÓÃ»§¹¤¾ßÀà
+ * ç”¨æˆ·å·¥å…·ç±»
  * @author ad
  *
  */
 public class UserUtil {
 	
 	/**
-	 * »ñÈ¡µÇÂ¼ÓÃ»§¶ÔÏó
+	 * è·å–ç™»å½•ç”¨æˆ·å¯¹è±¡
 	 * @return
 	 */
 	public static User getCurrentUser(String token){

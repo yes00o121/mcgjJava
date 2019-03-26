@@ -1,16 +1,16 @@
 package com.mcgj.entity;
 
 /**
- * ÓÃ»§¹Ø×¢µÄÌù°ÉÊµÌåÀà
- * @author ad
+ * ç”¨æˆ·å…³æ³¨çš„è´´å§å®ä½“ç±»
+ * @author æ¨æ™¨
  */
 public class UserFollowConversation extends BaseEntity{
 
-	private Integer userId;//ÓÃ»§id
+	private Integer userId;//ç”¨æˆ·id
 	
-	private Integer conversationId;//Ìû×Óid
+	private Integer conversationId;//å¸–å­id
 	
-	private String conversationName;//ÓÃ»§¹Ø×¢µÄÌù°ÉÃû³Æ
+	private String conversationName;//ç”¨æˆ·å…³æ³¨çš„è´´å§åç§°
 	
 	public String getConversationName() {
 		return conversationName;

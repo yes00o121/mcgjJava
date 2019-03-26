@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.druid.filter.AutoLoad;
 import com.mcgj.dao.ConversationChildChildMapper;
 import com.mcgj.dao.ConversationChildMapper;
 import com.mcgj.dao.ConversationMapper;
@@ -26,7 +25,7 @@ import com.mcgj.web.controller.AbstractBaseController;
 import com.mcgj.web.dto.ResultDTO;
 
 /**
- * ÅÀ³æ¿ØÖÆÆ÷
+ * çˆ¬è™«æ§åˆ¶å™¨
  * @author ad
  *
  */
@@ -52,8 +51,8 @@ public class SpiderController extends AbstractBaseController{
 	private ConversationChildMapper conversationChildMapper;
 	
 	/**
-	 * ²éÑ¯¶ÔÓ¦ÌìÊıÄÚ×îÎª»îÔ¾µÄÌù°ÉÅÅÃû
-	 * @param limit Òª²éÑ¯µÄÌù°ÉÊıÁ¿
+	 * æŸ¥è¯¢å¯¹åº”å¤©æ•°å†…æœ€ä¸ºæ´»è·ƒçš„è´´å§æ’å
+	 * @param limit è¦æŸ¥è¯¢çš„è´´å§æ•°é‡
 	 * @return
 	 */
 	@RequestMapping("/addFloorDataSpider")
@@ -77,18 +76,18 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²åÈëÌù°ÉÊı¾İ
+	 * æ’å…¥è´´å§æ•°æ®
 	 */
 	@RequestMapping("/addConversation")
 	@ResponseBody
 	public ResultDTO addConversation(Conversation conversation){
 		try {
-			//ÅĞ¶ÏÌù°ÉÊÇ·ñ´æÔÚ,´æÔÚ²»½øĞĞ²åÈë²Ù×÷,ÔÚÅĞ¶ÏÆäËûÊı¾İÊÇ·ñ±ä¸ü,±ä¸üÁË¸üĞÂµ±Ç°¼ÇÂ¼
+			//åˆ¤æ–­è´´å§æ˜¯å¦å­˜åœ¨,å­˜åœ¨ä¸è¿›è¡Œæ’å…¥æ“ä½œ,åœ¨åˆ¤æ–­å…¶ä»–æ•°æ®æ˜¯å¦å˜æ›´,å˜æ›´äº†æ›´æ–°å½“å‰è®°å½•
 			Conversation con = conversationMapper.selectConversation(conversation);
 			if(con != null){
-				//Í·ÏñºÍºá·ùÒÑ¾­±¾µØ»¯,ÎŞ´ÓµÃÖªÔ­ÏÈµÄµØÖ·ÊÇ¶àÉÙ,Ä¿Ç°Ö»ÄÜÍ¨¹ıÇ©ÃûÀ´ÅĞ¶ÏÌù°É¸üĞÂ,¾ÍÊÇ¸ÄÁËÍ·ÏñºÍºá·ùµÄÊ±ºò¼ì²â²»µ½Ìù°É»ù±¾ĞÅÏ¢µÄ±ä¸ü
+				//å¤´åƒå’Œæ¨ªå¹…å·²ç»æœ¬åœ°åŒ–,æ— ä»å¾—çŸ¥åŸå…ˆçš„åœ°å€æ˜¯å¤šå°‘,ç›®å‰åªèƒ½é€šè¿‡ç­¾åæ¥åˆ¤æ–­è´´å§æ›´æ–°,å°±æ˜¯æ”¹äº†å¤´åƒå’Œæ¨ªå¹…çš„æ—¶å€™æ£€æµ‹ä¸åˆ°è´´å§åŸºæœ¬ä¿¡æ¯çš„å˜æ›´
 				if(StringUtil.isNotEmpty(conversation.getAutograph()) && !conversation.getAutograph().equals(con.getAutograph())){
-					//½«Í·ÏñºÍºá·ù±¾µØ»¯
+					//å°†å¤´åƒå’Œæ¨ªå¹…æœ¬åœ°åŒ–
 					if(StringUtil.isNotEmpty(conversation.getPhoto())){
 						InputStream isPhoto = HttpClientUtil.getFileInputStream(conversation.getPhoto());
 						String photo = mongoDBRemoteFileService.upload(isPhoto);
@@ -114,7 +113,7 @@ public class SpiderController extends AbstractBaseController{
 					conversationMapper.update(con);
 				}
 			}else{
-				//½«Í·ÏñºÍºá·ù±¾µØ»¯
+				//å°†å¤´åƒå’Œæ¨ªå¹…æœ¬åœ°åŒ–
 				if(StringUtil.isNotEmpty(conversation.getPhoto())){
 					InputStream isPhoto = HttpClientUtil.getFileInputStream(conversation.getPhoto());
 					String photo = mongoDBRemoteFileService.upload(isPhoto);
@@ -135,7 +134,7 @@ public class SpiderController extends AbstractBaseController{
 				}else{
 					conversation.setCardBanner(null);
 				}
-				conversationMapper.insert(conversation);// ²åÈëÌù°É
+				conversationMapper.insert(conversation);// æ’å…¥è´´å§
 			}
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS, true, conversation);
 		} catch (Exception e) {
@@ -164,19 +163,19 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²åÈëÌù×ÓÊı¾İ
+	 * æ’å…¥è´´å­æ•°æ®
 	 * @return
 	 */
 	@RequestMapping("/addConversationChild")
 	@ResponseBody
 	public ResultDTO insertConversationChild(ConversationChild conversationChild){
 		try {
-			//ÅĞ¶ÏÌù×ÓÔÚ¸ÃÌù°ÉÊÇ·ñ´æÔÚ,´æÔÚÖ±½Ó·µ»Ø,²»´æÔÚ²åÈëÊı¾İ
+			//åˆ¤æ–­è´´å­åœ¨è¯¥è´´å§æ˜¯å¦å­˜åœ¨,å­˜åœ¨ç›´æ¥è¿”å›,ä¸å­˜åœ¨æ’å…¥æ•°æ®
 			ConversationChild cc = conversationChildMapper.selectConversationChild(conversationChild);
 			if(cc != null){
 				return new ResultDTO(MessageUtil.MSG_UNKONW_SUCCESS, true, cc);
 			}
-			conversationChildMapper.insert(conversationChild);//²åÈëÌû×Ó
+			conversationChildMapper.insert(conversationChild);//æ’å…¥å¸–å­
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS,true,conversationChild);
 		} catch (Exception e) {
 			log.error(e);
@@ -185,7 +184,7 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²éÑ¯Ìù×ÓÊı¾İ
+	 * æŸ¥è¯¢è´´å­æ•°æ®
 	 * @param conversationChild
 	 * @return
 	 */
@@ -196,33 +195,33 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²åÈëÌù°ÉÂ¥²ã
+	 * æ’å…¥è´´å§æ¥¼å±‚
 	 * @return
 	 */
 	@RequestMapping("/addConversationChildChild")
 	@ResponseBody
 	public ResultDTO addConversationChildChild(ConversationChildChild conversationChildChild,String time){
 		try {
-			//ÅĞ¶ÏÕâÌõÂ¥²ãÊı¾İÊÇ·ñ´æÔÚ,²»´æÔÚ²åÈëÊı¾İ£¬²»È»Ö±½ÓÍË³ö
+			//åˆ¤æ–­è¿™æ¡æ¥¼å±‚æ•°æ®æ˜¯å¦å­˜åœ¨,ä¸å­˜åœ¨æ’å…¥æ•°æ®ï¼Œä¸ç„¶ç›´æ¥é€€å‡º
 			conversationChildChild.setCreateDate(new Date(Long.parseLong(time)));
 			ConversationChildChild ccc = conversationChildChildMapper.selectConversationChildChild(conversationChildChild);
 			if(ccc != null){
 				return new ResultDTO(MessageUtil.MSG_UNKONW_SUCCESS,true,null);
 			}
-			//ÅĞ¶ÏÓÃ»§ÊÇ·ñÊÇÂ¥Ö÷
+			//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦æ˜¯æ¥¼ä¸»
 			ConversationChild cc = new ConversationChild();
 			cc.setUserId(conversationChildChild.getUserId());
 			cc.setId(conversationChildChild.getConversationChildId());
 			cc = conversationChildMapper.selectConversationChild(cc);
 			if(cc != null){
-				//ÊÇÂ¥Ö÷
+				//æ˜¯æ¥¼ä¸»
 				conversationChildChild.setIsManage(1);
 			}else{
-				//²»ÊÇÂ¥Ö÷
+				//ä¸æ˜¯æ¥¼ä¸»
 				conversationChildChild.setIsManage(0);
 			}
-			conversationChildChild.setCreateDate(new Date(Long.parseLong(time)));//×ª»»Ê±¼ä
-			conversationChildChildMapper.insert(conversationChildChild);//²åÈëÂ¥²ã
+			conversationChildChild.setCreateDate(new Date(Long.parseLong(time)));//è½¬æ¢æ—¶é—´
+			conversationChildChildMapper.insert(conversationChildChild);//æ’å…¥æ¥¼å±‚
 			return new ResultDTO(MessageUtil.MSG_INSERT_SUCCESS, true, null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -231,13 +230,13 @@ public class SpiderController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ×¢²á,·µ»ØÖ÷¼ü
+	 * æ³¨å†Œ,è¿”å›ä¸»é”®
 	 * @return
 	 */
 	@RequestMapping("/register")
 	@ResponseBody
 	public Integer register(User user){
-		//»ñÈ¡ÓÃ»§Ãû³ÆÅĞ¶ÏÊÇ·ñ´æÔÚ,´æÔÚÖ±½Ó·µ»Ø,·´Ö®²åÈëÊı¾İ
+		//è·å–ç”¨æˆ·åç§°åˆ¤æ–­æ˜¯å¦å­˜åœ¨,å­˜åœ¨ç›´æ¥è¿”å›,åä¹‹æ’å…¥æ•°æ®
 		return userService.selectIsExists(user.getAccount(), user.getPhoto());
 	}
 	public static void main(String[] args) {

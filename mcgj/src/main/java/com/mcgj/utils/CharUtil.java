@@ -3,19 +3,19 @@ package com.mcgj.utils;
 import java.util.Map;
 
 /**
- * ×Ö·û´¦Àí¹¤¾ß
- * @author Ñî³¿
- * @address ÉîÛÚ
+ * å­—ç¬¦å¤„ç†å·¥å…·
+ * @author æ¨æ™¨
+ * @address æ·±åœ³
  * @date 2019-02-25
  *
  */
 public class CharUtil {
 	
-	//¹ıÂËÌØÊâ×Ö·û
+	//è¿‡æ»¤ç‰¹æ®Šå­—ç¬¦
 	private static String[][] FilterChars={{"<","&lt;"},{">","&gt;"},{" ","&nbsp;"},{"\"","&quot;"},{"&","&amp;"},   
             {"/","&#47;"},{"\\","&#92;"},{"\n","<br>"}};   
 	
-	//¹ıÂËÍ¨¹ıjavascript½Å±¾´¦Àí²¢Ìá½»µÄ×Ö·û   
+	//è¿‡æ»¤é€šè¿‡javascriptè„šæœ¬å¤„ç†å¹¶æäº¤çš„å­—ç¬¦   
 	private static String[][] FilterScriptChars={{"\n","\'+\'\\n\'+\'"},   
 	                                {"\r"," "},{"\\","\'+\'\\\\\'+\'"},   
 	                                        {"\'","\'+\'\\\'\'+\'"}};   
@@ -30,9 +30,9 @@ public class CharUtil {
 	}
 	
 	/**
-	 * Ìæ»»strÖĞµÄËÄ¸ö×Ö½Ú×Ö·û
-	 * @param str ×Ö·û´®
-	 * @param replace ĞèÒªÌæ»»µÄÄÚÈİ
+	 * æ›¿æ¢strä¸­çš„å››ä¸ªå­—èŠ‚å­—ç¬¦
+	 * @param str å­—ç¬¦ä¸²
+	 * @param replace éœ€è¦æ›¿æ¢çš„å†…å®¹
 	 * @return
 	 */
 	public static String filterStr4Char(String str,String replace){
@@ -46,9 +46,9 @@ public class CharUtil {
 	}
 	
 	/**
-	 * Ìæ»»strÖĞµÄËÄ¸ö×Ö½Ú×Ö·û
-	 * @param str ×Ö·û´®
-	 * @param replace ĞèÒªÌæ»»µÄÄÚÈİ
+	 * æ›¿æ¢strä¸­çš„å››ä¸ªå­—èŠ‚å­—ç¬¦
+	 * @param str å­—ç¬¦ä¸²
+	 * @param replace éœ€è¦æ›¿æ¢çš„å†…å®¹
 	 * @return
 	 */
 	public static Map<String,Object> filterStr4Char(Map<String, Object> map,String replace){
@@ -60,7 +60,7 @@ public class CharUtil {
 				continue;
 			}
 			Object obj = map.get(str);
-			//Èç¹ûÊÇ×Ö·û´®Êı×é
+			//å¦‚æœæ˜¯å­—ç¬¦ä¸²æ•°ç»„
 			if(obj instanceof String[]){
 				String[] strArr = (String[])obj;
 				String[] newArr = new String[strArr.length];
@@ -73,12 +73,12 @@ public class CharUtil {
 				map.put(str, newArr);
 				continue;
 			}
-			//Èç¹ûÊÇ×Ö·û´®
+			//å¦‚æœæ˜¯å­—ç¬¦ä¸²
 			if(obj instanceof String){
 				map.put(str, CharUtil.filterStr4Char(obj.toString(), replace));
 				continue;
 			}
-			throw new RuntimeException("ÎŞ·¨½âÎöObjectÖĞµÄ¶ÔÏó,ÕÒ²»µ½"+obj.getClass().getName() + "ÇëÈ·ÈÏÊÇ·ñÓĞ½øĞĞ¸ÃÀàĞÍµÄ½âÎö²Ù×÷¡£");
+			throw new RuntimeException("æ— æ³•è§£æObjectä¸­çš„å¯¹è±¡,æ‰¾ä¸åˆ°"+obj.getClass().getName() + "è¯·ç¡®è®¤æ˜¯å¦æœ‰è¿›è¡Œè¯¥ç±»å‹çš„è§£ææ“ä½œã€‚");
 		}
 		return map;
 	}

@@ -1,40 +1,38 @@
 package com.mcgj.service;
 
-import java.util.List;
 import java.util.Map;
 
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChildChild;
-import com.mcgj.entity.User;
 
 /**
- * Â¥²ã¿ØÖÆÆ÷½Ó¿Ú
+ * æ¥¼å±‚æ§åˆ¶å™¨æ¥å£
  * @author ad
  *
  */
 public interface IConversationChildChildService extends BaseService<ConversationChildChild,Integer>{
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯ÆäÏÂµÄÂ¥²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢å…¶ä¸‹çš„æ¥¼å±‚æ•°æ®
 	 * @return
 	 */
 	Map<String,Object> selectCCCByCCId(ConversationChildChild conversationChildChild);
 	
 	/**
-	 * ĞÂÔöÂ¥²ã·½·¨
+	 * æ–°å¢æ¥¼å±‚æ–¹æ³•
 	 * @return
 	 */
 	void addConversationChildChild(ConversationChildChild conversationChildChild);
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Îª²é¿´µÄËùÓĞ»Ø¸´µÄÂ¥²ãÊı¾İ
+	 * æŸ¥è¯¢ç”¨æˆ·ä¸ºæŸ¥çœ‹çš„æ‰€æœ‰å›å¤çš„æ¥¼å±‚æ•°æ®
 	 * @param conversationChildChild
 	 * @return
 	 */
 	Map<String,Object> selectConversationChildChildReplyByUserId(ConversationChildChild conversationChildChild);
 	
 	/**
-	 * ½«¸ÃÓÃ»§ËùÓĞµÄÎ´²é¿´Â¥²ã¶¼ĞŞ¸ÄÎª²é¿´×´Ì¬
+	 * å°†è¯¥ç”¨æˆ·æ‰€æœ‰çš„æœªæŸ¥çœ‹æ¥¼å±‚éƒ½ä¿®æ”¹ä¸ºæŸ¥çœ‹çŠ¶æ€
 	 * @param userId
 	 */
 	void updateConversationChildChildReplyByUerId(Integer userId);

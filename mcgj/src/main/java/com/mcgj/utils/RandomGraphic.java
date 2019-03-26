@@ -5,31 +5,28 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
-import javax.imageio.ImageIO;
-
 /**
- * Ëæ»ú»æÖÆÍ¼ĞÎ
+ * éšæœºç»˜åˆ¶å›¾å½¢
  * @author ad
  *
  */
 public class RandomGraphic {
 	
-	private int workHeight =10;//×Ö·ûµÄ¸ß¶È
+	private int workHeight =10;//å­—ç¬¦çš„é«˜åº¦
 	
-	private int workWidth = 10;//×Ö·û¿í¶È
+	private int workWidth = 10;//å­—ç¬¦å®½åº¦
 	
-	private int fontSize = 15;//×Ö·û´óĞ¡
+	private int fontSize = 15;//å­—ç¬¦å¤§å°
 	
-	private int digit =4;//ÑéÖ¤Âë¸öÊı
+	private int digit =4;//éªŒè¯ç ä¸ªæ•°
 	
 	private String[] strs={"1","2","3","4","5","6","7","8","9","0","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
 	
 	/**
-	 * ¸ù¾İ´«Èë²ÎÊı»æÖÆÍ¼Æ¬
+	 * æ ¹æ®ä¼ å…¥å‚æ•°ç»˜åˆ¶å›¾ç‰‡
 	 * @param chars
 	 * @return
 	 * @throws FileNotFoundException
@@ -37,20 +34,20 @@ public class RandomGraphic {
 	 */
 	public BufferedImage createGraphic(String chars) throws FileNotFoundException, IOException{
 		BufferedImage img = new BufferedImage(80,40, BufferedImage.TYPE_INT_RGB);
-		Graphics  graphics = img.getGraphics();//µÃµ½»­±Ê
-		graphics.setFont(new Font("ºÚÌå", Font.CENTER_BASELINE,24));
+		Graphics  graphics = img.getGraphics();//å¾—åˆ°ç”»ç¬”
+		graphics.setFont(new Font("é»‘ä½“", Font.CENTER_BASELINE,24));
 		graphics.drawString(chars,20,27);
-		graphics.dispose();//»æÖÆ½áÊø
-//		ImageIO.write(img,"JPG",new FileOutputStream("C:\\Users\\ad\\Desktop\\vue\\a.jpg"));//Êä³öÍ¼Æ¬
+		graphics.dispose();//ç»˜åˆ¶ç»“æŸ
+//		ImageIO.write(img,"JPG",new FileOutputStream("C:\\Users\\ad\\Desktop\\vue\\a.jpg"));//è¾“å‡ºå›¾ç‰‡
 		return img;
 //		
 	}
 	/**
-	 * »ñÈ¡Ëæ»úµÄ×Ö·û¼¯
+	 * è·å–éšæœºçš„å­—ç¬¦é›†
 	 * @return
 	 */
 	public String getRandomCharacter(){
-		String str = "";//Ëæ»úÑéÖ¤Âë
+		String str = "";//éšæœºéªŒè¯ç 
 		for(int i=0;i<digit;i++){
 			int ran = (int) (Math.random()*strs.length);
 			str+=strs[ran];
@@ -58,7 +55,7 @@ public class RandomGraphic {
 		return str;
 	}
 	/**
-	 * »ñÈ¡Ëæ»úÑÕÉ«
+	 * è·å–éšæœºé¢œè‰²
 	 * @param fc
 	 * @param bc
 	 * @return

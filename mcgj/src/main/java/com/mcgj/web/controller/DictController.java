@@ -18,8 +18,8 @@ import com.mcgj.utils.MessageUtil;
 import com.mcgj.web.dto.ResultDTO;
 
 /**
- * ×Öµä¿ØÖÆÆ÷
- * @author ad
+ * å­—å…¸æ§åˆ¶å™¨
+ * @author æ¨æ™¨
  *
  */
 @Controller
@@ -31,7 +31,7 @@ public class DictController extends AbstractBaseController{
 	@Autowired
 	private IDictService dictService;
 	/**
-	 * ¸ù¾İ´«ÈëµÄ´úÂëÖµ²éÑ¯
+	 * æ ¹æ®ä¼ å…¥çš„ä»£ç å€¼æŸ¥è¯¢
 	 * @return
 	 */
 	@RequestMapping("/selectDictByCode")

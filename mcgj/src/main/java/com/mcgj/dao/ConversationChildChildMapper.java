@@ -3,34 +3,37 @@ package com.mcgj.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChildChild;
-import com.mcgj.entity.UserCollectionConversationChild;
 
+//@Mapper
 public interface ConversationChildChildMapper extends BaseService<ConversationChildChild,Integer>{
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯ÆäÏÂµÄÂ¥²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢å…¶ä¸‹çš„æ¥¼å±‚æ•°æ®
 	 * @return
 	 */
 	List<Map<String,Object>> selectCCCByCCId(ConversationChildChild conversationChildChild);
 	
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Îª²é¿´µÄËùÓĞ»Ø¸´µÄÂ¥²ãÊı¾İ
+	 * æŸ¥è¯¢ç”¨æˆ·ä¸ºæŸ¥çœ‹çš„æ‰€æœ‰å›å¤çš„æ¥¼å±‚æ•°æ®
 	 * @param userId
 	 * @return
 	 */
 	List<ConversationChildChild> selectConversationChildChildReplyByUserId(Integer userId);
 	
 	/**
-	 * ½«¸ÃÓÃ»§ËùÓĞµÄÎ´²é¿´Â¥²ã¶¼ĞŞ¸ÄÎª²é¿´×´Ì¬
+	 * å°†è¯¥ç”¨æˆ·æ‰€æœ‰çš„æœªæŸ¥çœ‹æ¥¼å±‚éƒ½ä¿®æ”¹ä¸ºæŸ¥çœ‹çŠ¶æ€
 	 * @param userId
 	 */
 	void updateConversationChildChildReplyByUerId(Integer userId);
 	
 	/**
-	 * ²éÑ¯Â¥²ãÊı¾İ
+	 * æŸ¥è¯¢æ¥¼å±‚æ•°æ®
 	 * @param conversationChildChild
 	 * @return
 	 */

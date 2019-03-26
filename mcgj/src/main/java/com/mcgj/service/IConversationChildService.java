@@ -11,57 +11,57 @@ import com.mcgj.entity.UserCollectionConversationChild;
 public interface IConversationChildService extends BaseService<ConversationChild, Integer>{
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯,»ñÈ¡µ±Ç°Ìû×ÓµÄµÚÒ»²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢,è·å–å½“å‰å¸–å­çš„ç¬¬ä¸€å±‚æ•°æ®
 	 * @return
 	 */
 	public Map<String,Object> selectConversationChildById(Integer id);
 	
 	/**
-	 * ¸ù¾İÌù°Éid²éÑ¯Ìû×Ó
+	 * æ ¹æ®è´´å§idæŸ¥è¯¢å¸–å­
 	 * @return
 	 */
 	public Map<String,Object> selectConversationChildByConversationId(ConversationChild conversationChild);
 	
 	/**
-	 * ĞÂÔöÌû×ÓµÄ·½·¨
+	 * æ–°å¢å¸–å­çš„æ–¹æ³•
 	 * @param conversationChild
 	 */
 	public void addConversationChild(ConversationChild conversationChild);
 	
 	/**
-	 * ĞÂÔöÊÕ²Ø·½·¨
+	 * æ–°å¢æ”¶è—æ–¹æ³•
 	 */
 	void addConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * É¾³ıÊÕ²ØÌù×Ó·½·¨
+	 * åˆ é™¤æ”¶è—è´´å­æ–¹æ³•
 	 * @return
 	 */
 	void deleteConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * ¸ù¾İÓÃ»§IdºÍÌù×ÓÃû³Æ²éÑ¯ÊÕ²ØÊı¾İ
+	 * æ ¹æ®ç”¨æˆ·Idå’Œè´´å­åç§°æŸ¥è¯¢æ”¶è—æ•°æ®
 	 * @param userCollectionConversationChild
 	 * @return
 	 */
 	UserCollectionConversationChild selectConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Ëù·¢²¼µÄÌù×Ó 
+	 * æŸ¥è¯¢ç”¨æˆ·æ‰€å‘å¸ƒçš„è´´å­ 
 	 * @return
 	 */
 	Map<String,Object> selectUserPublishConversationChild(ConversationChild conversationChild);
 	
 	/**
-	 * ²éÑ¯¶ÔÓ¦ÌìÊıÄÚ×îÎª»îÔ¾µÄÌù°ÉÅÅÃû
-	 * @param day ÌìÊı
+	 * æŸ¥è¯¢å¯¹åº”å¤©æ•°å†…æœ€ä¸ºæ´»è·ƒçš„è´´å§æ’å
+	 * @param day å¤©æ•°
 	 * @return
 	 */
 	List<ConversationChild> selectMaxConversationChildByDay(Integer day);
 	
 	
 	/**
-	 * Ìí¼ÓÂ¥²ãÊı¾İ£¬ÅÀ³æ×¨ÓÃ
+	 * æ·»åŠ æ¥¼å±‚æ•°æ®ï¼Œçˆ¬è™«ä¸“ç”¨
 	 * @param conversationChild
 	 */
 	void addFloorDataSpider(ConversationChildChild conversationChildChild,Integer userId2);

@@ -12,17 +12,15 @@ import java.net.URLConnection;
 
 import org.apache.log4j.Logger;
 
-import com.mcgj.web.websocket.Message;
-
 
 public class HttpClientUtil {
 	
 	private static Logger log = Logger.getLogger(HttpClientUtil.class);
     
     /***
-     * Ê¹ÓÃgetÇëÇó»ñÈ¡Êı¾İ
-     * @param url ÇëÇó·şÎñÆ÷µØÖ·
-     * @param param ÇëÇó²ÎÊı
+     * ä½¿ç”¨getè¯·æ±‚è·å–æ•°æ®
+     * @param url è¯·æ±‚æœåŠ¡å™¨åœ°å€
+     * @param param è¯·æ±‚å‚æ•°
      */
     public static String sendGet(String url, String param) {
         String result = "";
@@ -30,16 +28,16 @@ public class HttpClientUtil {
         try {
             String urlNameString = url + "?" + param;
             URL realUrl = new URL(urlNameString);
-            // ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
+            // æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
             URLConnection connection = realUrl.openConnection();
-            // ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
+            // è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
             connection.setRequestProperty("accept", "*/*");
             connection.setRequestProperty("connection", "Keep-Alive");
             connection.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            // ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
+            // å»ºç«‹å®é™…çš„è¿æ¥
             connection.connect();
-            // ¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+            // å®šä¹‰ BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
             in = new BufferedReader(new InputStreamReader(
                     connection.getInputStream(),"UTF-8"));
             String line;
@@ -50,7 +48,7 @@ public class HttpClientUtil {
         	log.error(e);
 //            LoggerUtil.error(HttpClientUtil.class, e.getMessage(), e);
         }
-        // Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷
+        // ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å…¥æµ
         finally {
             try {
                 if (in != null) {
@@ -65,9 +63,9 @@ public class HttpClientUtil {
     }
     
     /***
-     * Ê¹ÓÃpostÇëÇó»ñÈ¡Êı¾İ
-     * @param url ÇëÇó·şÎñÆ÷µØÖ·
-     * @param param ÇëÇó²ÎÊı
+     * ä½¿ç”¨postè¯·æ±‚è·å–æ•°æ®
+     * @param url è¯·æ±‚æœåŠ¡å™¨åœ°å€
+     * @param param è¯·æ±‚å‚æ•°
      */
     public static String sendPost(String url, String param) {
         PrintWriter out = null;
@@ -75,23 +73,23 @@ public class HttpClientUtil {
         String result = "";
         try {
             URL realUrl = new URL(url);
-            // ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
+            // æ‰“å¼€å’ŒURLä¹‹é—´çš„è¿æ¥
             URLConnection conn = realUrl.openConnection();
-            // ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôĞÔ
+            // è®¾ç½®é€šç”¨çš„è¯·æ±‚å±æ€§
             conn.setRequestProperty("accept", "*/*");
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent",
                     "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            // ·¢ËÍPOSTÇëÇó±ØĞëÉèÖÃÈçÏÂÁ½ĞĞ
+            // å‘é€POSTè¯·æ±‚å¿…é¡»è®¾ç½®å¦‚ä¸‹ä¸¤è¡Œ
             conn.setDoOutput(true);
             conn.setDoInput(true);
-            // »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
+            // è·å–URLConnectionå¯¹è±¡å¯¹åº”çš„è¾“å‡ºæµ
             out = new PrintWriter(conn.getOutputStream());
-            // ·¢ËÍÇëÇó²ÎÊı
+            // å‘é€è¯·æ±‚å‚æ•°
             out.print(param);
-            // flushÊä³öÁ÷µÄ»º³å
+            // flushè¾“å‡ºæµçš„ç¼“å†²
             out.flush();
-            // ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+            // å®šä¹‰BufferedReaderè¾“å…¥æµæ¥è¯»å–URLçš„å“åº”
             in = new BufferedReader(
                     new InputStreamReader(conn.getInputStream()));
             String line;
@@ -102,7 +100,7 @@ public class HttpClientUtil {
         	log.error(e);
 //            LoggerUtil.error(HttpClientUtil.class, e.getMessage(), e);
         }
-        //Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
+        //ä½¿ç”¨finallyå—æ¥å…³é—­è¾“å‡ºæµã€è¾“å…¥æµ
         finally{
             try{
                 if(out!=null){
@@ -120,7 +118,7 @@ public class HttpClientUtil {
     }
     
     /**
-     * »ñÈ¡Ô¶³ÌÎÄ¼şÁ÷
+     * è·å–è¿œç¨‹æ–‡ä»¶æµ
      * @param url
      * @return
      */
@@ -146,7 +144,7 @@ public class HttpClientUtil {
     }
     
     /**
-     * »ñÈ¡ÍøÕ¾µÄhost
+     * è·å–ç½‘ç«™çš„host
      * @param url
      * @return
      */

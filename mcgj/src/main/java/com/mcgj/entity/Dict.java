@@ -1,6 +1,6 @@
 package com.mcgj.entity;
 /**
- * ×ÖµäÊµÌåÀà
+ * å­—å…¸å®ä½“ç±»
  * @author ad
  *
  */
@@ -8,11 +8,11 @@ public class Dict extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	private String dictName;//×ÖµäÃû³Æ
+	private String dictName;//å­—å…¸åç§°
 	
-	private String codeValue;//´úÂëÖµ
+	private String codeValue;//ä»£ç å€¼
 	
-	private Integer dictType;//×ÖµäÀàĞÍ
+	private Integer dictType;//å­—å…¸ç±»å‹
 
 	public String getDictName() {
 		return dictName;

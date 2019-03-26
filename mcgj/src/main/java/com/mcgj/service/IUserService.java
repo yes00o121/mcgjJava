@@ -2,8 +2,6 @@ package com.mcgj.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.ConversationChild;
 import com.mcgj.entity.User;
@@ -11,40 +9,40 @@ import com.mcgj.web.websocket.Message;
 
 public interface IUserService extends BaseService<User,Integer>{
 	/**
-	 * µÇÂ¼½Ó¿Ú
+	 * ç™»å½•æ¥å£
 	 * @return
 	 */
 	User login(User user);
 	/**
-	 * ×¢²á·½·¨
-	 * @param user ÓÃ»§ÊµÌåÀà
+	 * æ³¨å†Œæ–¹æ³•
+	 * @param user ç”¨æˆ·å®ä½“ç±»
 	 * @return
 	 */
 	void register(User user);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÕËºÅ²éÑ¯ÓÃ»§Êı¾İ
+	 * æ ¹æ®ç”¨æˆ·è´¦å·æŸ¥è¯¢ç”¨æˆ·æ•°æ®
 	 * @param account
 	 * @return
 	 */
 	User findUserByAccount(String account);
 	
 	/**
-	 *  ¸ù¾İÓÃ»§id²éÑ¯ÓÃ»§Î´¶ÁµÄÏûÏ¢Êı¾İÊıÁ¿
+	 *  æ ¹æ®ç”¨æˆ·idæŸ¥è¯¢ç”¨æˆ·æœªè¯»çš„æ¶ˆæ¯æ•°æ®æ•°é‡
 	 * @param userId
 	 * @return
 	 */
 	List<Message> selectUserUnreadMessageCountByUserId(Integer userId);
 	
 	/**
-	 * ¸ù¾İÓÃ»§idÆäÊÕ²ØµÄÌû×ÓÊı¾İ
+	 * æ ¹æ®ç”¨æˆ·idå…¶æ”¶è—çš„å¸–å­æ•°æ®
 	 * @return
 	 */
 	List<ConversationChild> selectCollectionConversationChildByUserId(Integer userId);
 	
 	/**
-	 * ÅÀ³æ****
-	 * ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ£¬²»´æÔÚ½øĞĞ´´½¨£¬È»ºó·µ»ØÓÃ»§ĞÅÏ¢
+	 * çˆ¬è™«****
+	 * åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨è¿›è¡Œåˆ›å»ºï¼Œç„¶åè¿”å›ç”¨æˆ·ä¿¡æ¯
 	 * @param userName
 	 * @return
 	 */

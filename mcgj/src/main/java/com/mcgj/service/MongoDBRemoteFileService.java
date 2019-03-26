@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import com.mcgj.utils.StringUtil;
 import com.mongodb.DB;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
@@ -32,7 +33,7 @@ public class MongoDBRemoteFileService implements IRemoteFileMongoSer{
 	
 	public void download(String mongoid, OutputStream out) throws IOException {
 		try{
-		    if(mongoid == null || mongoid.equals("")){
+		    if(StringUtil.isEmpty(mongoid)){
 		        return ;
 		    }
 			GridFSDBFile gfsf = getGridFS().findOne(new ObjectId(mongoid));

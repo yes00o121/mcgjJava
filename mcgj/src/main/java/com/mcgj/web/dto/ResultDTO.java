@@ -1,11 +1,11 @@
 package com.mcgj.web.dto;
 /**
- * ÓÃÓÚ·µ»ØÊı¾İµÄÊµÌåÀà
- * @author ad
+ * ç”¨äºè¿”å›æ•°æ®çš„å®ä½“ç±»
+ * @author æ¨æ™¨
  *
  */
 public class ResultDTO {
-	private int state = 0;//0±íÊ¾ÓÃ»§Ã»ÓĞµÇÂ¼£¬1±íÊ¾ÒÑ¾­µÇÂ¼,Ã»ÓĞµÇÂ¼»á±»À¹½ØÆ÷À¹½Ø,2±íÊ¾ÓÃ»§»á»°¹ıÆÚ
+	private int state = 0;//0è¡¨ç¤ºç”¨æˆ·æ²¡æœ‰ç™»å½•ï¼Œ1è¡¨ç¤ºå·²ç»ç™»å½•,æ²¡æœ‰ç™»å½•ä¼šè¢«æ‹¦æˆªå™¨æ‹¦æˆª,2è¡¨ç¤ºç”¨æˆ·ä¼šè¯è¿‡æœŸ
 	private String message = "";
 	private Boolean success = false;
 	private Object result;

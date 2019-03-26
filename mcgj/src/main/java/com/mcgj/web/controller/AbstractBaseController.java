@@ -1,13 +1,11 @@
 package com.mcgj.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mcgj.service.IRemoteFileMongoSer;
-import com.mcgj.service.MongoDBRemoteFileService;
 /**
- * ËùÓĞ¿ØÖÆÆ÷¸¸Àà£¬ÊµÏÖÁËÒ»Ğ©MongoµÄ²Ù×÷
+ * æ‰€æœ‰æ§åˆ¶å™¨çˆ¶ç±»ï¼Œå®ç°äº†ä¸€äº›Mongoçš„æ“ä½œ
  * @author ad
  *
  */
@@ -17,7 +15,7 @@ public class AbstractBaseController {
 	protected IRemoteFileMongoSer mongoDBRemoteFileService;
 	
 	/**
-	 * ÉÏ´«ÎÄ¼ş
+	 * ä¸Šä¼ æ–‡ä»¶
 	 * @param file
 	 * @param entity
 	 * @param propertyName

@@ -3,14 +3,14 @@ package com.mcgj.utils;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * ·ÖÒ³¹¤¾ßÀà
- * @author ad
+ * åˆ†é¡µå·¥å…·ç±»
+ * @author æ¨æ™¨
  *
  */
 public class PageUtil {
 	public static <T> List<T> createPage(int start, int limit, List<T> list) {
-		int startPage = (start-1)*limit+1;//¿ªÊ¼Ò³
-		int endPage = start*limit;//½áÊøÒ³
+		int startPage = (start-1)*limit+1;//å¼€å§‹é¡µ
+		int endPage = start*limit;//ç»“æŸé¡µ
 		List<T> lists = new ArrayList<T>();
 		for(int i=startPage-1;i<=endPage-1;i++){
 			if(i < list.size() && list.get(i) != null){

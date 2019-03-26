@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.management.RuntimeErrorException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +12,15 @@ import com.mcgj.dao.ConversationChildMapper;
 import com.mcgj.entity.ConversationChildChild;
 import com.mcgj.entity.MessageType;
 import com.mcgj.entity.User;
-import com.mcgj.entity.UserCollectionConversationChild;
 import com.mcgj.redis.RedisHashUtil;
 import com.mcgj.security.MD5Util;
-import com.mcgj.utils.Base64Util;
 import com.mcgj.utils.MessageUtil;
 import com.mcgj.utils.PageUtil;
 import com.mcgj.web.websocket.Message;
 import com.mcgj.web.websocket.WebSocketServer;
 
 /**
- * Â¥²ãÒµÎñ²ã 
+ * æ¥¼å±‚ä¸šåŠ¡å±‚ 
  * @author ad
  *
  */
@@ -54,18 +50,18 @@ public class ConversationChildChildService implements IConversationChildChildSer
 	}
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯ÆäÏÂµÄÂ¥²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢å…¶ä¸‹çš„æ¥¼å±‚æ•°æ®
 	 * @return
 	 */
 	public Map<String,Object> selectCCCByCCId(ConversationChildChild conversationChildChild){
-		//ÅĞ¶Ï²ÎÊıºÏ·¨ĞÔ
+		//åˆ¤æ–­å‚æ•°åˆæ³•æ€§
 		if(conversationChildChild.getConversationChildId() == null || "".equals(conversationChildChild.getConversationChildId())){
 			throw new RuntimeException(MessageUtil.MSG_QUERY_ERROR);
 		}
 		if(conversationChildChild.getSingleFloor() == null || "".equals(conversationChildChild.getSingleFloor())){
 			throw new RuntimeException(MessageUtil.MSG_QUERY_ERROR);
 		}
-		List<Map<String,Object>> conversationChildChilds  = conversationChildChildMapper.selectCCCByCCId(conversationChildChild);//µ±Ç°Ìû×ÓµÄËùÓĞÂ¥²ãÊı¾İ
+		List<Map<String,Object>> conversationChildChilds  = conversationChildChildMapper.selectCCCByCCId(conversationChildChild);//å½“å‰å¸–å­çš„æ‰€æœ‰æ¥¼å±‚æ•°æ®
 		
 		Map<String,Object> maps = new HashMap<String, Object>();
 		maps.put("conversationChildChilds", PageUtil.createPage(conversationChildChild.getStart(),conversationChildChild.getLimit(),conversationChildChilds));
@@ -74,21 +70,21 @@ public class ConversationChildChildService implements IConversationChildChildSer
 	}
 	
 	/**
-	 * ĞÂÔöÂ¥²ã·½·¨
+	 * æ–°å¢æ¥¼å±‚æ–¹æ³•
 	 */
 	public void addConversationChildChild(ConversationChildChild conversationChildChild) {
-		//Èç¹ûÊÇÂ¥Ö÷ĞÂÔöµÄÂ¥²ã£¬Â¥Ö÷²é¿´×´Ì¬Ä¬ÈÏÎª1,²»È»½«ÏûÏ¢ÍÆËÍ¸øÂ¥Ö÷
+		//å¦‚æœæ˜¯æ¥¼ä¸»æ–°å¢çš„æ¥¼å±‚ï¼Œæ¥¼ä¸»æŸ¥çœ‹çŠ¶æ€é»˜è®¤ä¸º1,ä¸ç„¶å°†æ¶ˆæ¯æ¨é€ç»™æ¥¼ä¸»
 		if(conversationChildChild.getIsManage().equals(1)){
-			conversationChildChild.setIsLook(1);//Â¥Ö÷»Ø¸´µÄÌû×Ó£¬²»ĞèÒª½øĞĞÏûÏ¢µÄÍÆËÍ
+			conversationChildChild.setIsLook(1);//æ¥¼ä¸»å›å¤çš„å¸–å­ï¼Œä¸éœ€è¦è¿›è¡Œæ¶ˆæ¯çš„æ¨é€
 		}
-//		conversationChildChild.setContent(Base64Util.getStrBASE64(conversationChildChild.getContent()));//¶ÔÄÚÈİÎÄ±¾½øĞĞ¼ÓÃÜ
-		conversationChildChildMapper.insert(conversationChildChild);//²åÈëÂ¥²ã
-		if(conversationChildChild.getIsManage().equals(0)){//²»ÊÇÂ¥Ö÷»Ø¸´µÄÌù×Ó£¬½«ÏûÏ¢ÍÆËÍ¸øÂ¥Ö÷
+//		conversationChildChild.setContent(Base64Util.getStrBASE64(conversationChildChild.getContent()));//å¯¹å†…å®¹æ–‡æœ¬è¿›è¡ŒåŠ å¯†
+		conversationChildChildMapper.insert(conversationChildChild);//æ’å…¥æ¥¼å±‚
+		if(conversationChildChild.getIsManage().equals(0)){//ä¸æ˜¯æ¥¼ä¸»å›å¤çš„è´´å­ï¼Œå°†æ¶ˆæ¯æ¨é€ç»™æ¥¼ä¸»
 			if(conversationChildChild.getConversationChildId() != null && !"".equals(conversationChildChild.getConversationChildId())){
 				User user = conversationChildMapper.selectUserByconversationChildId(conversationChildChild.getConversationChildId());
 				if(user != null){
-					String token = MD5Util.getMD5((user.getAccount()+user.getPassword()).getBytes());//»ñÈ¡Â¥Ö÷token
-					if(RedisHashUtil.get(token) != null){//ÅĞ¶ÏÂ¥Ö÷»á»°ÊÇ·ñ´æÔÚ£¬²»´æÔÚ²»½øĞĞÏûÏ¢µÄÍÆËÍ
+					String token = MD5Util.getMD5((user.getAccount()+user.getPassword()).getBytes());//è·å–æ¥¼ä¸»token
+					if(RedisHashUtil.get(token) != null){//åˆ¤æ–­æ¥¼ä¸»ä¼šè¯æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨ä¸è¿›è¡Œæ¶ˆæ¯çš„æ¨é€
 						WebSocketServer.sendMessage(token,new Message(MessageUtil.MSG_REPLY_FLOOR,MessageType.reply));
 					}
 				}
@@ -100,23 +96,23 @@ public class ConversationChildChildService implements IConversationChildChildSer
 	public Map<String,Object> selectConversationChildChildReplyByUserId(
 			ConversationChildChild conversationChildChild) {
 		if(conversationChildChild.getUserId() == null){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
-		List<ConversationChildChild> ccc = conversationChildChildMapper.selectConversationChildChildReplyByUserId(conversationChildChild.getUserId());//»ñÈ¡ËùÓĞµÄÊı¾İ
-		//¶ÔÊı¾İ½øĞĞ·ÖÒ³
+		List<ConversationChildChild> ccc = conversationChildChildMapper.selectConversationChildChildReplyByUserId(conversationChildChild.getUserId());//è·å–æ‰€æœ‰çš„æ•°æ®
+		//å¯¹æ•°æ®è¿›è¡Œåˆ†é¡µ
 		List<ConversationChildChild> list = PageUtil.createPage(conversationChildChild.getStart(),conversationChildChild.getLimit(), ccc);
 		Map<String,Object> map = new HashMap<String, Object>();
-		map.put("total",ccc.size());//ÉèÖÃ×ÜÊı
+		map.put("total",ccc.size());//è®¾ç½®æ€»æ•°
 		map.put("conversationChildChilds", list);
 		return map;
 	}
 
 	/**
-	 * ½«¸ÃÓÃ»§ËùÓĞµÄÎ´²é¿´Â¥²ã¶¼ĞŞ¸ÄÎª²é¿´×´Ì¬
+	 * å°†è¯¥ç”¨æˆ·æ‰€æœ‰çš„æœªæŸ¥çœ‹æ¥¼å±‚éƒ½ä¿®æ”¹ä¸ºæŸ¥çœ‹çŠ¶æ€
 	 */
 	public void updateConversationChildChildReplyByUerId(Integer userId) {
 		if(userId == null || "".equals(userId)){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
 		conversationChildChildMapper.updateConversationChildChildReplyByUerId(userId);
 	}

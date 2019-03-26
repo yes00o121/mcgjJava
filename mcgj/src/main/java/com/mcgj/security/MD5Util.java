@@ -2,10 +2,13 @@ package com.mcgj.security;
 
 import java.security.MessageDigest;
 
+/**
+ * md5宸ュ叿
+ * @author 鏉ㄦ櫒
+ *
+ */
 public class MD5Util {
-	/***
-	 * MD5加码 生成32位md5码
-	 */
+	
 	public static String getMD5(byte[] ins) {
 		MessageDigest md5 = null;
 		try {

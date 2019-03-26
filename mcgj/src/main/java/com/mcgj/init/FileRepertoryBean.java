@@ -13,11 +13,11 @@ import com.mcgj.redis.RedisHashUtil;
 import com.mcgj.utils.PropertiesUtil;
 
 /**
- * 文件仓库bean
- * @author 杨晨
+ * 鏂囦欢浠撳簱bean
+ * @author 鏉ㄦ櫒
  * @date 2019-03-01
- * @address 昆明
- * @descript 初始化文件仓库bean,提供一些初始化方法
+ * @address 鏄嗘槑
+ * @descript 鍒濆鍖栨枃浠朵粨搴揵ean,鎻愪緵涓�浜涘垵濮嬪寲鏂规硶
  */
 public class FileRepertoryBean {
 	
@@ -34,7 +34,7 @@ public class FileRepertoryBean {
 				tempMap.put(file.getAddress(), file.getMongodbId());
 			}
 			RedisHashUtil.putAll(PropertiesUtil.get("redisConifg.properties","fileRepertory" ), tempMap);
-			System.out.println("初始化文件仓库到redis...");
+			System.out.println("鍒濆鍖栨枃浠朵粨搴撳埌redis...");
 		}
 	}
 	

@@ -4,29 +4,29 @@ public class User extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
 	
-	//±í¶ÔÓ¦×Ö¶Î
+	//è¡¨å¯¹åº”å­—æ®µ
 
-	private String userName;//ÓÃ»§Ãû³Æ
+	private String userName;//ç”¨æˆ·åç§°
 	
-	private String account;//ÕËºÅ
+	private String account;//è´¦å·
 	
-	private Boolean admin = false;//³¬¼¶ÓÃ»§
+	private Boolean admin = false;//è¶…çº§ç”¨æˆ·
 	
-	private String password;//ÃÜÂë
+	private String password;//å¯†ç 
 	
-	private String photo;//ÓÃ»§Í·Ïñ£¬ÕÕÆ¬
+	private String photo;//ç”¨æˆ·å¤´åƒï¼Œç…§ç‰‡
 	
-	private String background;//¸öÈËÖĞĞÄ±³¾°Í¼Æ¬
+	private String background;//ä¸ªäººä¸­å¿ƒèƒŒæ™¯å›¾ç‰‡
 	
-	private String card;//¿¨Æ¬ºá·ù
+	private String card;//å¡ç‰‡æ¨ªå¹…
 	
-	//À©Õ¹×Ö¶Î
+	//æ‰©å±•å­—æ®µ
 	
-	private String browser;//Ê¹ÓÃä¯ÀÀÆ÷
+	private String browser;//ä½¿ç”¨æµè§ˆå™¨
 	
-	private String os;//ÓÃ»§ÏµÍ³
+	private String os;//ç”¨æˆ·ç³»ç»Ÿ
 	
-	private String ip;//ÓÃ»§ip
+	private String ip;//ç”¨æˆ·ip
 	
 	public String getBackground() {
 		return background;

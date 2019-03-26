@@ -7,9 +7,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
-import org.springframework.util.SerializationUtils;
-
-import redis.clients.jedis.Jedis;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
@@ -18,8 +15,10 @@ import com.alibaba.fastjson.parser.ParserConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mcgj.utils.MessageUtil;
 
+import redis.clients.jedis.Jedis;
+
 /**
- * redis hash¹¤¾ßÀà
+ * redis hashå·¥å…·ç±»
  * @author ad
  *
  */
@@ -49,7 +48,7 @@ public class RedisHashUtil extends JedisCacheBase2{
 	    }
 	    
 	    /**
-	     * Ìí¼ÓlistÊı¾İ
+	     * æ·»åŠ listæ•°æ®
 	     * @param key
 	     * @param value
 	     * @return
@@ -72,7 +71,7 @@ public class RedisHashUtil extends JedisCacheBase2{
 	    }
 	    
 	    /**
-	     * »ñÈ¡listÊı¾İ
+	     * è·å–listæ•°æ®
 	     * @param key
 	     * @param value
 	     * @return
@@ -95,7 +94,7 @@ public class RedisHashUtil extends JedisCacheBase2{
 	    }
 	    
 	    /**
-	     * ÅĞ¶ÏÄ³¸öÖµÊÇ·ñ´æÔÚlistÖĞ
+	     * åˆ¤æ–­æŸä¸ªå€¼æ˜¯å¦å­˜åœ¨listä¸­
 	     * @param key
 	     * @param value
 	     * @return
@@ -116,7 +115,7 @@ public class RedisHashUtil extends JedisCacheBase2{
 	    }
 	    
 	    /**
-	     * Ğ´Èë¹ıÆÚÊı¾İ
+	     * å†™å…¥è¿‡æœŸæ•°æ®
 	     * @param key
 	     * @param id
 	     * @param value
@@ -138,7 +137,7 @@ public class RedisHashUtil extends JedisCacheBase2{
 	        }
 	    }
 	    /**
-	     * ¸ù¾İKey»ñÈ¡Öµ
+	     * æ ¹æ®Keyè·å–å€¼
 	     * @param key
 	     * @return
 	     */

@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * ËùÓĞÊµÌåÀàµÄ¸¸Àà£¬Ìá¹©Ò»Ğ©¹«ÓĞÊôĞÔ
- * @author ad
+ * æ‰€æœ‰å®ä½“ç±»çš„çˆ¶ç±»ï¼Œæä¾›ä¸€äº›å…¬æœ‰å±æ€§
+ * @author æ¨æ™¨
  *
  */
 public class BaseEntity implements Serializable{
@@ -14,21 +14,21 @@ public class BaseEntity implements Serializable{
 	
 	private Integer id;
 	
-	protected Integer start;//¿ªÊ¼Ò³
+	protected Integer start;//å¼€å§‹é¡µ
 	
-	protected Integer limit;//½áÊøÒ³
+	protected Integer limit;//ç»“æŸé¡µ
 
-	protected Date createDate =new Date();//´´½¨Ê±¼ä
+	protected Date createDate =new Date();//åˆ›å»ºæ—¶é—´
 	
-	protected Date modifyDate;//ĞŞ¸ÄÊ±¼ä
+	protected Date modifyDate;//ä¿®æ”¹æ—¶é—´
 	
-	protected String token;//ÓÃ»§µÇÂ¼Î¨Ò»±êÊ¾
+	protected String token;//ç”¨æˆ·ç™»å½•å”¯ä¸€æ ‡ç¤º
 	
-	protected String verificationCode;//ÑéÖ¤Âëcode,ä¯ÀÀÆ÷¶ËÓÃ»§Î´µÇÂ¼ÑéÖ¤Î¨Ò»±êÊ¶
+	protected String verificationCode;//éªŒè¯ç code,æµè§ˆå™¨ç«¯ç”¨æˆ·æœªç™»å½•éªŒè¯å”¯ä¸€æ ‡è¯†
 	
-	protected String checkCode;//Ğ£ÑéÂë,ÓÃ»§ÊäÈëµÄÑéÖ¤Âë
+	protected String checkCode;//æ ¡éªŒç ,ç”¨æˆ·è¾“å…¥çš„éªŒè¯ç 
 	
-	protected Integer state=1;//×´Ì¬,Ä¬ÈÏÎª¿ÉÓÃ
+	protected Integer state=1;//çŠ¶æ€,é»˜è®¤ä¸ºå¯ç”¨
 	
 	public Integer getState() {
 		return state;

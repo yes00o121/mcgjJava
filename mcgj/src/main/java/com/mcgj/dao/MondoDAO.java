@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 /**
  * mondoDAO
- * @author ad
+ * @author æ¨æ™¨
  *
  */
 @Service
 public class MondoDAO {
 	public MondoDAO(){
-		System.out.println("ÊµÀı»¯mongodao...");
+		System.out.println("åˆå§‹åŒ–mongodao...");
 	}
 	@Autowired
 	private MongoOperations mongoTemplate;

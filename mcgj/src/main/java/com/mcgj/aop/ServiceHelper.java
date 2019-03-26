@@ -18,7 +18,8 @@ public class ServiceHelper {
 	@Around("mapperPoint()")
 	public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
 		
-		System.out.println(" ˝æ›«–√Ê°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£°£");
-		return null;
+		System.out.println("Êï∞ÊçÆÂàáÈù¢„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ„ÄÇ");
+		Object proceed = pjp.proceed();
+		return proceed;
 	}
 }

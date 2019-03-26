@@ -6,14 +6,14 @@ import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.FileRepertory;
 
 /**
- * 文件仓库dao
- * @author 杨晨
+ * 鏂囦欢浠撳簱dao
+ * @author 鏉ㄦ櫒
  * @date 2019-03-01
  */
 public interface FileRepertoryMapper extends BaseService<FileRepertory, Integer>{
 	
 	/**
-	 * 查询所有的文件仓库数据
+	 * 鏌ヨ鎵�鏈夌殑鏂囦欢浠撳簱鏁版嵁
 	 * @return
 	 */
 	public List<FileRepertory> selectAll();

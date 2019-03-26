@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import com.mongodb.gridfs.GridFSDBFile;
 
 /**
- * mongoͼƬ�ӿ�
+ * mongo接口
  * @author ad
  *
  */

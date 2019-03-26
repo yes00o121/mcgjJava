@@ -3,8 +3,8 @@ package com.mcgj.base.service;
 /**
  * @author 
  *
- * @param <T>ÊµÌå
- * @param <K>Ö÷¼ü
+ * @param <T> å®žä½“
+ * @param <K> id
  */
 public interface BaseService<T,K> {
 	void delete(K id);

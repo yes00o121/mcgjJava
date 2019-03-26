@@ -1,12 +1,12 @@
 package com.mcgj.entity;
 /**
- * 消息类型枚举
+ * 娑堟伅绫诲瀷鏋氫妇
  * @author ad
  *
  */
 public enum MessageType {
 	
-	reply("回复"), notice("通知"), rivateChat("私聊");
+	reply("鍥炲"), notice("閫氱煡"), rivateChat("绉佽亰");
 
 	private String desc;
 	

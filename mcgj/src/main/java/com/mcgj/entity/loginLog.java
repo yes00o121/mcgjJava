@@ -3,7 +3,7 @@ package com.mcgj.entity;
 import java.util.Date;
 
 /**
- * µÇÂ¼ÈÕÖ¾ÊµÌåÀà
+ * ç™»å½•æ—¥å¿—å®ä½“ç±»
  * @author ad
  *
  */
@@ -11,15 +11,15 @@ public class loginLog extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Date loginDate;//µÇÂ¼Ê±¼ä
+	private Date loginDate;//ç™»å½•æ—¶é—´
 	
-	private String loginIp;//µÇÂ¼µÄipµØÖ·
+	private String loginIp;//ç™»å½•çš„ipåœ°å€
 	
-	private Integer userId;//µÇÂ¼µÄÓÃ»§id
+	private Integer userId;//ç™»å½•çš„ç”¨æˆ·id
 	
-	private String os;//ÓÃ»§²Ù×÷ÏµÍ³
+	private String os;//ç”¨æˆ·æ“ä½œç³»ç»Ÿ
 	
-	private String browser;//ä¯ÀÀÆ÷
+	private String browser;//æµè§ˆå™¨
 	
 	public String getOs() {
 		return os;

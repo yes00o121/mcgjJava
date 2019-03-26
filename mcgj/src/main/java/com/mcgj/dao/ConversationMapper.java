@@ -9,60 +9,60 @@ import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.Conversation;
 import com.mcgj.entity.User;
 /**
- * Ìù°Émapper½Ó¿Ú
+ * è´´å§mapperæ¥å£
  * @author ad
  *
  */
 public interface ConversationMapper extends BaseService<Conversation,Integer>{
 	
 	/**
-	 * ²éÑ¯×îĞÂµÄÌù°ÉÌû×ÓÊı¾İ(ÓÃ»§×îºó»Ø¸´µÄÌû×ÓÊı¾İ)
+	 * æŸ¥è¯¢æœ€æ–°çš„è´´å§å¸–å­æ•°æ®(ç”¨æˆ·æœ€åå›å¤çš„å¸–å­æ•°æ®)
 	 * @return
 	 */
 	List<Map<String,Object>> selectNewestConversation();
 	
 	/**
-	 * Ìí¼ÓĞÂµÄÌù°ÉÊı¾İ
+	 * æ·»åŠ æ–°çš„è´´å§æ•°æ®
 	 * @return
 	 */
 	void addConversation(Conversation conversation);
 	
 	/**
-	 * ²éÑ¯µ±Ç°Ìû×ÓµÄ±êÌâÍ·ÏñµÈÄÚÈİ
+	 * æŸ¥è¯¢å½“å‰å¸–å­çš„æ ‡é¢˜å¤´åƒç­‰å†…å®¹
 	 * @param id
 	 * @return
 	 */
 	Conversation selectConversation(Conversation conversation);
 	
 	/**
-	 * ²éÑ¯Ìù°ÉµÄÒ»Ğ©Í³¼ÆÊı¾İ£¬Èç¹Ø×¢ÈËÊı£¬·¢ÌùÊıµÈÊı¾İ
-	 * @param Ìù°É¶ÔÏó
+	 * æŸ¥è¯¢è´´å§çš„ä¸€äº›ç»Ÿè®¡æ•°æ®ï¼Œå¦‚å…³æ³¨äººæ•°ï¼Œå‘è´´æ•°ç­‰æ•°æ®
+	 * @param è´´å§å¯¹è±¡
 	 * @return
 	 */
 	Map<String,Object> selectConversationStatistics(Conversation conversation);
 	
 	/**
-	 * ²éÑ¯Ìù°ÉÊı¾İ£¬°´ÓÃ»§¹Ø×¢Á¿²éÑ¯Ö¸¶¨ÊıÁ¿µÄÌù°ÉÊı¾İ
-	 * @param limit ÊıÁ¿
+	 * æŸ¥è¯¢è´´å§æ•°æ®ï¼ŒæŒ‰ç”¨æˆ·å…³æ³¨é‡æŸ¥è¯¢æŒ‡å®šæ•°é‡çš„è´´å§æ•°æ®
+	 * @param limit æ•°é‡
 	 * @return
 	 */
 	List<Conversation> selectMaxFollow(@Param("limit")Integer limit);
 	
 	/**
-	 * ²éÑ¯Ìù°ÉµÄÀàĞÍÒÔºóÀàĞÍÏÂ¶ÔÓ¦µÄÌù°ÉÊı¾İ
+	 * æŸ¥è¯¢è´´å§çš„ç±»å‹ä»¥åç±»å‹ä¸‹å¯¹åº”çš„è´´å§æ•°æ®
 	 * @return
 	 */
 	List<Map<String,Object>> selectConversationTypeAndData();
 	
 	/**
-	 * ¸ù¾İÓÃ»§id²éÑ¯ÓÃ»§¹Ø×¢µÄÌù°ÉÏÂµÄÌù×Ó×îĞÂ¶¯Ì¬
+	 * æ ¹æ®ç”¨æˆ·idæŸ¥è¯¢ç”¨æˆ·å…³æ³¨çš„è´´å§ä¸‹çš„è´´å­æœ€æ–°åŠ¨æ€
 	 * @param user
 	 * @return
 	 */
 	List<Map<String,Object>> selectUserFollowConversation(User user);
 	
 	/**
-	 * ²éÑ¯°ÉÖ÷Ïà¹ØÊı¾İ
+	 * æŸ¥è¯¢å§ä¸»ç›¸å…³æ•°æ®
 	 * @param conversation
 	 * @return
 	 */

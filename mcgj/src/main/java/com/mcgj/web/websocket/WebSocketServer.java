@@ -2,7 +2,6 @@ package com.mcgj.web.websocket;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
@@ -13,7 +12,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.apache.log4j.Logger;
 
 /**
- * webSocket·şÎñÆ÷
+ * webSocketæœåŠ¡å™¨
  * @author ad
  *
  */
@@ -23,67 +22,67 @@ public class WebSocketServer {
 	
 	private static Logger  log = Logger.getLogger(WebSocketServer.class);
 
-	private static int onlineCount = 0;// Á¬½ÓÊı
+	private static int onlineCount = 0;// è¿æ¥æ•°
 	
-	// concurrent°üµÄÏß³Ì°²È«Set£¬ÓÃÀ´´æ·ÅÃ¿¸ö¿Í»§¶Ë¶ÔÓ¦µÄMyWebSocket¶ÔÏó¡£ÈôÒªÊµÏÖ·şÎñ¶ËÓëµ¥Ò»¿Í»§¶ËÍ¨ĞÅµÄ»°£¬¿ÉÒÔÊ¹ÓÃMapÀ´´æ·Å£¬ÆäÖĞKey¿ÉÒÔÎªÓÃ»§±êÊ¶
+	// concurrentåŒ…çš„çº¿ç¨‹å®‰å…¨Setï¼Œç”¨æ¥å­˜æ”¾æ¯ä¸ªå®¢æˆ·ç«¯å¯¹åº”çš„MyWebSocketå¯¹è±¡ã€‚è‹¥è¦å®ç°æœåŠ¡ç«¯ä¸å•ä¸€å®¢æˆ·ç«¯é€šä¿¡çš„è¯ï¼Œå¯ä»¥ä½¿ç”¨Mapæ¥å­˜æ”¾ï¼Œå…¶ä¸­Keyå¯ä»¥ä¸ºç”¨æˆ·æ ‡è¯†
 //	public static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<WebSocketServer>();
 	
-	//keyÎªÓÃ»§µÄtoken,¸ù¾İtokenºÍÔÚÏßÓÃ»§½øĞĞÍ¨Ñ¶
+	//keyä¸ºç”¨æˆ·çš„token,æ ¹æ®tokenå’Œåœ¨çº¿ç”¨æˆ·è¿›è¡Œé€šè®¯
 	public static Map<String,WebSocketServer> webSocketMap = new ConcurrentHashMap<String,WebSocketServer>();
 	
-	// ÓëÄ³¸ö¿Í»§¶ËµÄÁ¬½Ó»á»°£¬ĞèÒªÍ¨¹ıËüÀ´¸ø¿Í»§¶Ë·¢ËÍÊı¾İ
+	// ä¸æŸä¸ªå®¢æˆ·ç«¯çš„è¿æ¥ä¼šè¯ï¼Œéœ€è¦é€šè¿‡å®ƒæ¥ç»™å®¢æˆ·ç«¯å‘é€æ•°æ®
     private Session session;
     
     /**
-     * Á¬½Ó³É¹¦µ÷ÓÃ
+     * è¿æ¥æˆåŠŸè°ƒç”¨
      */
     @OnOpen
     public void onOpen(Session session) {
-//        System.out.println("ÓĞĞÂÁ¬½Ó.......................»îÔ¾ÓÃ»§ÈËÊı:" + onlineCount);
+//        System.out.println("æœ‰æ–°è¿æ¥.......................æ´»è·ƒç”¨æˆ·äººæ•°:" + onlineCount);
         System.out.println(session.getQueryString());
         String token =session.getQueryString().split("=")[1];
     	this.session = session;
     	webSocketMap.put(token,this);
-//    	sendMessage(token, new Message("ÏûÏ¢ÍÆËÍ²âÊÔ¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£",1));
-        addOnlineCount();// ×·¼ÓÁ¬½ÓÊıÁ¿
+//    	sendMessage(token, new Message("æ¶ˆæ¯æ¨é€æµ‹è¯•ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚",1));
+        addOnlineCount();// è¿½åŠ è¿æ¥æ•°é‡
     }
     
     /**
-     * ½ÓÊÕÓÃ»§·¢ËÍµÄÏûÏ¢
+     * æ¥æ”¶ç”¨æˆ·å‘é€çš„æ¶ˆæ¯
      * 
      * @param message
      * @param session
      */
     @OnMessage
     public void onMessage(String message, Session session) {
-        System.out.println("ÊÕµ½¿Í»§¶ËµÄÏûÏ¢¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£" + message);
+        System.out.println("æ”¶åˆ°å®¢æˆ·ç«¯çš„æ¶ˆæ¯ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚" + message);
 
     }
     
     /**
-     * ÓÃ»§ÏÂÏßÊ±µ÷ÓÃ
+     * ç”¨æˆ·ä¸‹çº¿æ—¶è°ƒç”¨
      */
     @OnClose
     public void onClose(Session session) {
-        WebSocketServer.webSocketMap.remove(session.getQueryString().split("=")[1]);// É¾³ısetÖĞµÄsocket
-        removeOnlineCount();// ¼õÉÙÁ¬½ÓÊıÁ¿
-//        System.out.println("¶Ï¿ªÁ¬½Ó¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£");
+        WebSocketServer.webSocketMap.remove(session.getQueryString().split("=")[1]);// åˆ é™¤setä¸­çš„socket
+        removeOnlineCount();// å‡å°‘è¿æ¥æ•°é‡
+//        System.out.println("æ–­å¼€è¿æ¥ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
     }
     
 //    @OnError
 //    public void onError(){
-//    	System.out.println("Á¬½Ó³öÏÖ´íÎó¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£");
+//    	System.out.println("è¿æ¥å‡ºç°é”™è¯¯ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
 //    }
     
     /**
-     * Ôö¼ÓÔÚÏßÁ¬½ÓÊıÁ¿
+     * å¢åŠ åœ¨çº¿è¿æ¥æ•°é‡
      */
     private void addOnlineCount() {
         WebSocketServer.onlineCount++;
     }
 
     /**
-     * ¼õÉÙÔÚÏßÁ¬½ÓÊıÁ¿
+     * å‡å°‘åœ¨çº¿è¿æ¥æ•°é‡
      */
     private void removeOnlineCount() {
         WebSocketServer.onlineCount--;
@@ -94,7 +93,7 @@ public class WebSocketServer {
     }
     
     /**
-     * ·¢ËÍÏûÏ¢¸øÖ¸¶¨ÓÃ»§
+     * å‘é€æ¶ˆæ¯ç»™æŒ‡å®šç”¨æˆ·
      */
     public static void sendMessage(String token,Message message){
     	try {

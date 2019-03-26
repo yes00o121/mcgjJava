@@ -1,10 +1,7 @@
 package com.mcgj.interceptor;
 
 import java.io.PrintWriter;
-import java.net.URLEncoder;
-import java.util.Properties;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,9 +18,9 @@ import com.mcgj.utils.PropertiesUtil;
 import com.mcgj.web.dto.ResultDTO;
 
 /**
- * À¹½ØÆ÷
+ * æ‹¦æˆªå™¨
  * 
- * @author Ñî³¿
+ * @author æ¨æ™¨
  *
  */
 public class PermissionInterceptor implements HandlerInterceptor {
@@ -44,26 +41,26 @@ public class PermissionInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object arg2) throws Exception {
-		// Èç¹ûÊÇ²»À¹½Ø½Ó¿ÚÖ±½ÓÍ¨¹ı
+		// å¦‚æœæ˜¯ä¸æ‹¦æˆªæ¥å£ç›´æ¥é€šè¿‡
 		String url = request.getServletPath();
-		if (url.indexOf("select") != -1) {// Èç¹ûÎª²éÑ¯½Ó¿Ú²»½øĞĞÀ¹½Ø
-			//ÊÕµ½ÇëÇóÊ×ÏÈÅĞ¶ÏÓÃ»§ÊÇ·ñµÇÂ¼£¬Èç¹ûµÇÂ¼¾Í¸üĞÂÆä»á»°¿ÉÒÔÖªµÀÓÃ»§ÊÇ·ñ»îÔ¾£¬²»È»²»×ö²Ù×÷
+		if (url.indexOf("select") != -1) {// å¦‚æœä¸ºæŸ¥è¯¢æ¥å£ä¸è¿›è¡Œæ‹¦æˆª
+			//æ”¶åˆ°è¯·æ±‚é¦–å…ˆåˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œå¦‚æœç™»å½•å°±æ›´æ–°å…¶ä¼šè¯å¯ä»¥çŸ¥é“ç”¨æˆ·æ˜¯å¦æ´»è·ƒï¼Œä¸ç„¶ä¸åšæ“ä½œ
 			updateConversation(request);
 			return true;
-		} else if ("/user/login".equals(url)) {// µÇÂ¼½Ó¿Ú
+		} else if ("/user/login".equals(url)) {// ç™»å½•æ¥å£
 			return true;
-		} else if ("/user/register".equals(url)) {// ×¢²á½Ó¿Ú
+		} else if ("/user/register".equals(url)) {// æ³¨å†Œæ¥å£
 			return true;
-		} else if ("/common/uploadFile".equals(url)) {// ÉÏ´«ÎÄ¼ş½Ó¿Ú
+		} else if ("/common/uploadFile".equals(url)) {// ä¸Šä¼ æ–‡ä»¶æ¥å£
 			return true;
-		} else if ("/common/image".equals(url)) {// ²éÑ¯Í¼Æ¬½Ó¿Ú
+		} else if ("/common/image".equals(url)) {// æŸ¥è¯¢å›¾ç‰‡æ¥å£
 			return true;
-		} else if ("/common/generateVerification".equals(url)) {// ÑéÖ¤Âë½Ó¿Ú
+		} else if ("/common/generateVerification".equals(url)) {// éªŒè¯ç æ¥å£
 			return true;
-		}else if ("/common/upNetWorkImg".equals(url)) {// ÉÏ´«ÍøÂçÍ¼Æ¬
+		}else if ("/common/upNetWorkImg".equals(url)) {// ä¸Šä¼ ç½‘ç»œå›¾ç‰‡
 			return true;
 		}
-		//Èç¹û²ÎÊıÖĞµÄÅÀ³ækeyºÍÅäÖÃÖĞµÄÒ»ÖÂ,¸øÓèÍ¨¹ı
+		//å¦‚æœå‚æ•°ä¸­çš„çˆ¬è™«keyå’Œé…ç½®ä¸­çš„ä¸€è‡´,ç»™äºˆé€šè¿‡
 		String token = request.getParameter("spiderToken");
 		if(token != null){
 			String spiderKey = PropertiesUtil.get("delay.properties", "spider_key");
@@ -71,13 +68,13 @@ public class PermissionInterceptor implements HandlerInterceptor {
 				return true;
 			}
 		}
-		//³ıÒÔÉÏ½Ó¿ÚÖ®ÍâÆäËû½Ó¿Ú¶¼ĞèÒªÓÃ»§µÇÂ¼ºó²ÅÄÜ½øĞĞ²Ù×÷
-		return loginLegitimate(request, response);// À¹½ØÓÃ»§µÄµÇÂ¼×´Ì¬
+		//é™¤ä»¥ä¸Šæ¥å£ä¹‹å¤–å…¶ä»–æ¥å£éƒ½éœ€è¦ç”¨æˆ·ç™»å½•åæ‰èƒ½è¿›è¡Œæ“ä½œ
+		return loginLegitimate(request, response);// æ‹¦æˆªç”¨æˆ·çš„ç™»å½•çŠ¶æ€
 //		return true;
 	}
 
 	/**
-	 * ÅĞ¶ÏÓÃ»§µÇÂ¼ÊÇ·ñºÏ·¨
+	 * åˆ¤æ–­ç”¨æˆ·ç™»å½•æ˜¯å¦åˆæ³•
 	 * 
 	 * @return
 	 */
@@ -88,16 +85,16 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		    response.setContentType("application/json; charset=UTF-8");  
 			String token = request.getParameter("token");
 			if (token == null || "".equals(token)) {
-				sendLoginMessage(new PrintWriter(response.getOutputStream()));// ·µ»Ø´íÎóÏûÏ¢
+				sendLoginMessage(new PrintWriter(response.getOutputStream()));// è¿”å›é”™è¯¯æ¶ˆæ¯
 				return false;
 			}
-			// ÅĞ¶ÏÓÃ»§»á»°ÊÇ·ñ´æÔÚ»òÕß¹ıÆÚ
+			// åˆ¤æ–­ç”¨æˆ·ä¼šè¯æ˜¯å¦å­˜åœ¨æˆ–è€…è¿‡æœŸ
 			Object record = RedisHashUtil.get(token);
 			if (record == null) {
 				sendOverTimeMessage(new PrintWriter(response.getOutputStream()));
 				return false;
 			}
-			// ÓÃ»§×´Ì¬Õı³£¸üĞÂ»á»°Ê±³¤
+			// ç”¨æˆ·çŠ¶æ€æ­£å¸¸æ›´æ–°ä¼šè¯æ—¶é•¿
 			RedisHashUtil.setex(token, (User) record,
 					PropertiesUtil.getLoginDelay());
 			return true;
@@ -109,7 +106,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 	}
 
 	/**
-	 * ÓÃ»§Ã»ÓĞµÇÂ¼´íÎóÏûÏ¢
+	 * ç”¨æˆ·æ²¡æœ‰ç™»å½•é”™è¯¯æ¶ˆæ¯
 	 * 
 	 * @return
 	 */
@@ -117,7 +114,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		try{
 		ResultDTO result = new ResultDTO();
 		result.setSuccess(false);
-		result.setState(0);// ×´Ì¬Îªfalse
+		result.setState(0);// çŠ¶æ€ä¸ºfalse
 		result.setMessage(new String(MessageUtil.MSG_NOT_LOGIN.getBytes("utf-8")));
 		pw.append(JSONObject.toJSONString(result));
 		pw.flush();
@@ -129,7 +126,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 	}
 
 	/**
-	 * »á»°¹ıÆÚ´íÎóÏûÏ¢
+	 * ä¼šè¯è¿‡æœŸé”™è¯¯æ¶ˆæ¯
 	 * 
 	 * @return
 	 */
@@ -137,7 +134,7 @@ public class PermissionInterceptor implements HandlerInterceptor {
 		try{
 			ResultDTO result = new ResultDTO();
 			result.setSuccess(false);
-			result.setState(2);// ×´Ì¬Îªfalse
+			result.setState(2);// çŠ¶æ€ä¸ºfalse
 			result.setMessage(new String(MessageUtil.MSG_CONVERSATION_OVERTIME.getBytes("utf-8")));
 			pw.append(JSONObject.toJSONString(result));
 			pw.flush();
@@ -147,12 +144,12 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			log.error(e.getMessage());
 		}
 	}
-	//ÅĞ¶ÏÓÃ»§ÊÇ·ñµÇÂ¼£¬Èç¹ûµÇÂ¼¸üĞÂ»á»°£¬²»È»²»×ö²Ù×÷
+	//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦ç™»å½•ï¼Œå¦‚æœç™»å½•æ›´æ–°ä¼šè¯ï¼Œä¸ç„¶ä¸åšæ“ä½œ
 	private void updateConversation(HttpServletRequest request){
-		//»ñÈ¡token
+		//è·å–token
 		String token = request.getParameter("token");
-		if(token != null){//ÓÃÓÚÓĞµÇÂ¼¹ı
-			//ÅĞ¶ÏÓÃ»§»º´æÊÇ·ñ´æÔÚ£¬²»´æÔÚ²»½øĞĞ²Ù×÷£¬´æÔÚ½øĞĞ¸üĞÂ
+		if(token != null){//ç”¨äºæœ‰ç™»å½•è¿‡
+			//åˆ¤æ–­ç”¨æˆ·ç¼“å­˜æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨ä¸è¿›è¡Œæ“ä½œï¼Œå­˜åœ¨è¿›è¡Œæ›´æ–°
 			Object record = RedisHashUtil.get(token);
 			if(record != null){
 				RedisHashUtil.setex(token, (User) record,

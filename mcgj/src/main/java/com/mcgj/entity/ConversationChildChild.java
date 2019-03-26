@@ -4,7 +4,7 @@ import com.mcgj.utils.CharUtil;
 import com.mcgj.utils.StringUtil;
 
 /**
- * Ìû×ÓÂ¥²ãÊµÌåÀà
+ * å¸–å­æ¥¼å±‚å®ä½“ç±»
  * @author ad
  *
  */
@@ -12,23 +12,23 @@ public class ConversationChildChild extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer conversationChildId;//Â¥²ã¶ÔÓ¦µÄÌû×Óid
+	private Integer conversationChildId;//æ¥¼å±‚å¯¹åº”çš„å¸–å­id
 	
-	private Integer userId;//Â¥²ãÓÃ»§id
+	private Integer userId;//æ¥¼å±‚ç”¨æˆ·id
 	
-	private String content;//Â¥²ã»Ø¸´ÄÚÈİ
+	private String content;//æ¥¼å±‚å›å¤å†…å®¹
 	
-	private Integer isManage;//ÊÇ·ñÊÇÂ¥Ö÷
+	private Integer isManage;//æ˜¯å¦æ˜¯æ¥¼ä¸»
 	
-	private Integer isLook = 0;//Â¥Ö÷ÊÇ·ñ²é¿´¹ı¸Ã»Ø¸´,Ä¬ÈÏÎªÃ»ÓĞ
+	private Integer isLook = 0;//æ¥¼ä¸»æ˜¯å¦æŸ¥çœ‹è¿‡è¯¥å›å¤,é»˜è®¤ä¸ºæ²¡æœ‰
 	
-	private Boolean singleFloor;//Ö»¿´Â¥Ö÷
+	private Boolean singleFloor;//åªçœ‹æ¥¼ä¸»
 	
-	private String conversationName;//Â¥²ã¶ÔÓ¦µÄÌù°ÉÃû³Æ
+	private String conversationName;//æ¥¼å±‚å¯¹åº”çš„è´´å§åç§°
 	
-	private String title;//Â¥²ã¶ÔÓ¦µÄÌù×Ó±êÌâ
+	private String title;//æ¥¼å±‚å¯¹åº”çš„è´´å­æ ‡é¢˜
 	
-	private String userName;//Â¥²ã¶ÔÓ¦µÄÓÃ»§Ãû³Æ
+	private String userName;//æ¥¼å±‚å¯¹åº”çš„ç”¨æˆ·åç§°
 	
 	public String getConversationName() {
 		return conversationName;

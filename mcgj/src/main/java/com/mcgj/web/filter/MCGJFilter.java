@@ -13,9 +13,11 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebFilter
 public class MCGJFilter implements Filter {
 
 	public void destroy() {
@@ -37,16 +39,16 @@ public class MCGJFilter implements Filter {
 				uri = uri + "?";
 			}
 			Set<Entry<String, String>> paramsSet = params.entrySet();
-			// Æ´½ÓÓÃ»§ÇëÇó
+			// æ‹¼æ¥ç”¨æˆ·è¯·æ±‚
 			for (Entry<String, String> entry : paramsSet) {
 				String paramName = entry.getKey();
 				String paramValue = entry.getValue();
 				uri = uri + "&" + paramName + "=" + paramValue;
 			}
 //			System.out.println(uri);
-			response.setHeader("Access-Control-Allow-Origin", "*");// Ìí¼Ó¿çÓò·ÃÎÊÈ¨ÏŞ
+			response.setHeader("Access-Control-Allow-Origin", "*");// æ·»åŠ è·¨åŸŸè®¿é—®æƒé™
 			response.setHeader("Access-Control-Allow-Credentials", "true");
-			// ÏìÓ¦Í·ÉèÖÃ
+			// å“åº”å¤´è®¾ç½®
 			// response.setHeader("Access-Control-Allow-Origin",
 			// "Access-Control-Allow-Credentials");
 			// response.setHeader("Access-Control-Allow-Headers", "Origin,
@@ -54,18 +56,18 @@ public class MCGJFilter implements Filter {
 			// response.setHeader("Access-Control-Allow-Methods", "GET, POST,
 			// PUT");
 			// response.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
-			// //ÏìÓ¦Í· Çë°´ÕÕ×Ô¼ºĞèÇóÌí¼Ó¡£
+			// //å“åº”å¤´ è¯·æŒ‰ç…§è‡ªå·±éœ€æ±‚æ·»åŠ ã€‚
 			// String token =
 			// request.getHeader("Access-Control-Request-Method");
-			// System.out.println("½ÓÊÕÓÃ»§µÄtokenÎª:"+token);
-			// System.out.println("À¹½ØÓÃ»§ÇëÇó¡£¡£¡£¡£¡£¡£¡£¡£¡£¡£"+request.getHeader("Access-Control-Request-Headers"));
+			// System.out.println("æ¥æ”¶ç”¨æˆ·çš„tokenä¸º:"+token);
+			// System.out.println("æ‹¦æˆªç”¨æˆ·è¯·æ±‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚"+request.getHeader("Access-Control-Request-Headers"));
 			// System.out.println(request.getHeader("Access-Control-Request-Headers"));
 			// Enumeration<String> str = request.getHeaderNames();
 			// while(str.hasMoreElements()){
 			// System.out.println("@#$$");
 			//// System.out.println(str.nextElement());
 			// }
-			// ÓÃ»§·ÃÎÊÈ¨ÏŞÅĞ¶Ï£¬ÈôÎŞ·¨»ñÈ¡ÓÃ»§session²»ÓèÍ¨¹ı
+			// ç”¨æˆ·è®¿é—®æƒé™åˆ¤æ–­ï¼Œè‹¥æ— æ³•è·å–ç”¨æˆ·sessionä¸äºˆé€šè¿‡
 			domain.doFilter(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -30,7 +30,7 @@ public class SpringUtil implements ApplicationContextAware {
 		return applicationContext.isSingleton(beanName);
 	}
 	/**
-	 * 获取指定类的所有bean实例
+	 * 鑾峰彇鎸囧畾绫荤殑鎵�鏈塨ean瀹炰緥
 	 * 
 	 * @param cls
 	 * @return
@@ -42,7 +42,7 @@ public class SpringUtil implements ApplicationContextAware {
 		return new ArrayList<T>(matchingBeans.values());
 	}
 	/**
-	 * 获取指定类的所有bean实例
+	 * 鑾峰彇鎸囧畾绫荤殑鎵�鏈塨ean瀹炰緥
 	 * 
 	 * @param cls
 	 * @return

@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import com.mcgj.dao.DictMapper;
 import com.mcgj.entity.Dict;
 
+/**
+ * å­—å…¸ä¸šåŠ¡å±‚
+ * @author æ¨æ™¨
+ *
+ */
 @Service
 public class DictService implements IDictService{
 	
@@ -31,12 +36,12 @@ public class DictService implements IDictService{
 	}
 	
 	/**
-	 * ¸ù¾İ´«ÈëµÄ´úÂëÖµ²éÑ¯
+	 * æ ¹æ®ä¼ å…¥çš„ä»£ç å€¼æŸ¥è¯¢
 	 * @return
 	 */
 	public List<Dict> selectDictByCode(String codeValue) {
 		if(codeValue == null || "".equals(codeValue)){
-			throw new RuntimeException("´úÂëÖµ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ä»£ç å€¼ä¸èƒ½ä¸ºç©º");
 		}
 		List<Dict> dicts = dictMapper.selectDictByCode(codeValue);
 		return dicts;

@@ -3,14 +3,14 @@ package com.mcgj.utils;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Í¨ÓÃÀà
+ * é€šç”¨ç±»
  * @author Administrator
  *
  */
 public class CommonUtil {
 	
 	/**
-     * »ñÈ¡²Ù×÷ÏµÍ³,ä¯ÀÀÆ÷¼°ä¯ÀÀÆ÷°æ±¾ĞÅÏ¢
+     * è·å–æ“ä½œç³»ç»Ÿ,æµè§ˆå™¨åŠæµè§ˆå™¨ç‰ˆæœ¬ä¿¡æ¯
      * @param request
      * @return
      */

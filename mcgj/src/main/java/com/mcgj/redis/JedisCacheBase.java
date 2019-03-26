@@ -6,8 +6,6 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
-import com.mcgj.utils.SpringUtil;
-
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -15,51 +13,51 @@ import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 /**
- * redis¹¤¾ßÀà
- * @author ad
+ * rediså·¥å…·ç±»
+ * @author æ¨æ™¨
  *
  */
 public class JedisCacheBase implements Serializable,RedisConnectionFactory{
 	
 	private static final long serialVersionUID = -1149678082569464779L;
-    //Redis·şÎñÆ÷IP
+    //RedisæœåŠ¡å™¨IP
     private static String addr;
     
-    //RedisµÄ¶Ë¿ÚºÅ
+    //Redisçš„ç«¯å£å·
     private static int port;
     
-    //·ÃÎÊÃÜÂë
+    //è®¿é—®å¯†ç 
     private static String auth;
     
-    //¿ÉÓÃÁ¬½ÓÊµÀıµÄ×î´óÊıÄ¿£¬Ä¬ÈÏÖµÎª8£»
-    //Èç¹û¸³ÖµÎª-1£¬Ôò±íÊ¾²»ÏŞÖÆ£»Èç¹ûpoolÒÑ¾­·ÖÅäÁËmaxActive¸öjedisÊµÀı£¬Ôò´ËÊ±poolµÄ×´Ì¬Îªexhausted(ºÄ¾¡)¡£
+    //å¯ç”¨è¿æ¥å®ä¾‹çš„æœ€å¤§æ•°ç›®ï¼Œé»˜è®¤å€¼ä¸º8ï¼›
+    //å¦‚æœèµ‹å€¼ä¸º-1ï¼Œåˆ™è¡¨ç¤ºä¸é™åˆ¶ï¼›å¦‚æœpoolå·²ç»åˆ†é…äº†maxActiveä¸ªjediså®ä¾‹ï¼Œåˆ™æ­¤æ—¶poolçš„çŠ¶æ€ä¸ºexhausted(è€—å°½)ã€‚
     private static int maxActive;
     
-    //¿ØÖÆÒ»¸öpool×î¶àÓĞ¶àÉÙ¸ö×´Ì¬Îªidle(¿ÕÏĞµÄ)µÄjedisÊµÀı£¬Ä¬ÈÏÖµÒ²ÊÇ8¡£
+    //æ§åˆ¶ä¸€ä¸ªpoolæœ€å¤šæœ‰å¤šå°‘ä¸ªçŠ¶æ€ä¸ºidle(ç©ºé—²çš„)çš„jediså®ä¾‹ï¼Œé»˜è®¤å€¼ä¹Ÿæ˜¯8ã€‚
     private static int maxIdle;
     
-    //µÈ´ı¿ÉÓÃÁ¬½ÓµÄ×î´óÊ±¼ä£¬µ¥Î»ºÁÃë£¬Ä¬ÈÏÖµÎª-1£¬±íÊ¾ÓÀ²»³¬Ê±¡£Èç¹û³¬¹ıµÈ´ıÊ±¼ä£¬ÔòÖ±½ÓÅ×³öJedisConnectionException£»
+    //ç­‰å¾…å¯ç”¨è¿æ¥çš„æœ€å¤§æ—¶é—´ï¼Œå•ä½æ¯«ç§’ï¼Œé»˜è®¤å€¼ä¸º-1ï¼Œè¡¨ç¤ºæ°¸ä¸è¶…æ—¶ã€‚å¦‚æœè¶…è¿‡ç­‰å¾…æ—¶é—´ï¼Œåˆ™ç›´æ¥æŠ›å‡ºJedisConnectionExceptionï¼›
     private static int maxWait;
     
     private static int timeOut;
     
-    //ÔÚborrowÒ»¸öjedisÊµÀıÊ±£¬ÊÇ·ñÌáÇ°½øĞĞvalidate²Ù×÷£»Èç¹ûÎªtrue£¬ÔòµÃµ½µÄjedisÊµÀı¾ùÊÇ¿ÉÓÃµÄ£»
+    //åœ¨borrowä¸€ä¸ªjediså®ä¾‹æ—¶ï¼Œæ˜¯å¦æå‰è¿›è¡Œvalidateæ“ä½œï¼›å¦‚æœä¸ºtrueï¼Œåˆ™å¾—åˆ°çš„jediså®ä¾‹å‡æ˜¯å¯ç”¨çš„ï¼›
     private static boolean testOnBorrow;
     
-    public static Jedis jedis;//·ÇÇĞÆ¬¶î¿Í»§¶ËÁ¬½Ó
+    public static Jedis jedis;//éåˆ‡ç‰‡é¢å®¢æˆ·ç«¯è¿æ¥
     
-    public static JedisPool jedisPool;//·ÇÇĞÆ¬Á¬½Ó³Ø
+    public static JedisPool jedisPool;//éåˆ‡ç‰‡è¿æ¥æ± 
     
-    public static ShardedJedis shardedJedis;//ÇĞÆ¬¶î¿Í»§¶ËÁ¬½Ó
+    public static ShardedJedis shardedJedis;//åˆ‡ç‰‡é¢å®¢æˆ·ç«¯è¿æ¥
     
-    public static ShardedJedisPool shardedJedisPool;//ÇĞÆ¬Á¬½Ó³Ø
+    public static ShardedJedisPool shardedJedisPool;//åˆ‡ç‰‡è¿æ¥æ± 
     
     /**
-     * ³õÊ¼»¯·ÇÇĞÆ¬³Ø
+     * åˆå§‹åŒ–éåˆ‡ç‰‡æ± 
      */
     private static void initialPool() 
     { 
-        // ³Ø»ù±¾ÅäÖÃ 
+        // æ± åŸºæœ¬é…ç½® 
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(maxActive); 
         config.setMaxIdle(maxIdle); 
@@ -69,21 +67,21 @@ public class JedisCacheBase implements Serializable,RedisConnectionFactory{
     }
     
     /** 
-     * ³õÊ¼»¯ÇĞÆ¬³Ø 
+     * åˆå§‹åŒ–åˆ‡ç‰‡æ±  
      */ 
     private static  void initialShardedPool() 
     { 
-        // ³Ø»ù±¾ÅäÖÃ 
+        // æ± åŸºæœ¬é…ç½® 
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(maxActive); 
         config.setMaxIdle(maxIdle); 
         config.setMaxWaitMillis(maxWait); 
         config.setTestOnBorrow(testOnBorrow);
-        // slaveÁ´½Ó 
+        // slaveé“¾æ¥ 
         List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>(); 
         shards.add(new JedisShardInfo(addr, port, auth)); 
 
-        // ¹¹Ôì³Ø 
+        // æ„é€ æ±  
         shardedJedisPool = new ShardedJedisPool(config, shards); 
     }
 
@@ -94,12 +92,12 @@ public class JedisCacheBase implements Serializable,RedisConnectionFactory{
         try {
               shardedJedis = shardedJedisPool.getResource(); 
         } catch (Exception e) {
-            System.out.println("Á¬½ÓshardedJedisPoolÊ§°Ü!");
+            System.out.println("è¿æ¥shardedJedisPoolå¤±è´¥!");
         }
         try {
              jedis = jedisPool.getResource();
         } catch (Exception e) {
-            System.out.println("Á¬½ÓjedisPoolÊ§°Ü!");
+            System.out.println("è¿æ¥jedisPoolå¤±è´¥!");
         }
     }
 

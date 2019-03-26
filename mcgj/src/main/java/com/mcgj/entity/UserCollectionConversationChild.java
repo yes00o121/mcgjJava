@@ -1,15 +1,15 @@
 package com.mcgj.entity;
 
 /**
- * ÓÃ»§ÊÕ²ØÌù×ÓÊµÌåÀà
- * @author ad
+ * ç”¨æˆ·æ”¶è—è´´å­å®ä½“ç±»
+ * @author æ¨æ™¨
  *
  */
 public class UserCollectionConversationChild extends BaseEntity{
 	
-	private Integer userId;//ÓÃ»§id
+	private Integer userId;//ç”¨æˆ·id
 	
-	private Integer conversationChildId;//ÊÕ²ØµÄÌù×Óid
+	private Integer conversationChildId;//æ”¶è—çš„è´´å­id
 
 	public Integer getUserId() {
 		return userId;

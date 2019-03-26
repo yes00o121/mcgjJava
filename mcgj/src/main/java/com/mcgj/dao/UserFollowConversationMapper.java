@@ -7,21 +7,21 @@ import com.mcgj.entity.UserFollowConversation;
 
 public interface UserFollowConversationMapper extends BaseService<UserFollowConversation,Integer>{
 	/**
-	 * Ìí¼ÓÓÃ»§¹Ø×¢µÄÌù°É
+	 * æ·»åŠ ç”¨æˆ·å…³æ³¨çš„è´´å§
 	 * @param userFollowConversation
 	 * @return
 	 */
 	void addConversationFollow(UserFollowConversation userFollowConversation);
 	
 	/**
-	 * È¡ÏûÓÃ»§¹Ø×¢µÄÌù°É
+	 * å–æ¶ˆç”¨æˆ·å…³æ³¨çš„è´´å§
 	 * @param userFollowConversation
 	 * @return
 	 */
 	void deleteConversationFollow(UserFollowConversation userFollowConversation);
 	
 	/**
-	 * ²éÑ¯ÓÃ»§¹Ø×¢µÄÌù°É
+	 * æŸ¥è¯¢ç”¨æˆ·å…³æ³¨çš„è´´å§
 	 * @param userFollowConversation
 	 * @return
 	 */

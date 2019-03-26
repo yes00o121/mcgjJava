@@ -8,7 +8,7 @@ import com.mcgj.entity.Dict;
 public interface DictMapper extends BaseService<Dict,Integer>{
 	
 	/**
-	 * ¸ù¾İ´«ÈëµÄ´úÂëÖµ²éÑ¯
+	 * æ ¹æ®ä¼ å…¥çš„ä»£ç å€¼æŸ¥è¯¢
 	 * @return
 	 */
 	public List<Dict> selectDictByCode(String codeValue);

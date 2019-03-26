@@ -1,10 +1,10 @@
 package com.mcgj.entity;
 
 /**
- * 系统配置实体
- * @author 杨晨
+ * 绯荤粺閰嶇疆瀹炰綋
+ * @author 鏉ㄦ櫒
  * @create_date 2018-12-05 21:27
- * @address 合肥
+ * @address 鍚堣偉
  *
  */
 public class SystemConfig extends BaseEntity{
@@ -13,7 +13,7 @@ public class SystemConfig extends BaseEntity{
 	
 	private String value;//value
 	
-	private String remark;//备注
+	private String remark;//澶囨敞
 
 	public String getKey() {
 		return key;

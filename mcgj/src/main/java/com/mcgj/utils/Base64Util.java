@@ -1,6 +1,5 @@
 package com.mcgj.utils;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.RandomAccessFile;
 
@@ -8,8 +7,8 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 /**
- * base64±àÂëÆ÷
- * @author ad
+ * base64ç¼–ç å™¨
+ * @author æ¨æ™¨
  *
  */
 public class Base64Util {
@@ -17,15 +16,15 @@ public class Base64Util {
 	Logger log = Logger.getLogger(Base64Util.class);
 	
 	/**
-	 * ×Ö·û´®BASE64 ±àÂë
+	 * å­—ç¬¦ä¸²BASE64 ç¼–ç 
 	 * @return
 	 */
 	public static String getStrBASE64(String str){
-		return new sun.misc.BASE64Encoder().encode(str.getBytes()); // ¾ßÌåµÄ±àÂë·½·¨  
+		return new sun.misc.BASE64Encoder().encode(str.getBytes()); // å…·ä½“çš„ç¼–ç æ–¹æ³•  
 	}
 	
 	/** 
-     * Í¼Æ¬BASE64 ±àÂë 
+     * å›¾ç‰‡BASE64 ç¼–ç  
      *  
      * @author 
      */ 
@@ -35,7 +34,7 @@ public class Base64Util {
             FileInputStream fileForInput = new FileInputStream(picPath);  
             byte[] bytes = new byte[fileForInput.available()];  
             fileForInput.read(bytes);  
-            content = new sun.misc.BASE64Encoder().encode(bytes); // ¾ßÌåµÄ±àÂë·½·¨  
+            content = new sun.misc.BASE64Encoder().encode(bytes); // å…·ä½“çš„ç¼–ç æ–¹æ³•  
             fileForInput.close();  
         } catch (Exception e) {  
             e.printStackTrace();  
@@ -44,7 +43,7 @@ public class Base64Util {
     }  
 	
 	/** 
-     * ¶ÔÍ¼Æ¬BASE64 ½âÂë 
+     * å¯¹å›¾ç‰‡BASE64 è§£ç  
      *  
      * @author 
      */
@@ -61,7 +60,7 @@ public class Base64Util {
     }  
 	
 	/**
-	 * ½âÃÜ
+	 * è§£å¯†
 	 * @param param
 	 */
 	public static String dcode(String param){
@@ -71,7 +70,7 @@ public class Base64Util {
 	}
 	
 	/**
-	 * ¼ÓÃÜ
+	 * åŠ å¯†
 	 * @param param
 	 */
 	public static String ecode(String param){

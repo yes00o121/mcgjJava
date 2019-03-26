@@ -22,7 +22,7 @@ import com.mcgj.web.websocket.Message;
 @Service
 public class UserService implements IUserService{
 	
-	private String yan = "yangchen";//ÑÎ
+	private String yan = "yangchen";//ç›
 
 	@Autowired
 	private UserMapper userMapper;
@@ -31,37 +31,37 @@ public class UserService implements IUserService{
 	private ConversationChildMapper conversationChildMapper;
 	
 	/**
-	 * µÇÂ¼·½·¨
+	 * ç™»å½•æ–¹æ³•
 	 */
 	public User login(User user) {
-		//ÅĞ¶ÏÊı¾İºÏ·¨ĞÔ
-		if(!verificationCodeCheck(user)){//Ğ£ÑéÑéÖ¤ÂëÊÇ·ñÕıÈ·
-			throw new RuntimeException("ÑéÖ¤Âë´íÎó");
+		//åˆ¤æ–­æ•°æ®åˆæ³•æ€§
+		if(!verificationCodeCheck(user)){//æ ¡éªŒéªŒè¯ç æ˜¯å¦æ­£ç¡®
+			throw new RuntimeException("éªŒè¯ç é”™è¯¯");
 		}
 		if(user.getAccount() == null || "".equals(user.getAccount())){
-			throw new RuntimeException("ÕËºÅ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´¦å·ä¸èƒ½ä¸ºç©º");
 		}
 		if(user.getPassword() == null || "".equals(user.getPassword())){
-			throw new RuntimeException("ÃÜÂë²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å¯†ç ä¸èƒ½ä¸ºç©º");
 		}
-		//½âÃÜ
+		//è§£å¯†
 		String dcodePwd = Base64Util.dcode(user.getPassword());
-		//»ñÈ¡ÃÜÂë¼ÓÑÎºóÊ¹ÓÃMd5½øĞĞ¼ÓÃÜ
+		//è·å–å¯†ç åŠ ç›åä½¿ç”¨Md5è¿›è¡ŒåŠ å¯†
 		user.setPassword(MD5Util.getMD5((yan.concat(dcodePwd)).getBytes()));
-		User record = userMapper.login(user);//²éÑ¯ÓÃ»§Êı¾İ
+		User record = userMapper.login(user);//æŸ¥è¯¢ç”¨æˆ·æ•°æ®
 		if(record == null){
-			throw new RuntimeException("ÓÃ»§²»´æÔÚ»òÃÜÂë´íÎó");
+			throw new RuntimeException("ç”¨æˆ·ä¸å­˜åœ¨æˆ–å¯†ç é”™è¯¯");
 		}
 		user.setId(record.getId());
-		//µÇÂ¼ºóÉú³ÉÓÃ»§Î¨Ò»µÄtoken£¬Ğ´Èë»º´æÖĞ
+		//ç™»å½•åç”Ÿæˆç”¨æˆ·å”¯ä¸€çš„tokenï¼Œå†™å…¥ç¼“å­˜ä¸­
 		String auth = MD5Util.getMD5((user.getAccount()+""+user.getPassword()).getBytes());
-		record.setToken(auth);//½«token·µ»Ø¸øÓÃ»§£¬×÷ÎªÎ¨Ò»ÈÏÖ¤
-		RedisHashUtil.setex(auth,record,PropertiesUtil.getLoginDelay());//ÉèÖÃÓÃ»§»á»°Ê±³¤
-		insertLogin(user);//¼ÇÂ¼ÓÃ»§µÇÂ¼ÈÕÖ¾ 
+		record.setToken(auth);//å°†tokenè¿”å›ç»™ç”¨æˆ·ï¼Œä½œä¸ºå”¯ä¸€è®¤è¯
+		RedisHashUtil.setex(auth,record,PropertiesUtil.getLoginDelay());//è®¾ç½®ç”¨æˆ·ä¼šè¯æ—¶é•¿
+		insertLogin(user);//è®°å½•ç”¨æˆ·ç™»å½•æ—¥å¿— 
 		return record;
 	}
 	/**
-	 * ¼ÇÂ¼ÓÃ»§µÇÂ¼ÈÕÖ¾
+	 * è®°å½•ç”¨æˆ·ç™»å½•æ—¥å¿—
 	 */
 	private void insertLogin(User user){
 		loginLog loginLog = new loginLog();
@@ -74,20 +74,20 @@ public class UserService implements IUserService{
 		
 	}
 	/**
-	 * ÑéÖ¤ÓÃ»§ÊäÈëÑéÖ¤ÂëÊÇ·ñÕı³£
+	 * éªŒè¯ç”¨æˆ·è¾“å…¥éªŒè¯ç æ˜¯å¦æ­£å¸¸
 	 * @return
 	 */
 	private Boolean verificationCodeCheck(User user){
-		String verificationCode=  user.getVerificationCode();//»ñÈ¡ä¯ÀÀÆ÷ÑéÖ¤code
+		String verificationCode=  user.getVerificationCode();//è·å–æµè§ˆå™¨éªŒè¯code
 		if(verificationCode == null || "".equals(verificationCode)){
-			throw new RuntimeException("³öÏÖÒì³££¬ÇëÁªÏµ¹ÜÀíÔ±");
+			throw new RuntimeException("å‡ºç°å¼‚å¸¸ï¼Œè¯·è”ç³»ç®¡ç†å‘˜");
 		}
 		if(user.getCheckCode() == null || "".equals(user.getCheckCode())){
-			throw new RuntimeException("ÑéÖ¤Âë²»ÄÜÎª¿Õ");
+			throw new RuntimeException("éªŒè¯ç ä¸èƒ½ä¸ºç©º");
 		}
-		String code = (String)RedisHashUtil.get(verificationCode);//»ñÈ¡¶ÔÓ¦µÄÑéÖ¤Âë
+		String code = (String)RedisHashUtil.get(verificationCode);//è·å–å¯¹åº”çš„éªŒè¯ç 
 		if(code ==null){
-			throw new RuntimeException("ÑéÖ¤³¬Ê±");
+			throw new RuntimeException("éªŒè¯è¶…æ—¶");
 		}
 		if(code.equals(user.getCheckCode())){
 			return true;
@@ -97,33 +97,33 @@ public class UserService implements IUserService{
 
 	
 	/**
-	 * ÓÃ»§×¢²á·½·¨
+	 * ç”¨æˆ·æ³¨å†Œæ–¹æ³•
 	 */
 	public void register(User user) {
-		//Êı¾İºÏ·¨ĞÔÅĞ¶Ï
+		//æ•°æ®åˆæ³•æ€§åˆ¤æ–­
 		if(user.getAccount() == null || "".equals(user.getAccount())){
-			throw new RuntimeException("ÕËºÅ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´¦å·ä¸èƒ½ä¸ºç©º");
 		}
 		if(user.getPassword() == null || "".equals(user.getPassword())){
-			throw new RuntimeException("ÃÜÂë²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å¯†ç ä¸èƒ½ä¸ºç©º");
 		}
 		if(user.getUserName() == null || "".equals(user.getUserName())){
-			throw new RuntimeException("ÓÃ»§Ãû²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 		}
 		if(user.getPhoto() == null || "".equals(user.getPhoto())){
-			throw new RuntimeException("Í·Ïñ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å¤´åƒä¸èƒ½ä¸ºç©º");
 		}
-		//ÅĞ¶ÏÕËºÅÊÇ·ñ´æÔÚ
+		//åˆ¤æ–­è´¦å·æ˜¯å¦å­˜åœ¨
 		User record = this.findUserByAccount(user.getAccount());
 		if(record != null){
-			throw new RuntimeException("ÕËºÅÒÑ´æÔÚ");
+			throw new RuntimeException("è´¦å·å·²å­˜åœ¨");
 		}
-		//¶ÔÃÜÂë½øĞĞ¼ÓÃÜ
+		//å¯¹å¯†ç è¿›è¡ŒåŠ å¯†
 		user.setPassword(MD5Util.getMD5(yan.concat(user.getPassword()).getBytes()));
-		this.insert(user);//½«Êı¾İ²åÈëuser±í
+		this.insert(user);//å°†æ•°æ®æ’å…¥userè¡¨
 	}
 	/**
-	 * ÉÏ´«Í¼Æ¬½Ó¿Ú
+	 * ä¸Šä¼ å›¾ç‰‡æ¥å£
 	 * @return
 	 */
 	public String upload(){
@@ -134,7 +134,7 @@ public class UserService implements IUserService{
 		
 	}
 	/**
-	 * ²åÈë·½·¨
+	 * æ’å…¥æ–¹æ³•
 	 */
 	public void insert(User record) {
 		this.userMapper.insert(record);
@@ -150,7 +150,7 @@ public class UserService implements IUserService{
 	}
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÕËºÅ²éÑ¯ÓÃ»§Êı¾İ
+	 * æ ¹æ®ç”¨æˆ·è´¦å·æŸ¥è¯¢ç”¨æˆ·æ•°æ®
 	 * @param account
 	 * @return
 	 */
@@ -162,10 +162,10 @@ public class UserService implements IUserService{
 	@Override
 	public List<Message> selectUserUnreadMessageCountByUserId(Integer userId) {
 		if(userId == null || "".equals(userId)){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
 		List<Message> messages = new ArrayList<Message>();
-		Integer replyNumber = userMapper.selectUserUnreadMessageCountByUserId(userId);//»ñÈ¡ÓÃ»§Î´²é¿´µÄ»Ø¸´ÏûÏ¢
+		Integer replyNumber = userMapper.selectUserUnreadMessageCountByUserId(userId);//è·å–ç”¨æˆ·æœªæŸ¥çœ‹çš„å›å¤æ¶ˆæ¯
 		messages.add(new Message(replyNumber, MessageType.reply));
 		return messages;
 	}
@@ -173,7 +173,7 @@ public class UserService implements IUserService{
 	public List<ConversationChild> selectCollectionConversationChildByUserId(
 			Integer userId) {
 		if(userId == null || "".equals(userId)){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
 		
 		return conversationChildMapper.selectCollectionConversationChildByUserId(userId);
@@ -183,20 +183,20 @@ public class UserService implements IUserService{
 //		System.out.println(auth);
 //	}
 	/**
-	 * ÅÀ³æ****
-	 * ÅĞ¶ÏÓÃ»§ÊÇ·ñ´æÔÚ£¬²»´æÔÚ½øĞĞ´´½¨£¬È»ºó·µ»ØÓÃ»§ĞÅÏ¢
+	 * çˆ¬è™«****
+	 * åˆ¤æ–­ç”¨æˆ·æ˜¯å¦å­˜åœ¨ï¼Œä¸å­˜åœ¨è¿›è¡Œåˆ›å»ºï¼Œç„¶åè¿”å›ç”¨æˆ·ä¿¡æ¯
 	 */
 	public Integer selectIsExists(String userName,String photo) {
 		Integer selectIsExists = userMapper.selectIsExists(userName);
 		if(selectIsExists != null){
 			return selectIsExists;
 		}
-		//ÓÃ»§²»´æÔÚ£¬½øĞĞÊı¾İ²åÈë
+		//ç”¨æˆ·ä¸å­˜åœ¨ï¼Œè¿›è¡Œæ•°æ®æ’å…¥
 		User record = new User();
 		record.setUserName(userName);
 		record.setPhoto(photo);
 		record.setAccount(userName);
-		record.setPassword("e10adc3949ba59abbe56e057f20f883e");//Ä¬ÈÏ123456
+		record.setPassword("e10adc3949ba59abbe56e057f20f883e");//é»˜è®¤123456
 		record.setAdmin(false);
 		userMapper.insert(record);
 //		Integer id = userMapper.insertpachong(record);

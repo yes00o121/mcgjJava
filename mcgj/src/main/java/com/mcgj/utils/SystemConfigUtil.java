@@ -8,16 +8,16 @@ import com.mcgj.dao.SystemConfigMapper;
 import com.mcgj.entity.SystemConfig;
 
 /**
- * ÏµÍ³ÅäÖÃ¹¤¾ßÀà,»ñÈ¡ÏµÍ³ÅäÖÃµÄÊı¾İ
- * @author Ñî³¿
+ * ç³»ç»Ÿé…ç½®å·¥å…·ç±»,è·å–ç³»ç»Ÿé…ç½®çš„æ•°æ®
+ * @author æ¨æ™¨
  * @date 2018-12-12 14:47
- * @address À¥Ã÷
+ * @address æ˜†æ˜
  */
 public class SystemConfigUtil {
 	
 	private SystemConfigUtil(){}
 	
-	//´æ·ÅÅäÖÃÊı¾İ
+	//å­˜æ”¾é…ç½®æ•°æ®
 	private static Map<String,String> values = new HashMap<String,String>();
 	
 	static{
@@ -25,14 +25,14 @@ public class SystemConfigUtil {
 	}
 	
 	/**
-	 * ¸ù¾İKey»ñÈ¡value
+	 * æ ¹æ®Keyè·å–value
 	 * @return value
 	 */
 	public static String getSystemConfigByKey(String key){
 		return values.get(key);
 	}
 		
-	//Ë¢ĞÂÅäÖÃÊı¾İ
+	//åˆ·æ–°é…ç½®æ•°æ®
 	public  static void reload(){
 		SystemConfigMapper systemConfigDAO = (SystemConfigMapper)SpringUtil.getBean(SystemConfigMapper.class);
 		List<SystemConfig> selectAll = systemConfigDAO.selectAll();

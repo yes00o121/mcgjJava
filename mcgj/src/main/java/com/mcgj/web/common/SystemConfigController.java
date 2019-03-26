@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mcgj.utils.SystemConfigUtil;
 
 /**
- * ÏµÍ³ÅäÖÃ¿ØÖÆÆ÷
- * @author Ñî³¿
+ * ç³»ç»Ÿé…ç½®æ§åˆ¶å™¨
+ * @author æ¨æ™¨
  * @create_date 2018-12-05 21:24
- * @address ºÏ·Ê
+ * @address åˆè‚¥
  */
 @Controller
 @RequestMapping("/systemConfig")

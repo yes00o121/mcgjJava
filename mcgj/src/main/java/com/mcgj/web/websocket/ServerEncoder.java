@@ -7,7 +7,7 @@ import javax.websocket.EndpointConfig;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * websocketÏûÏ¢½âÂëÆ÷
+ * websocketç¼–ç 
  * @author ad
  *
  */

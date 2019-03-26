@@ -4,16 +4,16 @@ import com.mcgj.base.service.BaseService;
 import com.mcgj.entity.SystemConfig;
 
 /**
- * ÏµÍ³ÅäÖÃ½Ó¿Ú
- * @author Ñî³¿
+ * ç³»ç»Ÿé…ç½®æ¥å£
+ * @author æ¨æ™¨
  * @create_date 2018-12-05 12:30
- * @address ºÏ·Ê
+ * @address åˆè‚¥
  *
  */
 public interface ISystemConfigService extends BaseService<SystemConfig, Integer>{
 
 	/**
-	 * ¸ù¾İkey»ñÈ¡ÅäÖÃµÄÖµ
+	 * æ ¹æ®keyè·å–é…ç½®çš„å€¼
 	 * @param key
 	 * @return
 	 */

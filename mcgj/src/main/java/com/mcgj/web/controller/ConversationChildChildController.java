@@ -17,7 +17,7 @@ import com.mcgj.utils.MessageUtil;
 import com.mcgj.web.dto.ResultDTO;
 
 /**
- * Ìù°ÉÂ¥²ã¿ØÖÆÆ÷
+ * è´´å§æ¥¼å±‚æ§åˆ¶å™¨
  * @author ad
  *
  */
@@ -31,7 +31,7 @@ public class ConversationChildChildController {
 	private IConversationChildChildService conversationChildChildService;
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯ÆäÏÂµÄÂ¥²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢å…¶ä¸‹çš„æ¥¼å±‚æ•°æ®
 	 * @return
 	 */
 	@RequestMapping("/selectCCCByCCId")
@@ -54,7 +54,7 @@ public class ConversationChildChildController {
 	}
 	
 	/**
-	 * ĞÂÔöÂ¥²ã·½·¨,ĞÂÔöÂ¥²ãÊ±ÏûÏ¢ÊµÊ±ÍÆËÍ¸øÂ¥Ö÷£¬²¢ÇÒĞ´Èë»Ø¸´±íÖĞ£¬Èç¹ûÓÃ»§²»ÔÚÏßÔò²»½øĞĞÍÆËÍ
+	 * æ–°å¢æ¥¼å±‚æ–¹æ³•,æ–°å¢æ¥¼å±‚æ—¶æ¶ˆæ¯å®æ—¶æ¨é€ç»™æ¥¼ä¸»ï¼Œå¹¶ä¸”å†™å…¥å›å¤è¡¨ä¸­ï¼Œå¦‚æœç”¨æˆ·ä¸åœ¨çº¿åˆ™ä¸è¿›è¡Œæ¨é€
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild
@@ -79,7 +79,7 @@ public class ConversationChildChildController {
 	}
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Îª²é¿´µÄËùÓĞ»Ø¸´µÄÂ¥²ãÊı¾İ
+	 * æŸ¥è¯¢ç”¨æˆ·ä¸ºæŸ¥çœ‹çš„æ‰€æœ‰å›å¤çš„æ¥¼å±‚æ•°æ®
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild
@@ -104,7 +104,7 @@ public class ConversationChildChildController {
 	}
 	
 	/**
-	 * ½«¸ÃÓÃ»§ËùÓĞµÄÎ´²é¿´Â¥²ã¶¼ĞŞ¸ÄÎª²é¿´×´Ì¬
+	 * å°†è¯¥ç”¨æˆ·æ‰€æœ‰çš„æœªæŸ¥çœ‹æ¥¼å±‚éƒ½ä¿®æ”¹ä¸ºæŸ¥çœ‹çŠ¶æ€
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild

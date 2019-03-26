@@ -6,35 +6,35 @@ import com.mcgj.utils.CharUtil;
 import com.mcgj.utils.StringUtil;
 
 /**
- * Ìù°É×ÓÌû×ÓÊµÌåÀà
- * @author ad
+ * è´´å§å­å¸–å­å®ä½“ç±»
+ * @author æ¨æ™¨
  *
  */
 public class ConversationChild extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Integer conversationId;//Ìû×Ó¶ÔÓ¦µÄÌù°Éid
+	private Integer conversationId;//å¸–å­å¯¹åº”çš„è´´å§id
 
-	private Integer userId;//Ìû×Ó´´½¨ÈËid
+	private Integer userId;//å¸–å­åˆ›å»ºäººid
 	
-	private String title;//Ìû×Ó±êÌâ
+	private String title;//å¸–å­æ ‡é¢˜
 	
-	private String content;//Ìû×ÓÄÚÈİ
+	private String content;//å¸–å­å†…å®¹
 	
-	private Integer flow=0;//Ìû×ÓÁ÷Á¿,Ä¬ÈÏÖµÎª0
+	private Integer flow=0;//å¸–å­æµé‡,é»˜è®¤å€¼ä¸º0
 	
-	private String createUserName;//´´½¨Ìû×ÓµÄÓÃ»§Ãû³Æ
+	private String createUserName;//åˆ›å»ºå¸–å­çš„ç”¨æˆ·åç§°
 	
-	private String lastUserName;//×îºó»Ø¸´Ìû×ÓµÄÓÃ»§Ãû³Æ
+	private String lastUserName;//æœ€åå›å¤å¸–å­çš„ç”¨æˆ·åç§°
 	
-	private Date lastDate;//Ìû×Ó×îºóµÄ»Ø¸´Ê±¼ä
+	private Date lastDate;//å¸–å­æœ€åçš„å›å¤æ—¶é—´
 	
-	private Integer replyNumber;//»ØÌûÊıÁ¿
+	private Integer replyNumber;//å›å¸–æ•°é‡
 	
-	private Integer conversationChildId;//¶ÔÓ¦µÄÌù°Éid
+	private Integer conversationChildId;//å¯¹åº”çš„è´´å§id
 	
-	private String photo;//ÓÃ»§Í·Ïñ
+	private String photo;//ç”¨æˆ·å¤´åƒ
 	
 	public String getPhoto() {
 		return photo;

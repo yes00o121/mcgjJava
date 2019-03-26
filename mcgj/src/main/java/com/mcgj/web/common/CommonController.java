@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.mcgj.redis.RedisHashUtil;
-import com.mcgj.utils.HttpClientUtil;
 import com.mcgj.utils.PropertiesUtil;
 import com.mcgj.utils.RandomGraphic;
 import com.mcgj.web.controller.AbstractBaseController;
@@ -36,7 +34,7 @@ public class CommonController extends AbstractBaseController{
 	
 	
 	/**
-	 * ·µ»ØÍ¼Æ¬·½·¨
+	 * è¿”å›å›¾ç‰‡æ–¹æ³•
 	 * @param imgId
 	 * @param response
 	 */
@@ -52,7 +50,7 @@ public class CommonController extends AbstractBaseController{
 		}
 	}
 	/**
-	 * ÏÂÔØÎÄ¼ş
+	 * ä¸‹è½½æ–‡ä»¶
 	 * @param mongoid
 	 * @param fileName
 	 * @param model
@@ -66,7 +64,7 @@ public class CommonController extends AbstractBaseController{
 		mongoDBRemoteFileService.download(mongoid, response.getOutputStream());
 	}
 	/**
-	 * ÉÏ´«ÎÄ¼ş·½·¨
+	 * ä¸Šä¼ æ–‡ä»¶æ–¹æ³•
 	 * @return
 	 */
 	@RequestMapping("/uploadFile")
@@ -82,29 +80,29 @@ public class CommonController extends AbstractBaseController{
 	}
 	
 	/**
-	 * Éú³ÉÑéÖ¤Âë
+	 * ç”ŸæˆéªŒè¯ç 
 	 */
 	@RequestMapping("/generateVerification")
 	@Async
 	public void generateVerification(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		
 		try{
-			//»ñÈ¡Ç°¶Ë±¾µØ´æ·ÅµÄverificationCode
+			//è·å–å‰ç«¯æœ¬åœ°å­˜æ”¾çš„verificationCode
 			String verificationCode =request.getParameter("verificationCode");
 			if(verificationCode == null || "".equals(verificationCode)){
-				throw new RuntimeException("»ñÈ¡ÑéÖ¤ÂëÊ§°Ü");
+				throw new RuntimeException("è·å–éªŒè¯ç å¤±è´¥");
 			}
 //			Properties p = new Properties();
 //			FileInputStream file = new FileInputStream("./delay.properties");
 //			InputStream  is = CommonController.class.getClassLoader().getResourceAsStream("delay.properties");
 //			p.load(is);
-//			String time = p.getProperty("verification_delay");//»ñÈ¡³¬Ê±Ê±³¤
+//			String time = p.getProperty("verification_delay");//è·å–è¶…æ—¶æ—¶é•¿
 			Integer time = PropertiesUtil.getVerificationDelay();
 			RandomGraphic rg = new RandomGraphic();
-			String strs = rg.getRandomCharacter();//»ñÈ¡Ëæ»úÉú³ÉµÄÑéÖ¤×Ö·û
-			BufferedImage bi = rg.createGraphic(strs);//Éú³ÉÍ¼Æ¬
-			RedisHashUtil.setex(verificationCode,strs,time);//½«µ±Ç°ä¯ÀÀÆ÷Éú³ÉµÄÎ¨Ò»±êÊ¶×÷Îªkey´æÈë£¬·½±ãºóÆÚÑéÖ¤
-			//·µ»ØÍ¼Æ¬¸øÓÃ»§
+			String strs = rg.getRandomCharacter();//è·å–éšæœºç”Ÿæˆçš„éªŒè¯å­—ç¬¦
+			BufferedImage bi = rg.createGraphic(strs);//ç”Ÿæˆå›¾ç‰‡
+			RedisHashUtil.setex(verificationCode,strs,time);//å°†å½“å‰æµè§ˆå™¨ç”Ÿæˆçš„å”¯ä¸€æ ‡è¯†ä½œä¸ºkeyå­˜å…¥ï¼Œæ–¹ä¾¿åæœŸéªŒè¯
+			//è¿”å›å›¾ç‰‡ç»™ç”¨æˆ·
 			ImageIO.write(bi,"jpg",response.getOutputStream());
 		}catch(Exception e){
 			e.printStackTrace();
@@ -114,9 +112,9 @@ public class CommonController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ÉÏ´«ÍøÂçÍ¼Æ¬
-	 * @param url Í¼Æ¬µØÖ·
-	 * @return ·µ»ØÍ¼Æ¬Ö÷¼ü
+	 * ä¸Šä¼ ç½‘ç»œå›¾ç‰‡
+	 * @param url å›¾ç‰‡åœ°å€
+	 * @return è¿”å›å›¾ç‰‡ä¸»é”®
 	 */
 	@RequestMapping("/upNetWorkImg")
 	@Async
@@ -124,20 +122,20 @@ public class CommonController extends AbstractBaseController{
 	public String upNetWorkImg(String url,HttpServletRequest request){
 //		System.out.println(request.getRequestURI());
 		HttpURLConnection conn = null;
-		String imgId = "";//Í¼Æ¬Ö÷¼ü
+		String imgId = "";//å›¾ç‰‡ä¸»é”®
 		try {
 			URL requestURL = new URL(url);
 			conn = (HttpURLConnection)requestURL.openConnection();
 			if(conn.getResponseCode() == 200){
-				//»ñÈ¡Õı³£,»ñÈ¡Í¼Æ¬Á÷
+				//è·å–æ­£å¸¸,è·å–å›¾ç‰‡æµ
 				InputStream inputStream = conn.getInputStream();
-//				System.out.println("Í¼Æ¬ÉÏ´«³É¹¦:"+imgId);
-				log.info("Í¼Æ¬ÉÏ´«³É¹¦:"+imgId);
-				//ÉÏ´«Í¼Æ¬
+//				System.out.println("å›¾ç‰‡ä¸Šä¼ æˆåŠŸ:"+imgId);
+				log.info("å›¾ç‰‡ä¸Šä¼ æˆåŠŸ:"+imgId);
+				//ä¸Šä¼ å›¾ç‰‡
 				imgId = mongoDBRemoteFileService.upload(inputStream);
-				inputStream.close();//¹Ø±ÕÊäÈëÁ÷
+				inputStream.close();//å…³é—­è¾“å…¥æµ
 			}else{
-				throw new RuntimeException("ÉÏ´«Í¼Æ¬Òì³£,ÇëÇóÍøÂçÍ¼Æ¬Òì³£");
+				throw new RuntimeException("ä¸Šä¼ å›¾ç‰‡å¼‚å¸¸,è¯·æ±‚ç½‘ç»œå›¾ç‰‡å¼‚å¸¸");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

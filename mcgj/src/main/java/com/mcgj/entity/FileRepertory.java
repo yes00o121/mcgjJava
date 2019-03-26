@@ -1,17 +1,17 @@
 package com.mcgj.entity;
 
 /**
- * ÎÄ¼ş²Ö¿âÊµÌåÀà
- * @author Ñî³¿
+ * æ–‡ä»¶ä»“åº“å®ä½“ç±»
+ * @author æ¨æ™¨
  * @date 219-03-01
  */
 public class FileRepertory extends BaseEntity{
 	
-	private String source;//ÎÄ¼şÀ´Ô´
+	private String source;//æ–‡ä»¶æ¥æº
 	
-	private String address;//ÎÄ¼şµØÖ·
+	private String address;//æ–‡ä»¶åœ°å€
 	
-	private String mongodbId;//ÎÄ¼şmongoId
+	private String mongodbId;//æ–‡ä»¶mongoId
 	
 	
 	public FileRepertory(){}

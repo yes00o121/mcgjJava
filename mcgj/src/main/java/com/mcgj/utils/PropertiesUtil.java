@@ -6,7 +6,7 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 /**
- * ¶ÁÈ¡ÅäÖÃÎÄ¼ş¹¤¾ßÀà
+ * è¯»å–é…ç½®æ–‡ä»¶å·¥å…·ç±»
  * @author ad
  *
  */
@@ -17,15 +17,15 @@ public class PropertiesUtil {
 	private static Properties properties = new Properties();
 	
 	/**
-	 * »ñÈ¡ÅäÖÃÖĞµÄvalue
-	 * @param ÎÄ¼şÂ·¾¶
+	 * è·å–é…ç½®ä¸­çš„value
+	 * @param æ–‡ä»¶è·¯å¾„
 	 * @param key
 	 * @return
 	 */
 	public static String get(String dirName,String key){
 		try{
 			InputStream is = PropertiesUtil.class.getClassLoader().getResourceAsStream(dirName);
-			properties.load(is);//¼ÓÔØÎÄ¼şÁ÷
+			properties.load(is);//åŠ è½½æ–‡ä»¶æµ
 		}catch(Exception e){
 			e.printStackTrace();
 			log.error(e.getMessage());
@@ -34,7 +34,7 @@ public class PropertiesUtil {
 	}
 	
 	/**
-	 * »ñÈ¡µÇÂ¼»á»°Ê±³¤
+	 * è·å–ç™»å½•ä¼šè¯æ—¶é•¿
 	 * @return
 	 */
 	public static Integer getLoginDelay(){
@@ -42,7 +42,7 @@ public class PropertiesUtil {
 	}
 	
 	/**
-	 * »ñÈ¡ÑéÖ¤Âë»á»°Ê±³¤
+	 * è·å–éªŒè¯ç ä¼šè¯æ—¶é•¿
 	 * @return
 	 */
 	public static Integer getVerificationDelay(){

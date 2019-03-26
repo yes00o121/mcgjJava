@@ -14,66 +14,66 @@ import com.mcgj.entity.UserCollectionConversationChild;
 public interface ConversationChildMapper extends BaseService<ConversationChild,Integer>{
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯,»ñÈ¡µ±Ç°Ìû×ÓµÄµÚÒ»²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢,è·å–å½“å‰å¸–å­çš„ç¬¬ä¸€å±‚æ•°æ®
 	 * @return
 	 */
 	public Map<String,Object> selectConversationChildById(Integer id);
 	
 	/**
-	 * ¸ù¾İÌù°Éid²éÑ¯Ìû×Ó
+	 * æ ¹æ®è´´å§idæŸ¥è¯¢å¸–å­
 	 * @return
 	 */
 	public List<ConversationChild> selectConversationChildByConversationId(ConversationChild conversationChild);
 	
 	/**
-	 * ĞÂÔöÌû×ÓµÄ·½·¨
+	 * æ–°å¢å¸–å­çš„æ–¹æ³•
 	 * @param conversationChild
 	 */
 	public void insert(ConversationChild conversationChild);
 	
 	
 	/**
-	 * ¸ù¾İÌù×ÓµÄid»ñÈ¡ÓÃ»§Â¥Ö÷µÄÊı¾İ
+	 * æ ¹æ®è´´å­çš„idè·å–ç”¨æˆ·æ¥¼ä¸»çš„æ•°æ®
 	 * @return
 	 */
 	public User selectUserByconversationChildId(Integer conversationChildId);
 	
 	/**
-	 * ĞÂÔöÊÕ²Ø·½·¨
+	 * æ–°å¢æ”¶è—æ–¹æ³•
 	 * @param userCollectionConversationChild
 	 */
 	void addConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * É¾³ıÊÕ²Ø·½·¨
+	 * åˆ é™¤æ”¶è—æ–¹æ³•
 	 * @param userCollectionConversationChild
 	 * @return
 	 */
 	int deleteConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * ²éÑ¯Ìù×ÓÊÕ²Ø·½·¨
+	 * æŸ¥è¯¢è´´å­æ”¶è—æ–¹æ³•
 	 * @param userCollectionConversationChild
 	 * @return
 	 */
 	UserCollectionConversationChild selectConversationChildCollection(UserCollectionConversationChild userCollectionConversationChild);
 	
 	/**
-	 * ¸ù¾İÓÃ»§idÆäÊÕ²ØµÄÌû×ÓÊı¾İ
+	 * æ ¹æ®ç”¨æˆ·idå…¶æ”¶è—çš„å¸–å­æ•°æ®
 	 * @param userId
 	 * @return
 	 */
 	List<ConversationChild> selectCollectionConversationChildByUserId(Integer userId);
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Ëù·¢²¼µÄÌù×Ó 
+	 * æŸ¥è¯¢ç”¨æˆ·æ‰€å‘å¸ƒçš„è´´å­ 
 	 * @param conversationChild
 	 * @return
 	 */
 	List<ConversationChild> selectUserPublishConversationChild(ConversationChild conversationChild);
 	
 	/**
-	 * ²éÑ¯Ö¸¶¨Ê±¼ä¶ÎÄÚÈÈÃÅµÄÌù×ÓÊı¾İ
+	 * æŸ¥è¯¢æŒ‡å®šæ—¶é—´æ®µå†…çƒ­é—¨çš„è´´å­æ•°æ®
 	 * @param startTime
 	 * @param endTime
 	 * @return
@@ -81,7 +81,7 @@ public interface ConversationChildMapper extends BaseService<ConversationChild,I
 	List<ConversationChild> selectMaxConversationChildByDay(@Param("startTime") Date startTime,@Param("endTime") Date endTime);
 	
 	/**
-	 * »ñÈ¡Ìù×ÓÊı¾İ
+	 * è·å–è´´å­æ•°æ®
 	 * @param conversationChild
 	 * @return
 	 */

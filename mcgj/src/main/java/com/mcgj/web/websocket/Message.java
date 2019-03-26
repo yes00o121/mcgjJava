@@ -3,15 +3,15 @@ package com.mcgj.web.websocket;
 import com.mcgj.entity.MessageType;
 
 /**
- * websocketÏûÏ¢¶ÔÏó
+ * websocketæ¶ˆæ¯å¯¹è±¡
  * @author ad
  *
  */
 public class Message {
 	
-	private Object message;//ÏûÏ¢Ìå
+	private Object message;//æ¶ˆæ¯ä½“
 	
-	private MessageType msgType;//ÏûÏ¢ÀàĞÍ,0Â¥²ã»Ø¸´ÏûÏ¢
+	private MessageType msgType;//æ¶ˆæ¯ç±»å‹,0æ¥¼å±‚å›å¤æ¶ˆæ¯
 	
 	public Message(){
 		

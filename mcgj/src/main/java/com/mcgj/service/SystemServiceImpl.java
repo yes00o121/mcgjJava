@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 
 import com.mcgj.dao.SystemConfigMapper;
 import com.mcgj.entity.SystemConfig;
-import com.mcgj.utils.MessageUtil;
 
 /**
- * ÏµÍ³ÅäÖÃÒµÎñ²ã
- * @author Ñî³¿
+ * ç³»ç»Ÿé…ç½®ä¸šåŠ¡å±‚
+ * @author æ¨æ™¨
  * @create_date 2018-120-05 12:31
- * @address ºÏ·Ê
+ * @address åˆè‚¥
  *
  */
 @Service

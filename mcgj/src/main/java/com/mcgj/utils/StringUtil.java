@@ -1,15 +1,15 @@
 package com.mcgj.utils;
 
 /**
- * ×Ö·û´®¹¤¾ßÀà
- * @author Ñî³¿
+ * å­—ç¬¦ä¸²å·¥å…·ç±»
+ * @author æ¨æ™¨
  *@create_date 2018-12-05 21:47
- *@address ºÏ·Ê
+ *@address åˆè‚¥
  */
 public class StringUtil {
 	
 	/**
-	 * ÊÇ·ñ²»Îª¿Õ
+	 * æ˜¯å¦ä¸ä¸ºç©º
 	 * @param str
 	 * @return
 	 */

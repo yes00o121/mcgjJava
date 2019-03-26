@@ -12,11 +12,15 @@ import com.mcgj.dao.ConversationChildChildMapper;
 import com.mcgj.dao.ConversationChildMapper;
 import com.mcgj.entity.ConversationChild;
 import com.mcgj.entity.ConversationChildChild;
-import com.mcgj.entity.User;
 import com.mcgj.entity.UserCollectionConversationChild;
 import com.mcgj.utils.MessageUtil;
 import com.mcgj.utils.PageUtil;
 
+/**
+ * è´´å­ä¸šåŠ¡å±‚
+ * @author æ¨æ™¨
+ *
+ */
 @Service
 public class ConversationChildService implements IConversationChildService{
 	
@@ -46,11 +50,11 @@ public class ConversationChildService implements IConversationChildService{
 	}
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯,»ñÈ¡µ±Ç°Ìû×ÓµÄµÚÒ»²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢,è·å–å½“å‰å¸–å­çš„ç¬¬ä¸€å±‚æ•°æ®
 	 * @return
 	 */
 	public Map<String,Object> selectConversationChildById(Integer id) {
-		//ÅĞ¶ÏidÊÇ·ñºÏ·¨
+		//åˆ¤æ–­idæ˜¯å¦åˆæ³•
 		if(id == null || "".equals(id)){
 			throw new RuntimeException(MessageUtil.MSG_QUERY_ERROR);
 		}
@@ -65,7 +69,7 @@ public class ConversationChildService implements IConversationChildService{
 	public Map<String,Object> selectConversationChildByConversationId(
 			ConversationChild conversationChild) {
 		if(conversationChild.getConversationId() == null || "".equals(conversationChild.getConversationId())){
-			throw new RuntimeException("id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("idä¸èƒ½ä¸ºç©º");
 		}
 		Map<String,Object> maps = new HashMap<String, Object>();
 		List<ConversationChild> ConversationChilds = conversationChildMapper.selectConversationChildByConversationId(conversationChild);
@@ -75,37 +79,37 @@ public class ConversationChildService implements IConversationChildService{
 	}
 
 	/**
-	 * ĞÂÔöÌû×ÓµÄ·½·¨
+	 * æ–°å¢å¸–å­çš„æ–¹æ³•
 	 */
 	public void addConversationChild(ConversationChild conversationChild) {
 		conversationChild.setCreateDate(new Date());
-		//ÅĞ¶Ï²ÎÊıºÏ·¨ĞÔ
+		//åˆ¤æ–­å‚æ•°åˆæ³•æ€§
 		if(conversationChild.getConversationId() == null || "".equals(conversationChild.getConversationId())){
-			throw new RuntimeException("id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("idä¸èƒ½ä¸ºç©º");
 		}
 		if(conversationChild.getUserId() == null || "".equals(conversationChild.getUserId())){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
 		if(conversationChild.getTitle() == null || "".equals(conversationChild.getTitle())){
-			throw new RuntimeException("±êÌâ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("æ ‡é¢˜ä¸èƒ½ä¸ºç©º");
 		}
 		if(conversationChild.getContent() == null || "".equals(conversationChild.getContent())){
-			throw new RuntimeException("ÄÚÈİ²»ÄÜÎª¿Õ");
+			throw new RuntimeException("å†…å®¹ä¸èƒ½ä¸ºç©º");
 		}
-		conversationChildMapper.insert(conversationChild);//²åÈëÌû×Ó
+		conversationChildMapper.insert(conversationChild);//æ’å…¥å¸–å­
 		ConversationChildChild ccc = new ConversationChildChild();
 		ccc.setConversationChildId(conversationChild.getId());
 		ccc.setUserId(conversationChild.getUserId());
 		ccc.setConversationChildId(conversationChild.getId());
 		ccc.setContent(conversationChild.getContent());
 		ccc.setCreateDate(new Date());
-		ccc.setIsManage(1);//Â¥Ö÷
+		ccc.setIsManage(1);//æ¥¼ä¸»
 		ccc.setIsLook(1);
-		conversationChildChildMapper.insert(ccc);//½«Ìû×ÓµÄÄÚÈİ²åÈëÂ¥²ãÖĞ
+		conversationChildChildMapper.insert(ccc);//å°†å¸–å­çš„å†…å®¹æ’å…¥æ¥¼å±‚ä¸­
 	}
 	
 	/**
-	 * ĞÂÔöÊÕ²Ø·½·¨
+	 * æ–°å¢æ”¶è—æ–¹æ³•
 	 */
 	public void addConversationChildCollection(
 			UserCollectionConversationChild userCollectionConversationChild) {
@@ -118,7 +122,7 @@ public class ConversationChildService implements IConversationChildService{
 			UserCollectionConversationChild userCollectionConversationChild) {
 		this.paramsJudge(userCollectionConversationChild);
 		int num = conversationChildMapper.deleteConversationChildCollection(userCollectionConversationChild);
-		if(num == 0){//ÅĞ¶ÏÉ¾³ıÌõÊı£¬Èç¹ûµÈÓÚ0Ã»ÓĞÕÒµ½¿ÉÒÔÉ¾³ıµÄÊı¾İ£¬Å×³öÒì³£
+		if(num == 0){//åˆ¤æ–­åˆ é™¤æ¡æ•°ï¼Œå¦‚æœç­‰äº0æ²¡æœ‰æ‰¾åˆ°å¯ä»¥åˆ é™¤çš„æ•°æ®ï¼ŒæŠ›å‡ºå¼‚å¸¸
 			throw new RuntimeException(MessageUtil.MSG_COLLECTION_ERROR);
 		}
 	}
@@ -129,27 +133,27 @@ public class ConversationChildService implements IConversationChildService{
 		this.paramsJudge(userCollectionConversationChild);
 		return conversationChildMapper.selectConversationChildCollection(userCollectionConversationChild);
 	}
-	//²ÎÊıºÏ·¨ĞÔÅĞ¶Ï,ÊÕ²ØµÄÔöÉ¾²é¹«ÓÃ
+	//å‚æ•°åˆæ³•æ€§åˆ¤æ–­,æ”¶è—çš„å¢åˆ æŸ¥å…¬ç”¨
 	private void paramsJudge(UserCollectionConversationChild userCollectionConversationChild){
-		//ÅĞ¶Ï²ÎÊıºÏ·¨ĞÔ
+		//åˆ¤æ–­å‚æ•°åˆæ³•æ€§
 		if(userCollectionConversationChild.getUserId() == null || "".equals(userCollectionConversationChild.getUserId())){
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		}
-		//ÅĞ¶Ï²ÎÊıºÏ·¨ĞÔ
+		//åˆ¤æ–­å‚æ•°åˆæ³•æ€§
 		if(userCollectionConversationChild.getConversationChildId() == null || "".equals(userCollectionConversationChild.getConversationChildId())){
-			throw new RuntimeException("Ìù×Óid²»ÄÜÎª¿Õ");
+			throw new RuntimeException("è´´å­idä¸èƒ½ä¸ºç©º");
 		}
 	}
 
 	/**
-	 * ²éÑ¯ÓÃ»§Ëù·¢²¼µÄÌù×Ó 
+	 * æŸ¥è¯¢ç”¨æˆ·æ‰€å‘å¸ƒçš„è´´å­ 
 	 * @return
 	 */
 	public Map<String,Object> selectUserPublishConversationChild(
 			ConversationChild conversationChild) {
-		//ÅĞ¶Ï²ÎÊıÊÇ·ñºÏ·¨
+		//åˆ¤æ–­å‚æ•°æ˜¯å¦åˆæ³•
 		if(conversationChild.getUserId() == null || "".equals(conversationChild.getUserId()))
-			throw new RuntimeException("ÓÃ»§id²»ÄÜÎª¿Õ");
+			throw new RuntimeException("ç”¨æˆ·idä¸èƒ½ä¸ºç©º");
 		List<ConversationChild> selectUserPublishConversationChild = conversationChildMapper.selectUserPublishConversationChild(conversationChild);
 		List<ConversationChild> list = PageUtil.createPage(conversationChild.getStart(),conversationChild.getLimit(), selectUserPublishConversationChild);
 		Map<String,Object> map = new HashMap<String, Object>();
@@ -159,21 +163,21 @@ public class ConversationChildService implements IConversationChildService{
 	}
 
 	/**
-	 * ²éÑ¯¶ÔÓ¦ÌìÊıÄÚ×îÎª»îÔ¾µÄÌù°ÉÅÅÃû
+	 * æŸ¥è¯¢å¯¹åº”å¤©æ•°å†…æœ€ä¸ºæ´»è·ƒçš„è´´å§æ’å
 	 */
 	public List<ConversationChild> selectMaxConversationChildByDay(Integer day) {
 		if(day == null)
-			throw new RuntimeException("ÌìÊı²»ÄÜÎª¿Õ");
-		//¸ù¾İÌìÊı»ñÈ¡Ê±¼äÇø¼ä
-		long millisecond = day*24*60*60*1000;//µÃµ½Ö¸¶¨ÌìµÄºÁÃëÊı
-		Date startTime = new Date(new Date().getTime()-millisecond);//»ñÈ¡Ö¸¶¨ÌìÊıÇ°µÄÊ±¼ä
-		Date endTime = new Date();//µ±Ç°Ê±¼ä
+			throw new RuntimeException("å¤©æ•°ä¸èƒ½ä¸ºç©º");
+		//æ ¹æ®å¤©æ•°è·å–æ—¶é—´åŒºé—´
+		long millisecond = day*24*60*60*1000;//å¾—åˆ°æŒ‡å®šå¤©çš„æ¯«ç§’æ•°
+		Date startTime = new Date(new Date().getTime()-millisecond);//è·å–æŒ‡å®šå¤©æ•°å‰çš„æ—¶é—´
+		Date endTime = new Date();//å½“å‰æ—¶é—´
 		List<ConversationChild> selectMaxConversationChildByDay = conversationChildMapper.selectMaxConversationChildByDay(startTime, endTime);
 		return selectMaxConversationChildByDay;
 	}
 
 	/**
-	 * Ìí¼ÓÂ¥²ãÊı¾İ£¬ÅÀ³æ×¨ÓÃ
+	 * æ·»åŠ æ¥¼å±‚æ•°æ®ï¼Œçˆ¬è™«ä¸“ç”¨
 	 */
 	public void addFloorDataSpider(ConversationChildChild conversationChildChild,Integer userId2) {
 	

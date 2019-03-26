@@ -1,32 +1,32 @@
 package com.mcgj.entity;
 /**
- * Ìù°É(»á»°)ÊµÌåÀà
- * @author ad
+ * è´´å§(ä¼šè¯)å®ä½“ç±»
+ * @author æ¨æ™¨
  *
  */
 public class Conversation extends BaseEntity{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer createUserId;//´´½¨Ìù°ÉµÄÓÃ»§id
+	private Integer createUserId;//åˆ›å»ºè´´å§çš„ç”¨æˆ·id
 	
-	private String conversationName;//Ìù°ÉµÄÃû³Æ
+	private String conversationName;//è´´å§çš„åç§°
 	
-	private Integer currentManageUserId;//µ±Ç°¹ÜÀí¸ÃÌù°ÉµÄÓÃ»§id
+	private Integer currentManageUserId;//å½“å‰ç®¡ç†è¯¥è´´å§çš„ç”¨æˆ·id
 	
-	private Integer conversationType;//Ìù°ÉµÄÀàĞÍ£¬ÓÃ¶ÔÓ¦µÄÊı×Ö½øĞĞ±íÊ¾(1.¶¯Âş2.µçÓ°3.Ã÷ĞÇ4.ÌåÓı5.¿Æ¼¼6.ÎÄ»¯7.ÓÎÏ·...(Î´Íê´ıĞø))
+	private Integer conversationType;//è´´å§çš„ç±»å‹ï¼Œç”¨å¯¹åº”çš„æ•°å­—è¿›è¡Œè¡¨ç¤º(1.åŠ¨æ¼«2.ç”µå½±3.æ˜æ˜Ÿ4.ä½“è‚²5.ç§‘æŠ€6.æ–‡åŒ–7.æ¸¸æˆ...(æœªå®Œå¾…ç»­))
 	
-	private String photo;//ÕÕÆ¬(Ìù°ÉÍ·Ïñ)
+	private String photo;//ç…§ç‰‡(è´´å§å¤´åƒ)
 	
-	private Integer followUserNumber;//ÓÃ»§¹Ø×¢Á¿
+	private Integer followUserNumber;//ç”¨æˆ·å…³æ³¨é‡
 	
-	private Integer publishNumber;//·¢²¼µÄÌù×ÓÊıÁ¿
+	private Integer publishNumber;//å‘å¸ƒçš„è´´å­æ•°é‡
 	
-	private String background;//±³¾°Í¼Æ¬
+	private String background;//èƒŒæ™¯å›¾ç‰‡
 	
-	private String cardBanner;//ºá·ùÍ¼Æ¬
+	private String cardBanner;//æ¨ªå¹…å›¾ç‰‡
 	
-	private String autograph;//Ç©Ãû
+	private String autograph;//ç­¾å
 	
 	public Integer getPublishNumber() {
 		return publishNumber;

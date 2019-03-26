@@ -18,10 +18,10 @@ import com.mcgj.utils.MessageUtil;
 import com.mcgj.utils.PropertiesUtil;
 
 /**
- * ÎÄ¼ş¿ØÖÆÆ÷
- * @author Ñî³¿
+ * æ–‡ä»¶æ§åˆ¶å™¨
+ * @author æ¨æ™¨
  * @date 2019-02-28
- * @descript Ìá¹©Ò»Ğ©ÎÄ¼şÏà¹ØµÄ·½·¨
+ * @descript æä¾›ä¸€äº›æ–‡ä»¶ç›¸å…³çš„æ–¹æ³•
  *
  */
 @Controller
@@ -34,8 +34,8 @@ public class FileController extends AbstractBaseController{
 	private FileRepertoryMapper fileRepertoryMapper;
 	
 	/**
-	 * ÉÏ´«ÆäËûÍøÕ¾µÄÎÄ¼ş
-	 * @param url µØÖ·
+	 * ä¸Šä¼ å…¶ä»–ç½‘ç«™çš„æ–‡ä»¶
+	 * @param url åœ°å€
 	 * @return
 	 */
 	@RequestMapping("/upLoadRemoteFile")
@@ -43,17 +43,17 @@ public class FileController extends AbstractBaseController{
 	public synchronized String  upLoadRemoteFile(@RequestParam("url") String url){
 		
 		Object mongoId = RedisHashUtil.get(PropertiesUtil.get("redisConifg.properties","fileRepertory" ), url);
-		//ÅĞ¶Ï»º´æÖĞÊÇ·ñÓĞ¸ÃÍ¼Æ¬,Ã»ÓĞ²åÈëÊı¾İ¿âºÍ»º´æ
+		//åˆ¤æ–­ç¼“å­˜ä¸­æ˜¯å¦æœ‰è¯¥å›¾ç‰‡,æ²¡æœ‰æ’å…¥æ•°æ®åº“å’Œç¼“å­˜
 		if(mongoId != null){
 			return mongoId.toString();
 		}
 		InputStream fileInputStream = null;
 		try {
-			//»ñÈ¡ÇëÇóµÄÎÄ¼şµÄÊı¾İÁ÷
+			//è·å–è¯·æ±‚çš„æ–‡ä»¶çš„æ•°æ®æµ
 			fileInputStream = HttpClientUtil.getFileInputStream(url);
 			String mondoid = mongoDBRemoteFileService.upload(fileInputStream);
 			FileRepertory record = new FileRepertory(HttpClientUtil.getHost(url),url,mondoid);
-			//½«Êı¾İ²åÈë
+			//å°†æ•°æ®æ’å…¥
 			fileRepertoryMapper.insert(record);
 			RedisHashUtil.put(PropertiesUtil.get("redisConifg.properties", "fileRepertory"), url, mondoid);
 			return mondoid;

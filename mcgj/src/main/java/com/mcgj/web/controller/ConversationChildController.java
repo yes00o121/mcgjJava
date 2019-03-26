@@ -19,7 +19,7 @@ import com.mcgj.utils.MessageUtil;
 import com.mcgj.web.dto.ResultDTO;
 
 /**
- * Ìù°É×ÓÌù¿ØÖÆÆ÷
+ * è´´å§å­è´´æ§åˆ¶å™¨
  * @author ad
  *
  */
@@ -33,7 +33,7 @@ public class ConversationChildController extends AbstractBaseController{
 	private IConversationChildService conversationChildService;
 	
 	/**
-	 * ¸ù¾İÌù×Óid²éÑ¯,¸ù¾İÌù×Óid²éÑ¯,»ñÈ¡µ±Ç°Ìû×ÓµÄµÚÒ»²ãÊı¾İ
+	 * æ ¹æ®è´´å­idæŸ¥è¯¢,æ ¹æ®è´´å­idæŸ¥è¯¢,è·å–å½“å‰å¸–å­çš„ç¬¬ä¸€å±‚æ•°æ®
 	 * @return
 	 */
 	@RequestMapping("/selectConversationChildById")
@@ -55,7 +55,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ¸ù¾İÌù°Éid²éÑ¯ÆäÏÂµÄËùÓĞÌû×ÓÊı¾İ
+	 * æ ¹æ®è´´å§idæŸ¥è¯¢å…¶ä¸‹çš„æ‰€æœ‰å¸–å­æ•°æ®
 	 * @return
 	 */
 	@RequestMapping("/selectConversationChildByConversationId")
@@ -77,7 +77,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ĞÂÔöÌû×ÓµÄ·½·¨
+	 * æ–°å¢å¸–å­çš„æ–¹æ³•
 	 * @return
 	 */
 	@RequestMapping("/addConversationChild")
@@ -86,7 +86,7 @@ public class ConversationChildController extends AbstractBaseController{
 		ResultDTO result = new ResultDTO();
 		try{
 			conversationChildService.addConversationChild(conversation);
-			result.setResult(conversation.getId());//·µ»ØÌù×Óid£¬ÅÀ³æÊ¹ÓÃ
+			result.setResult(conversation.getId());//è¿”å›è´´å­idï¼Œçˆ¬è™«ä½¿ç”¨
 //			result.setResult(con);
 			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
 			result.setSuccess(true);
@@ -102,7 +102,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ĞÂÔöÌù×ÓÊÕ²Ø·½·¨
+	 * æ–°å¢è´´å­æ”¶è—æ–¹æ³•
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild
@@ -127,7 +127,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * É¾³ıÌù×ÓÊÕ²Ø·½·¨
+	 * åˆ é™¤è´´å­æ”¶è—æ–¹æ³•
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild
@@ -152,7 +152,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ¸ù¾İÌù×ÓºÍÓÃ»§idÅĞ¶ÏÓÃ»§ÊÇ·ñÊÕ²ØÁË¸ÃÌû
+	 * æ ¹æ®è´´å­å’Œç”¨æˆ·idåˆ¤æ–­ç”¨æˆ·æ˜¯å¦æ”¶è—äº†è¯¥å¸–
 	 * @param request 
 	 * @param response
 	 * @param conversationChildChild
@@ -178,7 +178,7 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²éÑ¯ÓÃ»§Ëù·¢²¼µÄÌù×Ó 
+	 * æŸ¥è¯¢ç”¨æˆ·æ‰€å‘å¸ƒçš„è´´å­ 
 	 * @param conversationChild
 	 * @return
 	 */
@@ -203,8 +203,8 @@ public class ConversationChildController extends AbstractBaseController{
 	}
 	
 	/**
-	 * ²éÑ¯¶ÔÓ¦ÌìÊıÄÚ×îÎª»îÔ¾µÄÌù°ÉÅÅÃû
-	 * @param limit Òª²éÑ¯µÄÌù°ÉÊıÁ¿
+	 * æŸ¥è¯¢å¯¹åº”å¤©æ•°å†…æœ€ä¸ºæ´»è·ƒçš„è´´å§æ’å
+	 * @param limit è¦æŸ¥è¯¢çš„è´´å§æ•°é‡
 	 * @return
 	 */
 	@RequestMapping("/selectMaxConversationChildByDay")

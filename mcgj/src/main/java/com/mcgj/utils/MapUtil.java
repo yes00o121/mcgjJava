@@ -3,10 +3,10 @@ package com.mcgj.utils;
 import java.util.Map;
 
 /**
- * map工具
- * @author 杨晨
+ * map宸ュ叿
+ * @author 鏉ㄦ櫒
  * @date 2019-03-21
- * @address 海口
+ * @address  娴峰彛
  *
  */
 public class MapUtil {

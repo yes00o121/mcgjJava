@@ -3,89 +3,89 @@ package com.mcgj.utils;
 import java.io.Serializable;
 
 /**
- * ÏûÏ¢¹¤¾ßÀà
- * @author ad
+ * æ¶ˆæ¯å·¥å…·ç±»
+ * @author æ¨æ™¨
  *
  */
 public class MessageUtil implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	public static final String MSG_INSERT_SUCCESS = "Ôö¼Ó³É¹¦£¡";
+	public static final String MSG_INSERT_SUCCESS = "å¢åŠ æˆåŠŸï¼";
 	
-	public static final String MSG_EDIT_SUCCESS = "±à¼­³É¹¦£¡";
+	public static final String MSG_EDIT_SUCCESS = "ç¼–è¾‘æˆåŠŸï¼";
 	
-	public static final String MSG_DELETE_SUCCESS = "É¾³ı³É¹¦£¡";
+	public static final String MSG_DELETE_SUCCESS = "åˆ é™¤æˆåŠŸï¼";
 	
-	public static final String MSG_OPEN_SUCCESS = "ÆôÓÃ³É¹¦!";
+	public static final String MSG_OPEN_SUCCESS = "å¯ç”¨æˆåŠŸ!";
 	
-	public static final String MSG_DISABLE_SUCCESS = "½ûÓÃ³É¹¦!";
+	public static final String MSG_DISABLE_SUCCESS = "ç¦ç”¨æˆåŠŸ!";
 	
-	public static final String MSG_COPY_SUCCESS = "¸´ÖÆ³É¹¦£¡";
+	public static final String MSG_COPY_SUCCESS = "å¤åˆ¶æˆåŠŸï¼";
 	
-	public static final String MSG_UNKONW_ERROR = "²Ù×÷Òì³££¡";
+	public static final String MSG_UNKONW_ERROR = "æ“ä½œå¼‚å¸¸ï¼";
 	
-	public static final String MSG_SAVE_SUCCESS = "±£´æ³É¹¦£¡";
+	public static final String MSG_SAVE_SUCCESS = "ä¿å­˜æˆåŠŸï¼";
 	
-	public static final String MSG_INSERT_FAILED = "Ôö¼ÓÊ§°Ü£¡";
+	public static final String MSG_INSERT_FAILED = "å¢åŠ å¤±è´¥ï¼";
 	
-	public static final String MSG_DELETE_FAILED = "É¾³ıÊ§°Ü£¡";
+	public static final String MSG_DELETE_FAILED = "åˆ é™¤å¤±è´¥ï¼";
 	
-	public static final String MSG_EDIT_FATLED = "±à¼­Ê§°Ü£¡";
+	public static final String MSG_EDIT_FATLED = "ç¼–è¾‘å¤±è´¥ï¼";
 	
-	public static final String MSG_LOGIN_SUCCESS ="µÇÂ¼³É¹¦!";
+	public static final String MSG_LOGIN_SUCCESS ="ç™»å½•æˆåŠŸ!";
 	
-	public static final String MSG_UNKONW_SUCCESS ="²Ù×÷³É¹¦!";
+	public static final String MSG_UNKONW_SUCCESS ="æ“ä½œæˆåŠŸ!";
 	
-	public static final String MSG_REGISTER_SUCCESS ="×¢²á³É¹¦!";
+	public static final String MSG_REGISTER_SUCCESS ="æ³¨å†ŒæˆåŠŸ!";
 	
-	public static final String MSG_REGISTER_ERROR ="×¢²áÊ§°Ü!";
+	public static final String MSG_REGISTER_ERROR ="æ³¨å†Œå¤±è´¥!";
 	
-	public static final String MSG_RELEASE_SUCCESS ="·¢²¼³É¹¦!";
+	public static final String MSG_RELEASE_SUCCESS ="å‘å¸ƒæˆåŠŸ!";
 	
-	public static final String MSG_RELEASE_ERROR ="·¢²¼Ê§°Ü!";
+	public static final String MSG_RELEASE_ERROR ="å‘å¸ƒå¤±è´¥!";
 	
-	public static final String MSG_SEARCH_SUCCESS ="ËÑË÷³É¹¦!";
+	public static final String MSG_SEARCH_SUCCESS ="æœç´¢æˆåŠŸ!";
 	
-	public static final String MSG_SEARCH_ERROR ="ËÑË÷³É¹¦!";
+	public static final String MSG_SEARCH_ERROR ="æœç´¢æˆåŠŸ!";
 	
-	public static final String MSG_QUERY_SUCCESS ="²éÑ¯³É¹¦!";
+	public static final String MSG_QUERY_SUCCESS ="æŸ¥è¯¢æˆåŠŸ!";
 	
-	public static final String MSG_QUERY_ERROR ="²éÑ¯Ê§°Ü!";
+	public static final String MSG_QUERY_ERROR ="æŸ¥è¯¢å¤±è´¥!";
 	
 	public static final String MSG_REQUEST_ERROR ="requestError";
 	
-	public static final String MSG_OPERATION_CACHE_ERROR = "²Ù×÷»º´æ³ö´í!";
+	public static final String MSG_OPERATION_CACHE_ERROR = "æ“ä½œç¼“å­˜å‡ºé”™!";
 	
-	public static final String MSG_NOT_LOGIN = "ÇëÏÈµÇÂ¼!";
+	public static final String MSG_NOT_LOGIN = "è¯·å…ˆç™»å½•!";
 	
-	public static final String MSG_CONVERSATION_OVERTIME = "µÇÂ½³¬Ê±!";
+	public static final String MSG_CONVERSATION_OVERTIME = "ç™»é™†è¶…æ—¶!";
 	
-	public static final String MSG_REPLY_FLOOR = "ÊÕµ½ĞÂµÄ»Ø¸´!";
+	public static final String MSG_REPLY_FLOOR = "æ”¶åˆ°æ–°çš„å›å¤!";
 	
-	public static final String MSG_COLLECTION_ERROR = "ÊÕ²ØÊ§°Ü";
+	public static final String MSG_COLLECTION_ERROR = "æ”¶è—å¤±è´¥";
 	
-	public static final String MSG_COLLECTION_SUCCESS = "ÊÕ²Ø³É¹¦";
+	public static final String MSG_COLLECTION_SUCCESS = "æ”¶è—æˆåŠŸ";
 	
-	public static final String MSG_COLLECTION_CANCEL_ERROR = "È¡ÏûÊÕ²ØÊ§°Ü";
+	public static final String MSG_COLLECTION_CANCEL_ERROR = "å–æ¶ˆæ”¶è—å¤±è´¥";
 	
-	public static final String MSG_COLLECTION_CANCEL_SUCCESS = "È¡ÏûÊÕ²Ø³É¹¦";
+	public static final String MSG_COLLECTION_CANCEL_SUCCESS = "å–æ¶ˆæ”¶è—æˆåŠŸ";
 	
-	public static final String MSG_FOLLOW_SUCCESS  = "¹Ø×¢³É¹¦";
+	public static final String MSG_FOLLOW_SUCCESS  = "å…³æ³¨æˆåŠŸ";
 	
-	public static final String MSG_FOLLOW_ERROR = "¹Ø×¢Ê§°Ü";
+	public static final String MSG_FOLLOW_ERROR = "å…³æ³¨å¤±è´¥";
 	
-	public static final String MSG_SECURITY_DCODE_ERROR = "½âÃÜÊ§°Ü";
+	public static final String MSG_SECURITY_DCODE_ERROR = "è§£å¯†å¤±è´¥";
 	
-	public static final String MSG_SECURITY_ECODE_ERROR = "¼ÓÃÜÊ§°Ü";
+	public static final String MSG_SECURITY_ECODE_ERROR = "åŠ å¯†å¤±è´¥";
 	
-	public static final String MSG_CONVERSAION_NOT_EXISTENT = "Ìù°É²»´æÔÚ";
+	public static final String MSG_CONVERSAION_NOT_EXISTENT = "è´´å§ä¸å­˜åœ¨";
 	
-	public static final String MSG_GET_SYSTEMCONFIG_ERROR = "»ñÈ¡ÏµÍ³ÅäÖÃÒì³£";
+	public static final String MSG_GET_SYSTEMCONFIG_ERROR = "è·å–ç³»ç»Ÿé…ç½®å¼‚å¸¸";
 	
-	public static final String MSG_GET_FILEINPUTSTREAM_ERROR = "»ñÈ¡ÎÄ¼şÁ÷Ê§°Ü";
+	public static final String MSG_GET_FILEINPUTSTREAM_ERROR = "è·å–æ–‡ä»¶æµå¤±è´¥";
 	
-	public static final String MSG_UPLOAD_FILE_ERROR = "ÉÏ´«ÎÄ¼şÒì³£";
+	public static final String MSG_UPLOAD_FILE_ERROR = "ä¸Šä¼ æ–‡ä»¶å¼‚å¸¸";
 	
-	public static final String MSG_CLOSE_STREAM_ERROR = "¹Ø±ÕÎÄ¼şÁ÷Òì³£";
+	public static final String MSG_CLOSE_STREAM_ERROR = "å…³é—­æ–‡ä»¶æµå¼‚å¸¸";
 }
