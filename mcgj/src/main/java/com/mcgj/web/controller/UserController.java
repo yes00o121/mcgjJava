@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mcgj.entity.User;
+import com.mcgj.redis.RedisHashUtil;
 import com.mcgj.service.IUserService;
 import com.mcgj.utils.CommonUtil;
 import com.mcgj.utils.MessageUtil;
@@ -29,18 +31,6 @@ public class UserController extends AbstractBaseController {
 	@Autowired
 	private IUserService userService;
 	
-
-	// @RequestMapping(value="/tset/{id}",method = RequestMethod.GET)
-	@RequestMapping("/test")
-	@ResponseBody
-	public Object aa(HttpServletRequest request, HttpServletResponse response) {
-		// request.get
-		String str = response.getHeader("user-token");
-		System.out.println("接收用户的token" + str);
-		// System.out.println("测试方法。。。。。。。。。。"+id);
-		return null;
-	}
-
 	/**
 	 * 用户登录方法 由于跨域请求，每次获取的sessionId都不同，所以使用token进行用户判断
 	 * 
@@ -110,6 +100,21 @@ public class UserController extends AbstractBaseController {
 			result.setSuccess(false);
 			result.setMessage(e.getMessage());
 			return result;
+		}
+	}
+	
+	/**
+	 * 判断用户token是否有效
+	 * @return
+	 */
+	@RequestMapping(value="/selectUserIsEffective")
+	@ResponseBody
+	public ResultDTO selectUserIsEffective(@RequestParam("token") String token){
+		Object user = RedisHashUtil.get(token);
+		if(user != null){
+			return new ResultDTO(MessageUtil.MSG_QUERY_SUCCESS, true, null);
+		}else{
+			return new ResultDTO(MessageUtil.MSG_QUERY_ERROR, false, null);
 		}
 	}
 	
@@ -264,6 +269,8 @@ public class UserController extends AbstractBaseController {
 		}
 	}
 	
-
+	public static void main(String[] args) {
+		
+	}
 	
 }

@@ -15,7 +15,11 @@ public class UserUtil {
 	 * @return
 	 */
 	public static User getCurrentUser(String token){
-		return (User)RedisHashUtil.get(token);
+		Object user = RedisHashUtil.get(token);
+		if(user == null){
+			return null;
+		}
+		return (User)user;
 	}
 	
 }

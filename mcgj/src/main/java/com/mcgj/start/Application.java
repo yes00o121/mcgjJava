@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mcgj.utils.SpringUtil;
+import com.mcgj.web.websocket.WebSocketServer;
 
 /**
  * spring boot启动类
@@ -25,13 +26,5 @@ public class Application extends SpringBootServletInitializer{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-//		Application.init();
 	}
-	
-//	/**
-//	 * 初始化操作
-//	 */
-//	public static void init(){
-//		
-//	}
 }

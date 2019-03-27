@@ -10,15 +10,15 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * webSocket服务器
- * @author ad
+ * @author 杨晨
  *
  */
 //@ServerEndpoint("/websocket")
-@Configuration
+@Component
 @ServerEndpoint(value = "/websocket", encoders = { ServerEncoder.class })  
 public class WebSocketServer {
 	

@@ -13,4 +13,6 @@
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	<!-- 初始化bean,一些需要在项目启动执行的bean添加到这里 -->
 	<bean class="com.mcgj.init.FileRepertoryBean" init-method="init" destroy-method="close"></bean>
+	<!-- 初始化websocket  bean -->
+<!-- 	<bean class="com.mcgj.web.websocket.WebSocketServer"></bean> -->
 </beans>
