@@ -103,9 +103,9 @@
 		</tx:attributes>
 	</tx:advice>
 	<!-- 切面配置 -->
-	<aop:config>
-		<aop:pointcut id="engine-pointcut"
-			expression="execution(public * com.mcgj.service.*Service.*(..))" />
-		<aop:advisor pointcut-ref="engine-pointcut" advice-ref="txAdvice" />
-	</aop:config>
+<!-- 	<aop:config> -->
+<!-- 		<aop:pointcut id="engine-pointcut" -->
+<!-- 			expression="execution(public * com.mcgj.service.*Service.*(..))" /> -->
+<!-- 		<aop:advisor pointcut-ref="engine-pointcut" advice-ref="txAdvice" /> -->
+<!-- 	</aop:config> -->
 </beans>

@@ -13,26 +13,27 @@
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 	
 	<!-- 实例化对象 -->
-	<context:component-scan base-package="com.mcgj"></context:component-scan>
+<!-- 	<context:component-scan base-package="com.mcgj"></context:component-scan> -->
 	<!-- 注解扫描 -->
-	<mvc:annotation-driven> 
-    </mvc:annotation-driven>
+<!-- 	<mvc:annotation-driven>  -->
+<!--     </mvc:annotation-driven> -->
 	
 	<!-- 实例化对象，解决@ResponseBody乱码问题 -->
-	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">  
-        <property name="messageConverters">  
-            <list>  
-                <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
-                    <property name="supportedMediaTypes">  
-                        <list>  
-                            <value>text/html;charset=UTF-8</value>  
-                        </list>  
-                    </property>  
-                </bean>  
-            </list>  
-        </property>  
-    </bean>  
-	<import resource="classpath:spring/datasource-context.xml"/>
+<!-- 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">   -->
+<!--         <property name="messageConverters">   -->
+<!--             <list>   -->
+<!--                 <bean class="org.springframework.http.converter.StringHttpMessageConverter">   -->
+<!--                     <property name="supportedMediaTypes">   -->
+<!--                         <list>   -->
+<!--                             <value>text/html;charset=UTF-8</value>   -->
+<!--                         </list>   -->
+<!--                     </property>   -->
+<!--                 </bean>   -->
+<!--             </list>   -->
+<!--         </property>   -->
+<!--     </bean>   -->
+		<!-- 数据源使用springboot的配置 -->
+<!-- 	<import resource="classpath:spring/datasource-context.xml"/> -->
 	<import resource="classpath:spring/cache-context.xml"/>
 	<!-- 图片上传配置 -->
 	<bean id="multipartResolver"
@@ -41,9 +42,9 @@
 	</bean>
 	<bean class="com.mcgj.utils.SpringUtil"></bean>
 	<!-- 拦截器配置 -->
-	<mvc:interceptors>
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
-		<bean class="com.mcgj.interceptor.PermissionInterceptor"/>
-	</mvc:interceptors>
+<!-- 	<mvc:interceptors> -->
+<!-- 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" /> -->
+<!-- 		<bean class="com.mcgj.interceptor.PermissionInterceptor"/> -->
+<!-- 	</mvc:interceptors> -->
 	<import resource="classpath:spring/initBean.xml"/>
 </beans>

@@ -23,13 +23,13 @@
         </property>
     </bean>
     <bean id="redisUtil" class="com.mcgj.redis.JedisCacheBase" init-method="initialPool">
-    	<property name="addr"><value>${redis.address}</value></property>
+    	<property name="addr"><value>${redis.addr}</value></property>
         <property name="port"><value>${redis.port}</value></property>
-        <property name="auth"><value></value></property>
-        <property name="maxIdle"><value>200</value></property>
-        <property name="maxActive"><value>1024</value></property>
-        <property name="maxWait"><value>10000</value></property>
-        <property name="timeOut"><value>10000</value></property>
-        <property name="testOnBorrow"><value>true</value></property>
+        <property name="auth"><value>${redis.auth}</value></property>
+        <property name="maxIdle"><value>${redis.maxIdle}</value></property>
+        <property name="maxActive"><value>${redis.maxActive}</value></property>
+        <property name="maxWait"><value>${redis.maxWait}</value></property>
+        <property name="timeOut"><value>${redis.timeOut}</value></property>
+        <property name="testOnBorrow"><value>${redis.testOnBorrow}</value></property>
     </bean>
 </beans>

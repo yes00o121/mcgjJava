@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,6 +74,7 @@ public class ConversationChildChildService implements IConversationChildChildSer
 	/**
 	 * 新增楼层方法
 	 */
+	@Transactional
 	public void addConversationChildChild(ConversationChildChild conversationChildChild) {
 		//如果是楼主新增的楼层，楼主查看状态默认为1,不然将消息推送给楼主
 		if(conversationChildChild.getIsManage().equals(1)){

@@ -4,7 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Component;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -14,7 +20,7 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 /**
  * redis工具类
- * @author 杨晨
+ * @author 杨晨	
  *
  */
 public class JedisCacheBase implements Serializable,RedisConnectionFactory{
@@ -38,7 +44,6 @@ public class JedisCacheBase implements Serializable,RedisConnectionFactory{
     
     //等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException；
     private static int maxWait;
-    
     private static int timeOut;
     
     //在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；
@@ -51,6 +56,15 @@ public class JedisCacheBase implements Serializable,RedisConnectionFactory{
     public static ShardedJedis shardedJedis;//切片额客户端连接
     
     public static ShardedJedisPool shardedJedisPool;//切片连接池
+    
+    public JedisCacheBase(){
+//    	addr = "127.0.0.1";
+//    	port = 6379;
+//    	maxActive = 1024;
+//    	maxWait = 100;
+//    	timeOut=10000;
+//    	testOnBorrow=true;
+    }
     
     /**
      * 初始化非切片池

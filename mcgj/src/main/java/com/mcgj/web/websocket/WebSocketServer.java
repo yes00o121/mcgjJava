@@ -10,6 +10,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * webSocket服务器
@@ -17,6 +18,7 @@ import org.apache.log4j.Logger;
  *
  */
 //@ServerEndpoint("/websocket")
+@Configuration
 @ServerEndpoint(value = "/websocket", encoders = { ServerEncoder.class })  
 public class WebSocketServer {
 	
