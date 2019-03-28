@@ -84,9 +84,4 @@ public class CharUtil {
 	}
 	
 	
-	public static void main(String[] args) {
-//		String url = "http://127.0.0.1:8090/mcgj/conversation/addConversation?conversationType=1&createUserId=1&currentManageUserId=1&conversationName=%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97&background=&cardBanner=https://imgsa.baidu.com/forum/pic/item/800a19d8bc3eb135bdcf962dab1ea8d3fd1f441f.jpg&photo=5c06301d91263a1026f06313&autograph=%E7%9C%9F%E7%9B%B8%E6%B0%B8%E8%BF%9C%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA&createDate=1551078711.0701652";
-//		System.out.println(url);
-	}
-
 }

@@ -178,10 +178,6 @@ public class UserService implements IUserService{
 		
 		return conversationChildMapper.selectCollectionConversationChildByUserId(userId);
 	}
-//	public static void main(String[] args) {
-//		String auth = MD5Util.getMD5(("123456").getBytes());
-//		System.out.println(auth);
-//	}
 	/**
 	 * 爬虫****
 	 * 判断用户是否存在，不存在进行创建，然后返回用户信息
@@ -199,11 +195,6 @@ public class UserService implements IUserService{
 		record.setPassword("e10adc3949ba59abbe56e057f20f883e");//默认123456
 		record.setAdmin(false);
 		userMapper.insert(record);
-//		Integer id = userMapper.insertpachong(record);
-		// TODO Auto-generated method stub
 		return record.getId();
-	}
-	public static void main(String[] args) {
-		System.out.println(MD5Util.getMD5("yangchen123456".getBytes()));
 	}
 }	

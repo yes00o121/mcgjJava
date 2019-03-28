@@ -40,7 +40,6 @@ public class WebSocketServer {
      */
     @OnOpen
     public void onOpen(Session session) {
-//        System.out.println("有新连接.......................活跃用户人数:" + onlineCount);
         System.out.println(session.getQueryString());
         String token =session.getQueryString().split("=")[1];
     	this.session = session;

@@ -239,7 +239,4 @@ public class SpiderController extends AbstractBaseController{
 		//获取用户名称判断是否存在,存在直接返回,反之插入数据
 		return userService.selectIsExists(user.getAccount(), user.getPhoto());
 	}
-	public static void main(String[] args) {
-		System.out.println(new Date(1457965140000L));
-	}
 }

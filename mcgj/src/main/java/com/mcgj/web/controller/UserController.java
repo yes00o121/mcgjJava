@@ -139,112 +139,6 @@ public class UserController extends AbstractBaseController {
 		}
 	}
 
-	
-	/*
-	@RequestMapping("/download")
-	public void download(HttpServletRequest request,
-			HttpServletResponse response, Integer templateType) {
-		try {
-			if (templateType > 3 || templateType <= 0) {
-				System.out.println("模板下载失败");
-			}
-			InputStream is = null;
-			if (templateType == 1) {
-//				file = new File(templatePath);
-				is =UserController.class.getClassLoader().getResourceAsStream("template/全国环卫模板.xlsx");
-			}
-			if (templateType == 2) {
-				is = UserController.class.getClassLoader().getResourceAsStream("template/全国环卫模板.xlsx");
-			}
-			if (templateType == 3) {
-				is = UserController.class.getClassLoader().getResourceAsStream("template/全国环卫模板.xlsx");
-			}
-			response.setHeader("Content-Disposition", "attachment;fileName="+URLEncoder.encode("全国环卫模板.xlsx", "UTF-8"));//设置文件标题
-			OutputStream os = response.getOutputStream();
-			byte[] bts = new byte[100];
-			while((is.read(bts)) != -1){
-				os.write(bts);
-			}
-			os.flush();
-			os.close();
-			is.close();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	@RequestMapping("/upLoad")
-	public void upLoad(HttpServletRequest request,HttpServletResponse response,MultipartFile file){
-		try{
-			String templatePath = "E://userUpTemplate";
-			System.out.println(templatePath);
-			File mkdir = new File(templatePath);//获取文件夹
-			if(!mkdir.exists()){//文件夹不存在进行创建
-				mkdir.mkdir();
-			}
-			templatePath=templatePath+"\\用户上传模板"+new Date().getTime()+".xls";
-			System.out.println(templatePath);
-			File template  = new File(templatePath);//创建模板文件
-			template.createNewFile();//创建文件
-			InputStream is = file.getInputStream();//接收用户上传文件流
-			FileOutputStream fos  = new FileOutputStream(template);//转换为文件输入流
-			byte[] bts = new byte[100];
-			while((is.read(bts))!= -1){
-				fos.write(bts);
-			}
-			fos.flush();
-			is.close();
-			fos.close();
-		}catch(Exception e){
-			e.printStackTrace();
-			log.error(e.getMessage());
-		}
-	}
-	
-	
-	@RequestMapping("/readTemplate")
-	public void readTemplate(HttpServletRequest request,HttpServletResponse response,MultipartFile file){
-		try {
-			if(file == null){
-				return;
-			}
-			Workbook workbook = null;
-			System.out.println(file.getOriginalFilename());
-			String fileName = file.getOriginalFilename();
-			int index = fileName.lastIndexOf(".")+1;
-			String extendName = fileName.substring(index,fileName.length());
-			InputStream is = file.getInputStream();
-			if(extendName.equals("xlsx")){
-				workbook = new XSSFWorkbook(is);
-			}
-			if(extendName.equals("xls")){
-				workbook = new HSSFWorkbook(is);
-			}
-			if(workbook == null){
-				return;//不为指定后缀数据
-			}
-//			Workbook wk = new HSSFWorkbook(is);
-//			System.out.println(workbook.getNumberOfSheets());
-//			Sheet sh =workbook.getSheet("地图与轮播列表");
-//			System.out.println(sh);
-//			System.out.println(sh.getNumMergedRegions());
-			Map<String,ArrayList<String>> list = ExcelUtil.readData("D://全国环卫模板-有数据.xlsx", "环卫设施类型数量表");
-			System.out.println(list);
-//			List<ArrayList<String>> list = UserController.read(workbook, 0);
-//			System.out.println(list);
-//			System.out.println(sh.get);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public static void main(String[] args) {
-		Map<String,ArrayList<String>> list = ExcelUtil.readData("D://全国环卫模板-有数据.xlsx", 1);
-//		List<ArrayList<String>> list = ExcelUtil.readData("D://终端管理20180103.xls",0);
-		System.out.println(list);
-	}
-	*/
 	/**
 	 * 爬虫****
 	 * 判断用户是否存在，不存在进行创建，然后返回用户信息
@@ -253,24 +147,12 @@ public class UserController extends AbstractBaseController {
 	@RequestMapping("/selectIsExists")
 	@ResponseBody
 	public Integer selectIsExists(String userName,String photo){
-//		ResultDTO result = new ResultDTO();
 		try {
 			Integer selectIsExists = userService.selectIsExists(userName, photo);
-//			result.setResult(userService.selectCollectionConversationChildByUserId(userId));
-//			result.setMessage(MessageUtil.MSG_QUERY_SUCCESS);
-//			result.setSuccess(true);
-//			return result;
 			return selectIsExists;
 		} catch (Exception e) {
 			e.printStackTrace();
-//			result.setSuccess(false);
-//			result.setMessage(e.getMessage());
 			return 1;
 		}
 	}
-	
-	public static void main(String[] args) {
-		
-	}
-	
 }

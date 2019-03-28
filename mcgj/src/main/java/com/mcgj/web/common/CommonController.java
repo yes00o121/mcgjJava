@@ -120,7 +120,6 @@ public class CommonController extends AbstractBaseController{
 	@Async
 	@ResponseBody
 	public String upNetWorkImg(String url,HttpServletRequest request){
-//		System.out.println(request.getRequestURI());
 		HttpURLConnection conn = null;
 		String imgId = "";//图片主键
 		try {
@@ -129,7 +128,6 @@ public class CommonController extends AbstractBaseController{
 			if(conn.getResponseCode() == 200){
 				//获取正常,获取图片流
 				InputStream inputStream = conn.getInputStream();
-//				System.out.println("图片上传成功:"+imgId);
 				log.info("图片上传成功:"+imgId);
 				//上传图片
 				imgId = mongoDBRemoteFileService.upload(inputStream);
@@ -140,10 +138,6 @@ public class CommonController extends AbstractBaseController{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-//		String sendPost = HttpClientUtil.sendGet(url, "");
 		return imgId;
 	}
-//	public static void main(String[] args) {
-//		new CommonController().upNetWorkImg("https://gss3.bdstatic.com/84oSdTum2Q5BphGlnYG/timg?wapp&quality=80&size=b150_150&subsize=20480&cut_x=0&cut_w=0&cut_y=0&cut_h=0&sec=1369815402&srctrace&di=562e2995b7aa3f1a930cf0eb447edace&wh_rate=null&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F1b4c510fd9f9d72a25c62d9bd62a2834359bbb91.jpg");
-//	}
 }

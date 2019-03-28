@@ -17,11 +17,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 @Component
 @WebFilter(filterName="mcgjFilter",urlPatterns = "/*")
 public class MCGJFilter implements Filter {
+	
+	private Logger log = Logger.getLogger(MCGJFilter.class);
 
 	public void destroy() {
 
@@ -49,31 +52,12 @@ public class MCGJFilter implements Filter {
 				uri = uri + "&" + paramName + "=" + paramValue;
 			}
 			System.out.println(uri);
-			response.setHeader("Access-Control-Allow-Origin", "*");// 添加跨域访问权限
+			// 响应头设置,添加跨域访问权限
+			response.setHeader("Access-Control-Allow-Origin", "*");
 			response.setHeader("Access-Control-Allow-Credentials", "true");
-			// 响应头设置
-			// response.setHeader("Access-Control-Allow-Origin",
-			// "Access-Control-Allow-Credentials");
-			// response.setHeader("Access-Control-Allow-Headers", "Origin,
-			// X-Requested-With, Content-Type, Accept");
-			// response.setHeader("Access-Control-Allow-Methods", "GET, POST,
-			// PUT");
-			// response.setHeader("Access-Control-Allow-Headers","x-requested-with,content-type");
-			// //响应头 请按照自己需求添加。
-			// String token =
-			// request.getHeader("Access-Control-Request-Method");
-			// System.out.println("接收用户的token为:"+token);
-			// System.out.println("拦截用户请求。。。。。。。。。。"+request.getHeader("Access-Control-Request-Headers"));
-			// System.out.println(request.getHeader("Access-Control-Request-Headers"));
-			// Enumeration<String> str = request.getHeaderNames();
-			// while(str.hasMoreElements()){
-			// System.out.println("@#$$");
-			//// System.out.println(str.nextElement());
-			// }
-			// 用户访问权限判断，若无法获取用户session不予通过
 			domain.doFilter(request, response);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 		}
 	}
 
@@ -81,7 +65,7 @@ public class MCGJFilter implements Filter {
 
 	}
 
-	public final static Map<String, String> getRequestParamMap(HttpServletRequest request) {
+	private final Map<String, String> getRequestParamMap(HttpServletRequest request) {
 		Map<String, String> requestParamsMap = new HashMap<String, String>();
 		try {
 			Enumeration<String> e = request.getParameterNames();
@@ -93,7 +77,7 @@ public class MCGJFilter implements Filter {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 		}
 		return requestParamsMap;
 	}

@@ -70,11 +70,4 @@ public class FileController extends AbstractBaseController{
 			}
 		}
 	}
-//	@RequestMapping("/select")
-//	public void select(){
-//		
-//		Map<String,Object> map = new HashMap<>();
-//		RedisHashUtil.put("mcgj", "https://github.com/yes00o121/mcgjJava/blob/master/mcgj/src/main/java/com/mcgj/redis/RedisHashUtil.java", "46fdsfsd46fsdfsd465fsd");
-//		System.out.println(RedisHashUtil.get("mcgj", "https://github.com/es00o121/mcgjJava/blob/master/mcgj/src/main/java/com/mcgj/redis/RedisHashUtil.java"));
-//	}
 }

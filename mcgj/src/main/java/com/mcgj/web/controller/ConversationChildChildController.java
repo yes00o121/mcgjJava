@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mcgj.aop.Log;
+import com.mcgj.aop.OperationType;
 import com.mcgj.entity.ConversationChildChild;
 import com.mcgj.service.IConversationChildChildService;
 import com.mcgj.utils.MessageUtil;
@@ -60,6 +62,7 @@ public class ConversationChildChildController {
 	 * @param conversationChildChild
 	 * @return
 	 */
+	@Log(OperationType.ADD)
 	@RequestMapping("/addConversationChildChild")
 	@ResponseBody
 	public ResultDTO addConversationChildChild(HttpServletRequest request,HttpServletResponse response,ConversationChildChild conversationChildChild){
